@@ -1,0 +1,27 @@
+# VoxMatrix Docker Compose - Tailscale HTTP-only setup
+
+version: '3.8'
+
+services:
+  synapse:
+    image: matrixdotorg/synapse:latest
+    container_name: voxmatrix-synapse
+    restart: unless-stopped
+    ports:
+      - "100.92.210.91:8008:8008"
+    volumes:
+      - ./data/synapse:/data
+      - ./synapse.tailscale.yaml:/data/homeserver.yaml:ro
+    environment:
+      - SYNAPSE_SERVER_NAME=100.92.210.91
+      - SYNAPSE_REPORT_STATS=no
+      - UID=1000
+      - GID=1000
+
+  coturn:
+    image: coturn/coturn:latest
+    container_name: voxmatrix-coturn
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./coturn/turnserver.tailscale.conf:/etc/coturn/turnserver.conf:ro

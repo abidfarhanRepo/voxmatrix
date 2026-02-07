@@ -1,0 +1,110 @@
+Running Gradle task 'assembleDebug'...                          
+lib/data/datasources/livekit_datasource.dart:78:11: Error: No named parameter with the name 'noiseSuppression'.
+          noiseSuppression: true,
+          ^^^^^^^^^^^^^^^^
+/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/options.dart:325:9: Context: Found this candidate, but the arguments don't match.
+  const AudioPublishOptions({
+        ^^^^^^^^^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:136:43: Error: Member not found: 'LocalAudioTrack.createAudioTrack'.
+      final track = await LocalAudioTrack.createAudioTrack();
+                                          ^^^^^^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:137:37: Error: Method 'publishAudioTrack' cannot be called on 'LocalParticipant?' because it is potentially null.
+ - 'LocalParticipant' is from 'package:livekit_client/src/participant/local.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/local.dart').
+Try calling using ?. instead.
+      await _room!.localParticipant.publishAudioTrack(track);
+                                    ^^^^^^^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:154:49: Error: The getter 'audioTracks' isn't defined for the type 'LocalParticipant?'.
+ - 'LocalParticipant' is from 'package:livekit_client/src/participant/local.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/local.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'audioTracks'.
+      for (final pub in _room!.localParticipant.audioTracks) {
+                                                ^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:174:37: Error: Method 'publishVideoTrack' cannot be called on 'LocalParticipant?' because it is potentially null.
+ - 'LocalParticipant' is from 'package:livekit_client/src/participant/local.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/local.dart').
+Try calling using ?. instead.
+      await _room!.localParticipant.publishVideoTrack(track);
+                                    ^^^^^^^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:191:49: Error: The getter 'videoTracks' isn't defined for the type 'LocalParticipant?'.
+ - 'LocalParticipant' is from 'package:livekit_client/src/participant/local.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/local.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'videoTracks'.
+      for (final pub in _room!.localParticipant.videoTracks) {
+                                                ^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:210:49: Error: The getter 'videoTracks' isn't defined for the type 'LocalParticipant?'.
+ - 'LocalParticipant' is from 'package:livekit_client/src/participant/local.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/local.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'videoTracks'.
+      for (final pub in _room!.localParticipant.videoTracks) {
+                                                ^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:213:35: Error: Too few positional arguments: 1 required, 0 given.
+          await track.switchCamera();
+                                  ^
+lib/data/datasources/livekit_datasource.dart:228:49: Error: The getter 'audioTracks' isn't defined for the type 'LocalParticipant?'.
+ - 'LocalParticipant' is from 'package:livekit_client/src/participant/local.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/local.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'audioTracks'.
+      for (final pub in _room!.localParticipant.audioTracks) {
+                                                ^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:247:49: Error: The getter 'videoTracks' isn't defined for the type 'LocalParticipant?'.
+ - 'LocalParticipant' is from 'package:livekit_client/src/participant/local.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/local.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'videoTracks'.
+      for (final pub in _room!.localParticipant.videoTracks) {
+                                                ^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:263:44: Error: The getter 'audioTracks' isn't defined for the type 'LocalParticipant?'.
+ - 'LocalParticipant' is from 'package:livekit_client/src/participant/local.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/local.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'audioTracks'.
+    final tracks = _room?.localParticipant.audioTracks;
+                                           ^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:272:44: Error: The getter 'videoTracks' isn't defined for the type 'LocalParticipant?'.
+ - 'LocalParticipant' is from 'package:livekit_client/src/participant/local.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/local.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'videoTracks'.
+    final tracks = _room?.localParticipant.videoTracks;
+                                           ^^^^^^^^^^^
+lib/data/datasources/livekit_datasource.dart:292:45: Error: The getter 'videoTracks' isn't defined for the type 'RemoteParticipant'.
+ - 'RemoteParticipant' is from 'package:livekit_client/src/participant/remote.dart' ('/root/.pub-cache/hosted/pub.dev/livekit_client-2.6.2/lib/src/participant/remote.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'videoTracks'.
+      for (final publication in participant.videoTracks) {
+                                            ^^^^^^^^^^^
+lib/data/repositories/crypto_repository_impl.dart:240:22: Error: The getter 'content' isn't defined for the type 'CryptoRepositoryImpl'.
+ - 'CryptoRepositoryImpl' is from 'package:voxmatrix/data/repositories/crypto_repository_impl.dart' ('lib/data/repositories/crypto_repository_impl.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'content'.
+        return Right(content);
+                     ^^^^^^^
+lib/data/datasources/megolm_session_datasource.dart:241:36: Error: Too few positional arguments: 1 required, 0 given.
+      final pickle = session.pickle();
+                                   ^
+lib/data/datasources/megolm_session_datasource.dart:268:23: Error: Too few positional arguments: 2 required, 1 given.
+      session.unpickle(pickle);
+                      ^
+lib/data/datasources/megolm_session_datasource.dart:284:36: Error: Too few positional arguments: 1 required, 0 given.
+      final pickle = session.pickle();
+                                   ^
+lib/data/datasources/megolm_session_datasource.dart:313:23: Error: Too few positional arguments: 2 required, 1 given.
+      session.unpickle(pickle);
+                      ^
+lib/data/datasources/olm_account_datasource.dart:107:25: Error: Too few positional arguments: 2 required, 1 given.
+      _account!.unpickle(pickle);
+                        ^
+lib/data/datasources/olm_account_datasource.dart:123:38: Error: Too few positional arguments: 1 required, 0 given.
+      final pickle = _account!.pickle();
+                                     ^
+lib/data/datasources/olm_session_datasource.dart:208:36: Error: Too few positional arguments: 1 required, 0 given.
+      final pickle = session.pickle();
+                                   ^
+lib/data/datasources/olm_session_datasource.dart:236:23: Error: Too few positional arguments: 2 required, 1 given.
+      session.unpickle(pickle);
+                      ^
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command '/opt/flutter/bin/flutter'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5m 25s
+Running Gradle task 'assembleDebug'...                            325.7s
+Gradle task assembleDebug failed with exit code 1

@@ -1,0 +1,5 @@
+# APK files
+*.apk
+
+# Build directory
+/build/

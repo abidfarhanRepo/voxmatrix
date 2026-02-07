@@ -1,0 +1,91 @@
+# VoxMatrix Docker Build Configuration
+# This file defines Docker containers for building the VoxMatrix Flutter app
+
+version: '3.8'
+
+services:
+  # Android APK Builder (Debug)
+  android-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile.android
+    container_name: voxmatrix-android-builder
+    working_dir: /workspace/app
+    volumes:
+      # Mount the entire VoxMatrix project
+      - ..:/workspace:cached
+      # Persist Android SDK cache (speeds up subsequent builds)
+      - android-sdk-cache:/opt/android-sdk
+      # Persist Flutter pub cache
+      - flutter-pub-cache:/root/.pub-cache
+      # Persist Flutter build cache
+      - flutter-build-cache:/opt/flutter/.cache
+      # ADB connection for physical device installation (optional)
+      - /dev/bus/usb:/dev/bus/usb
+      # Share ADB keys between host and container
+      - ${HOME}/.android:/root/.android
+    environment:
+      - ANDROID_SDK_ROOT=/opt/android-sdk
+      - ANDROID_HOME=/opt/android-sdk
+      - FLUTTER_HOME=/opt/flutter
+    privileged: true
+    # Override command to build APK
+    command: >
+      bash -c "
+        echo '=== VoxMatrix Android Build ===' &&
+        echo 'Flutter version:' &&
+        flutter --version &&
+        echo '' &&
+        echo 'Installing dependencies...' &&
+        flutter pub get &&
+        echo '' &&
+        echo 'Building debug APK...' &&
+        flutter build apk --debug &&
+        echo '' &&
+        echo '=== Build Complete ===' &&
+        echo 'APK location: build/app/outputs/flutter-apk/app-debug.apk' &&
+        ls -lh build/app/outputs/flutter-apk/app-debug.apk
+      "
+
+  # Android Release Builder (signed APK)
+  android-builder-release:
+    build:
+      context: .
+      dockerfile: Dockerfile.android
+    container_name: voxmatrix-android-builder-release
+    working_dir: /workspace/app
+    volumes:
+      - ..:/workspace:cached
+      - android-sdk-cache:/opt/android-sdk
+      - flutter-pub-cache:/root/.pub-cache
+      - flutter-build-cache:/opt/flutter/.cache
+    environment:
+      - ANDROID_SDK_ROOT=/opt/android-sdk
+      - ANDROID_HOME=/opt/android-sdk
+    privileged: false
+    command: >
+      bash -c "
+        echo '=== VoxMatrix Android Release Build ===' &&
+        echo 'Flutter version:' &&
+        flutter --version &&
+        echo '' &&
+        echo 'Installing dependencies...' &&
+        flutter pub get &&
+        echo '' &&
+        echo 'Building release APK...' &&
+        flutter build apk --release &&
+        echo '' &&
+        echo '=== Build Complete ===' &&
+        echo 'APK location: build/app/outputs/flutter-apk/app-release.apk' &&
+        ls -lh build/app/outputs/flutter-apk/app-release.apk
+      "
+    profiles:
+      - release
+
+volumes:
+  android-sdk-cache:
+    driver: local
+  flutter-pub-cache:
+    driver: local
+  flutter-build-cache:
+    driver: local

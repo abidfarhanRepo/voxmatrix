@@ -1,0 +1,519 @@
+--------- beginning of system
+02-01 10:48:32.964  2639  3551 D VibrationThread: Playing vibration id 516 StartSequentialEffectStep
+02-01 10:48:32.964  2639  3551 D VibrationThread: StartSequentialEffectStep for effect #0
+02-01 10:48:32.964  2639  3551 D SemHapticStep: sepIndex=1, intensity=10000, repeat=false, duration=120
+02-01 10:48:32.964  2639  3551 D SemHapticStep: Turning on vibrator 0 for 120ms
+--------- beginning of main
+02-01 10:48:32.965  1740  1740 E SecVibrator-HAL-AIDL-EXT: V_5_0: performPrebakedHapticPattern 1 : 10000 : 0
+02-01 10:48:32.966  1740  1740 E SecVibrator-HAL-AIDL-CORE: HW_API: [setForceFeedbackAmplitude]amplitude: 10000
+02-01 10:48:32.968  2639  2998 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 573229121
+02-01 10:48:32.968  2639  2998 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 573229121
+02-01 10:48:32.969  1740  1740 E SecVibrator-HAL-AIDL-CORE: HW_API: [uploadForceFeedbackeffect]ioctl success ,uploaded effect with ID: 0
+02-01 10:48:32.969  1740  1740 E SecVibrator-HAL-AIDL-CORE: HW_API: do_on for timeoutMs: 1000
+02-01 10:48:32.969  1740  1740 E SecVibrator-HAL-AIDL-CORE: HW_API: [triggerForceFeedbackVibration]on: 1
+02-01 10:48:33.008  2639  3571 D InputReader: Btn_touch(5): value=0 when=7593.331858
+02-01 10:48:33.009  2639  3571 I InputReader: Touch event's action is 0x1 (id=6, t=0) [pCnt=1, s=] when=7593.331858
+02-01 10:48:33.009  2639  3570 I InputDispatcher: Delivering touch to (6707): action: 0x1, f=0x0, d=0, 'd7c1fdd', t=1 +(0,-84)
+02-01 10:48:33.009  6707  6707 I VRI[InputMethod]@f915a68: ViewPostIme pointer 1
+02-01 10:48:33.010  4589  4589 I HoneySpace.GestureInputHandler: reset
+02-01 10:48:33.010  4589  4589 I HoneySpace.InputSession: close
+02-01 10:48:33.016  4753 25272 I NearbyMediums: Found Fast Ble Advertisements :
+02-01 10:48:33.016  4753 25272 I NearbyMediums: BleAdvertisement { version=2, socketVersion=2, isFast=true, serviceIdHash=null, data=[ 0x23 0x4c 0x57 0x32 0x52 0x11 0x32 0x9c 0x18 0x39 0x8b 0xd2 0xe8 0x46 0xd6 0x78 0x11 0x04 0x0c 0x60 0x2e 0x8d 0x6f ], deviceToken=[ 0xb7 0x41 ], rxAdvertisement=null } : 7 times.
+02-01 10:48:33.016  4753 25272 I NearbyMediums: Total 7 fast advertisements from 1 unique advertisers.
+02-01 10:48:33.016  4753 25272 I NearbyMediums: Current Tracked Scanning Clients are : {NearbyConnections.EnvironmentMonitor, NearbySharing, NearbyConnections.TxAdvertisement}
+02-01 10:48:33.018  4753 25539 I NearbyConnections: Processing lost BlePeripheral BlePeripheral{advertisement=BleAdvertisement { version=2, socketVersion=2, isFast=true, serviceIdHash=null, data=[ 0x23 0x52 0x39 0x57 0x44 0x11 0x16 0x3d 0xc1 0x70 0x4d 0x38 0x86 0x13 0x76 0xac 0x7a 0x5d 0x7c 0x44 0xa3 0xb4 0x05 ], deviceToken=[ 0x01 0x6c ], rxAdvertisement=null }, dctAdvertisement=null, address=null, psm=0, deviceToken=<ByteString@f0351cd size=2 contents="\001l">, isSecondProfile=false, rxInstantConnectionAdv=null}.
+02-01 10:48:33.018  4753 25539 I NearbyConnections: Lost BleEndpoint for BlePeripheral BlePeripheral{advertisement=BleAdvertisement { version=2, socketVersion=2, isFast=true, serviceIdHash=null, data=[ 0x23 0x52 0x39 0x57 0x44 0x11 0x16 0x3d 0xc1 0x70 0x4d 0x38 0x86 0x13 0x76 0xac 0x7a 0x5d 0x7c 0x44 0xa3 0xb4 0x05 ], deviceToken=[ 0x01 0x6c ], rxAdvertisement=null }, dctAdvertisement=null, address=null, psm=0, deviceToken=<ByteString@f0351cd size=2 contents="\001l">, isSecondProfile=false, rxInstantConnectionAdv=null} (with EndpointId R9WD and EndpointInfo [ 0x16 0x3d 0xc1 0x70 0x4d 0x38 0x86 0x13 0x76 0xac 0x7a 0x5d 0x7c 0x44 0xa3 0xb4 0x05 ]).
+02-01 10:48:33.018  4753 25539 I NearbyConnections: ClientProxy(102935568) reporting onEndpointLost(R9WD)
+02-01 10:48:33.019  4753 25540 I NearbySharing: NearbySharing Internal event EndpointLost(endpointId=R9WD)
+02-01 10:48:33.034  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:33.065  2639  8860 I AfterimageCompensationService: AfcThread mLuminance : 239 , AfpcPeriodCount : 90 , rotation : 0 , AOD : false
+02-01 10:48:33.065  2639  8860 I SurfaceComposerClient: captureDisplay:Display-4630946315032985731
+02-01 10:48:33.068  1795  2237 I SurfaceFlinger: Capture layer list: 	 Background for 70b609 SurfaceView[com.example.voxmatrix/com.example.voxmatrix.MainActivity]@0#4114(seamlessTransition:0)
+02-01 10:48:33.068  1795  2237 I SurfaceFlinger: Capture layer list: 	 70b609 SurfaceView[com.example.voxmatrix/com.example.voxmatrix.MainActivity]@0(BLAST)#4113(seamlessTransition:0)
+02-01 10:48:33.069  1795  2237 I SurfaceFlinger: Capture layer list: 	 com.example.voxmatrix/com.example.voxmatrix.MainActivity$_25313#4108(seamlessTransition:0)
+02-01 10:48:33.069  1795  2237 I SurfaceFlinger: Capture layer list: 	 InputMethod$_6707#4146(seamlessTransition:0)
+02-01 10:48:33.069  1795  2237 I SurfaceFlinger: Capture layer list: 	 StatusBar$_3969#104(seamlessTransition:0)
+02-01 10:48:33.069  1795  2237 I SurfaceFlinger: Capture layer list: 	 NavigationBar0$_3969#100(seamlessTransition:0)
+02-01 10:48:33.069  1795  2237 I CompositionEngine: [setDisplaySize] size=(1080, 2340)
+02-01 10:48:33.069  1795  2237 E HwcComposer: getLuts failed Status(-129, EX_TRANSACTION_FAILED): 'UNKNOWN_TRANSACTION: '
+02-01 10:48:33.070  1795  1935 D RenderEngine: [SEC_SF_EFFECTS] drawLayersInternal,1483, Rendering layer ScreenCaptureFillLayer at index 0
+02-01 10:48:33.070  1795  1935 D RenderEngine: [SEC_SF_EFFECTS] drawLayersInternal,1483, Rendering layer 70b609 SurfaceView[com.example.voxmatrix/com.example.voxmatrix.MainActivity]@0(BLAST)#4113 at index 1
+02-01 10:48:33.070  1795  1935 D RenderEngine: [SEC_SF_EFFECTS] drawLayersInternal,1483, Rendering layer com.example.voxmatrix/com.example.voxmatrix.MainActivity$_25313#4108 at index 2
+02-01 10:48:33.071  1795  1935 D RenderEngine: [SEC_SF_EFFECTS] drawLayersInternal,1483, Rendering layer InputMethod$_6707#4146 at index 3
+02-01 10:48:33.071  1795  1935 D RenderEngine: [SEC_SF_EFFECTS] drawLayersInternal,1483, Rendering layer StatusBar$_3969#104 at index 4
+02-01 10:48:33.071  1795  1935 D RenderEngine: [SEC_SF_EFFECTS] drawLayersInternal,1483, Rendering layer NavigationBar0$_3969#100 at index 5
+02-01 10:48:33.075  2639  8860 D system_server: mAFPC_Read - w = 1080, h = 2340, s = 8, f = 4, s_size = 10183680, luminance = 239, count = 90, captureOrientation = 0
+02-01 10:48:33.085  2639  3551 D VibrationThread: Playing vibration id 516 on vibrator 0 CompleteEffectVibratorStep
+02-01 10:48:33.085  2639  3551 D VibrationThread: Running complete vibration step on vibrator 0
+02-01 10:48:33.085  2639  3551 D VibrationThread: Playing vibration id 516 on vibrator 0 TurnOffVibratorStep
+02-01 10:48:33.085  2639  3551 D VibrationThread: Turning off vibrator 0
+02-01 10:48:33.086  1740  1740 E SecVibrator-HAL-AIDL-CORE: V_2_0: Vibrator off
+02-01 10:48:33.086  1740  1740 E SecVibrator-HAL-AIDL-CORE: HW_API: do_off
+02-01 10:48:33.086  1740  1740 E SecVibrator-HAL-AIDL-CORE: HW_API: [triggerForceFeedbackVibration]on: 0
+02-01 10:48:33.086  2639  3551 D VibrationThread: Vibration 516 finished with EndInfo{status=FINISHED, endedBy=null}
+02-01 10:48:33.087  2639  3551 D VibrationThread: Playing vibration id 516 FinishSequentialEffectStep (cleanup)
+02-01 10:48:33.087  2639  3551 D VibrationThread: FinishSequentialEffectStep for effect #0
+02-01 10:48:33.088  2639  3551 D VibratorManagerService: VibrationThread released vibration 516
+02-01 10:48:33.088  2639  3551 D VibratorManagerService: Finish AppOp mode VIBRATE for uid 10178 and package org.futo.inputmethod.latin
+02-01 10:48:33.089  2639  3551 D VibratorManagerService: Vibration for uid=10178 and with attrs=VibrationAttributes{mUsage=IME, mAudioUsage= USAGE_UNKNOWN, mFlags=0, tags=} ended with status FINISHED
+02-01 10:48:33.134  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:33.180  3969  3969 D NavigationBar: onRotationProposal proposedRotation=-1, isValid=false, mNavBarWindowState=WINDOW_STATE_SHOWING, rotateSuggestionsDisabled=false, isRotateButtonVisible=false
+02-01 10:48:33.181  3969  3969 D RotationButtonController: onRotationProposal unknown rotation
+02-01 10:48:33.184  2639  3571 D InputReader: Btn_touch(5): value=1 when=7593.507095
+02-01 10:48:33.184  2639  3571 I InputReader: Touch event's action is 0x0 (id=6, t=0) [pCnt=1, s=0.2025 ] when=7593.507095
+02-01 10:48:33.185  2639  3570 I InputDispatcher: Delivering touch to (3969): action: 0x4, f=0x0, d=0, '606f506', t=1 
+02-01 10:48:33.186  2639  3570 I InputDispatcher: Delivering touch to (25313): action: 0x0, f=0x0, d=0, 'fe32360', t=1 
+02-01 10:48:33.186 25313 25313 I VRI[MainActivity]@2799f58: ViewPostIme pointer 0
+02-01 10:48:33.186  2639  2998 I GestureDetector: obtain mCurrentDownEvent. id: 577972229 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:392 
+02-01 10:48:33.187  4589  4589 I HoneySpace.GestureInputHandler: inputConsumers = [com.honeyspace.gesture.inputconsumer.InputConsumer$Companion$NO_OP$1@e9f927c]
+02-01 10:48:33.187  4589  4589 I HoneySpace.InputSession: inputConsumers = NO_OP
+02-01 10:48:33.187  4589  4589 I HoneySpace.InputSession: open
+02-01 10:48:33.187  2639  2998 I GestureDetector: obtain mCurrentDownEvent. id: 577972229 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:392 
+02-01 10:48:33.188  6802  6802 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/6802@30, type = -999
+02-01 10:48:33.189  6802  6802 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/6802@31, type = -999
+02-01 10:48:33.189  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23341558  [6802 / 30]    HINT :      list : [TABoost / 1] [TIMEOUT / 1500] 
+02-01 10:48:33.189  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23348392  [6802 / 31]    HINT : TA_TOUCH_SHARE    list : [TIMEOUT / 1500] 
+02-01 10:48:33.193  2639  2998 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 716081207
+02-01 10:48:33.193  2639  2998 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 716081207
+02-01 10:48:33.203  1674 24996 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 533(533),c:156,b:150,m:13,cl:74,l:572,s:507,l0:93536,l1:352,s0:73000,s1:0,acl:1,opr:0.61,f(r):94,u(bl):100,if:0,wi:0,si:0,po:0(N:0)
+02-01 10:48:33.268  2639  2639 I SemDvfsHyPerManager: acquire hyper - WM_SCROLL_DETECTED/2639@2, type = -999
+02-01 10:48:33.268  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 3488763  [2639 / 2]    HINT :      list : [CoreNumBigMin / 3] 
+02-01 10:48:33.284  1784  1824 E HeatmapThread: ECT Thread time in milliseconds: 1769932113
+02-01 10:48:33.290  1784  1824 D HeatmapThread: !@ batteryplugType : 2
+02-01 10:48:33.290  1784  1824 D HeatmapThread: !@ batteryLevel : 66  batteryTemperature : 321 
+02-01 10:48:33.290  1784  1824 D HeatmapThread: !@ Heatmap currtime: 29498868
+02-01 10:48:33.290  1784  1824 D HeatmapThread: !@ Heatmap prevtime: 29498854
+02-01 10:48:33.290  1784  1824 D HeatmapThread: !@ Heatmap plugstarttime: 29498866
+02-01 10:48:33.291  1784  1824 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29498734
+02-01 10:48:33.291  1784  1824 E HeatmapThread: !@ CAM New BSOH: 100
+02-01 10:48:33.293  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:33.293  6802  6802 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/6802@30, type = -999
+02-01 10:48:33.293  6802  6802 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/6802@31, type = -999
+02-01 10:48:33.294  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23341558  [6802 / 30]    HINT :      list : [TABoost / 1] [TIMEOUT / 1500] 
+02-01 10:48:33.294  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23348392  [6802 / 31]    HINT : TA_TOUCH_SHARE    list : [TIMEOUT / 1500] 
+02-01 10:48:33.322  6802  7045 I M0      : limitCPUFreq:: freq = 2745600
+02-01 10:48:33.322  6802  7045 I SemDvfsHyPerManager: acquire hyper - SIOP_ARM_MAX/6802@3, type = 301993986
+02-01 10:48:33.323  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23157418  [6802 / 3]    HINT :      list : [CPUMaxFreq / 2745600] 
+02-01 10:48:33.363  1674 24996 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 606(606),c:154,b:150,m:13,cl:73,l:602,s:604,l0:97664,l1:352,s0:87000,s1:0,acl:1,opr:0.60,f(r):94,u(bl):100,if:0,wi:0,si:0,po:0(N:0)
+02-01 10:48:33.393  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:33.401  6802  6802 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/6802@30, type = -999
+02-01 10:48:33.402  6802  6802 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/6802@31, type = -999
+02-01 10:48:33.402  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23341558  [6802 / 30]    HINT :      list : [TABoost / 1] [TIMEOUT / 1500] 
+02-01 10:48:33.402  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23348392  [6802 / 31]    HINT : TA_TOUCH_SHARE    list : [TIMEOUT / 1500] 
+02-01 10:48:33.425  2639  3571 D InputReader: Btn_touch(5): value=0 when=7593.748318
+02-01 10:48:33.425  2639  3571 I InputReader: Touch event's action is 0x1 (id=6, t=0) [pCnt=1, s=] when=7593.748318
+02-01 10:48:33.426  2639  3570 I InputDispatcher: Delivering touch to (25313): action: 0x1, f=0x0, d=0, 'fe32360', t=1 
+02-01 10:48:33.426 25313 25313 I VRI[MainActivity]@2799f58: ViewPostIme pointer 1
+02-01 10:48:33.427  4589  4589 I HoneySpace.GestureInputHandler: reset
+02-01 10:48:33.427  4589  4589 I HoneySpace.InputSession: close
+02-01 10:48:33.428  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 3488763
+02-01 10:48:33.494  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:33.512  3969  3969 D NavigationBar: onRotationProposal proposedRotation=-1, isValid=false, mNavBarWindowState=WINDOW_STATE_SHOWING, rotateSuggestionsDisabled=false, isRotateButtonVisible=false
+02-01 10:48:33.512  3969  3969 D RotationButtonController: onRotationProposal unknown rotation
+02-01 10:48:33.594  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:33.637  2639  6374 D SemWifiUsabilityStatsMonitor: onWifiUsabilityStats - seqNum 1048, isSameBssidAndFreq true
+02-01 10:48:33.640  2639  3816 E SemWifiLinkQualityMonitor: Too old or invalid TMI: currentTime=1769932113640 lastDateWindow=1769926059000
+02-01 10:48:33.641  2639  3817 D SemInsManager: {"bssid": "98d02d565500","rssi": -57.0,"latency": 0.0,"outage_count": 3,"lq_callback_triggered": true,"outage_log": "Unreliable statistics: -57.0 / 4 / 361 / 8 / 1 || 98d02d565500: 0.000 / 0.000 / @ || N N / 3 0 / N 2.0 / Y X 0 / 7593963 0 || 2026-02-01 09:07:39  / 0: 0 0 0 0 0 0 / 0: 0 0 0 0 0 0 / 0: 0 0 0 0 0 0""Magnetic Sensor Events size": "0""Pressure Sensor Events size": "0"}
+02-01 10:48:33.650  2639  3571 D InputReader: Btn_touch(5): value=1 when=7593.973303
+02-01 10:48:33.650  2639  3571 I InputReader: Touch event's action is 0x0 (id=6, t=0) [pCnt=1, s=0.2026 ] when=7593.973303
+02-01 10:48:33.651  2639  3570 I InputDispatcher: Delivering touch to (3969): action: 0x4, f=0x0, d=0, '606f506', t=1 
+02-01 10:48:33.651  2639  3570 I InputDispatcher: Delivering touch to (25313): action: 0x0, f=0x0, d=0, 'fe32360', t=1 
+02-01 10:48:33.652 25313 25313 I VRI[MainActivity]@2799f58: ViewPostIme pointer 0
+02-01 10:48:33.653  4589  4589 I HoneySpace.GestureInputHandler: inputConsumers = [com.honeyspace.gesture.inputconsumer.InputConsumer$Companion$NO_OP$1@e9f927c]
+02-01 10:48:33.653  4589  4589 I HoneySpace.InputSession: inputConsumers = NO_OP
+02-01 10:48:33.653  4589  4589 I HoneySpace.InputSession: open
+02-01 10:48:33.654  6802  6802 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/6802@30, type = -999
+02-01 10:48:33.654  2639  2998 I GestureDetector: obtain mCurrentDownEvent. id: 878188155 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:392 
+02-01 10:48:33.654  2639  2998 I GestureDetector: obtain mCurrentDownEvent. id: 878188155 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:392 
+02-01 10:48:33.655  6802  6802 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/6802@31, type = -999
+02-01 10:48:33.655  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23341558  [6802 / 30]    HINT :      list : [TABoost / 1] [TIMEOUT / 1500] 
+02-01 10:48:33.655  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23348392  [6802 / 31]    HINT : TA_TOUCH_SHARE    list : [TIMEOUT / 1500] 
+02-01 10:48:33.659  2639  2998 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 122863699
+02-01 10:48:33.659  2639  2998 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 122863699
+02-01 10:48:33.699  2639  3571 D InputReader: Btn_touch(5): value=0 when=7594.022852
+02-01 10:48:33.699  2639  3571 I InputReader: Touch event's action is 0x1 (id=6, t=0) [pCnt=1, s=] when=7594.022852
+02-01 10:48:33.700  2639  3570 I InputDispatcher: Delivering touch to (25313): action: 0x1, f=0x0, d=0, 'fe32360', t=1 
+02-01 10:48:33.700 25313 25313 I VRI[MainActivity]@2799f58: ViewPostIme pointer 1
+02-01 10:48:33.701  4589  4589 I HoneySpace.GestureInputHandler: reset
+02-01 10:48:33.701  4589  4589 I HoneySpace.InputSession: close
+02-01 10:48:33.730 25313 25313 D InputMethodManagerUtils: startInputInner - Id : 0
+02-01 10:48:33.730 25313 25313 I InputMethodManager: startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+02-01 10:48:33.730  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:33.731  2639  3595 V InputMethodManagerService: startInputOrWindowGainedFocusInternalLocked: reason=APP_CALLED_RESTART_INPUT_API client=android.os.BinderProxy@5442fcf inputContext=com.android.internal.inputmethod.IRemoteInputConnection$Stub$Proxy@b438b00 editorInfo=android.view.inputmethod.EditorInfo@21c5f39 startInputFlags=VIEW_HAS_FOCUS softInputMode=STATE_UNSPECIFIED|ADJUST_RESIZE windowFlags=#81810100 unverifiedTargetSdkVersion=36 bindingController=com.android.server.inputmethod.InputMethodBindingController@bca5c3f imeDispatcher=android.window.ImeOnBackInvokedDispatcher@a2e197e cs=ClientState{fa3d1c0 mUid=10350 mPid=25313 mSelfReportedDisplayId=0} imeRequestedVisible=true
+02-01 10:48:33.731 25313 25313 I InputMethodManager_LC: showSoftInput(View,I)
+02-01 10:48:33.731  2639  3595 V InputMethodManagerService: setWindowStateInner, windowToken=android.os.BinderProxy@2edbb63, state=ImeTargetWindowState{ imeToken null imeFocusChanged false hasEditorFocused false requestedImeVisible false imeDisplayId 0 softInputModeState STATE_UNSPECIFIED|ADJUST_RESIZE isStartInputByGainFocus false}
+02-01 10:48:33.731  2639  3595 D SemInputMethodManagerServiceUtil: restorePreviousUsedInputMethod : failed to return the previous ime becuase the stored info is null or do not need restore
+02-01 10:48:33.731  2639  3595 V InputMethodManagerService: semComputeImeDisplayIdForTarget: displayToShowIme=0
+02-01 10:48:33.731  2639  3595 V InputMethodManagerService: Creating new accessibility sessions for client ClientState{fa3d1c0 mUid=10350 mPid=25313 mSelfReportedDisplayId=0}
+02-01 10:48:33.731  2639  3595 D InputMethodManagerService: isImeSwitcherDisabledPackage : false
+02-01 10:48:33.731 25313 25313 I ImeTracker: com.example.voxmatrix:58b49cd0: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+02-01 10:48:33.731 25313 25313 I InputMethodManager_LC: ssi(): flags=0 view=com.example.voxmatrix reason=SHOW_SOFT_INPUT
+02-01 10:48:33.731 25313 25313 I InputMethodManager_LC: ssi() view is not EditText
+02-01 10:48:33.731  2639  3595 D InputMethodManagerService: shouldShowImeSwitcherLocked : checking vis : 3
+02-01 10:48:33.731 25313 25313 D InsetsController: show(ime(), fromIme=false)
+02-01 10:48:33.731 25313 25313 I ImeTracker: com.example.voxmatrix:58b49cd0: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+02-01 10:48:33.732  2639  3595 D InputMethodManagerService: checkDisplayOfStartInputAndUpdateKeyboard: displayId=0, mFocusedDisplayId=0
+02-01 10:48:33.732  2639  3595 D InputTransport: Input channel constructed: 'ClientS', fd=1101
+02-01 10:48:33.732  2639  3595 D InputTransport: Input channel destroyed: 'ClientS', fd=1101
+02-01 10:48:33.732  6707  6707 D InputMethodService: updateClientDisplayId: displayId=0, mClientDisplayId=0
+02-01 10:48:33.732  2639  3652 I AppsFilter: interaction: PackageSetting{132e05f com.example.voxmatrix/10350} -> PackageSetting{134cf03 org.futo.inputmethod.latin/10178} BLOCKED
+02-01 10:48:33.732  2639  3652 W FillRequestEventLogger: Couldn't find packageName: org.futo.inputmethod.latin
+02-01 10:48:33.732 25313 25370 D InputTransport: Input channel constructed: 'ClientS', fd=191
+02-01 10:48:33.733  2639  3652 D PresentationStatsEventLogger: Started new PresentationStatsEvent
+02-01 10:48:33.733 25313 25313 I AssistStructure: Flattened final assist data: 452 bytes, containing 1 windows, 3 views
+02-01 10:48:33.734  2639  3652 D AutofillSession: createPendingIntent for request 320
+02-01 10:48:33.735 25313 25313 D InputConnectionAdaptor: The input method toggled cursor monitoring on
+02-01 10:48:33.738  6707  6707 I LatinIMELegacy: Starting input. Cursor position = 0,0
+02-01 10:48:33.738  6707  6707 D KeyboardLayoutSet: null, null, {}, null
+02-01 10:48:33.739  6707  6707 D InputMethodService: registerCompatOnBackInvokedCallback return because registered : true
+02-01 10:48:33.741  2639  7182 I AssistStructure: Flattened final assist data: 372 bytes, containing 1 windows, 3 views
+02-01 10:48:33.746  2639  7182 D WindowManager: setInsetsWindow Window{d7c1fdd u0 InputMethod}, contentInsets=Rect(0, 1363 - 0, 0) -> Rect(0, 1235 - 0, 0), visibleInsets=Rect(0, 1363 - 0, 0) -> Rect(0, 1235 - 0, 0), touchableRegion=SkRegion() -> SkRegion(), touchableInsets 1 -> 1
+02-01 10:48:33.746  2639  7182 D SurfaceComposerClient: setCornerRadius ## fe32360 com.example.voxmatrix/com.example.voxmatrix.MainActivity#4107 cornerRadius=0.000000
+02-01 10:48:33.747  2639  7182 D SurfaceComposerClient: setCornerRadius ## fe32360 com.example.voxmatrix/com.example.voxmatrix.MainActivity#4107 cornerRadius=0.000000
+02-01 10:48:33.747  6707  6707 I VRI[InputMethod]@f915a68: handleResized, frames=ClientWindowFrames{frame=[0,84][1080,2340] display=[0,84][1080,2340] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+02-01 10:48:33.748  3969  4051 D WindowManagerShell: onKeepClearAreasChanged: restricted={}, unrestricted={Rect(0, 1319 - 1080, 2340)}
+02-01 10:48:33.748  3969  3969 I VRI[StatusBar]@9642623: handleResized, frames=ClientWindowFrames{frame=[0,0][1080,84] display=[0,0][1080,2340] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+02-01 10:48:33.748  3969  3969 I VRI[NavigationBar0]@47c8c00: handleResized, frames=ClientWindowFrames{frame=[0,2205][1080,2340] display=[0,0][1080,2340] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+02-01 10:48:33.751 25313 25313 I InsetsController: onStateChanged: host=com.example.voxmatrix/com.example.voxmatrix.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2340), mDisplayCutout=DisplayCutout{insets=Rect(0, 84 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(515, 0 - 566, 84), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2340 physicalDisplayWidth=1080 physicalDisplayHeight=2340 density={2.8125} cutoutSpec={M 0,0 H -9.066666666666667 V 29.86666666666667 H 9.066666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=6, center=Point(6, 6)}, RoundedCorner{position=TopRight, radius=6, center=Point(1074, 6)}, RoundedCorner{position=BottomRight, radius=6, center=Point(1074, 2334)}, RoundedCorner{position=BottomLeft, radius=6, center=Point(6, 2334)}]}  mRoundedCornerFrame=Rect(0, 0 - 1080, 2340), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(956, 0 - 1080, 84) rotation=0}, mDisplayShape=DisplayShape{ spec=1406003047 displayWidth=1080 displayHeight=2340 physicalPixelDisplaySizeRatio=0.75 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {d3520000 mType=statusBars mFrame=[0,0][1080,84] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {d3520005 mType=mandatorySystemGestures mFrame=[0,0][1080,118] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {d3520006 mType=tappableElement mFrame=[0,0][1080,84] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1319][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,84] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {5e010001 mType=navigationBars mFrame=[0,2298][1080,2340] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5e010004 mType=systemGestures mFrame=[0,0][84,2340] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {5e010005 mType=mandatorySystemGestures mFrame=[0,2250][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {5e010006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {5e010024 mType=systemGestures mFrame=[996,0][1080,2340] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null} }
+02-01 10:48:33.751 25313 25313 I VRI[MainActivity]@2799f58: handleResized, frames=ClientWindowFrames{frame=[0,0][1080,2340] display=[0,0][1080,2340] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+02-01 10:48:33.763  2007 11254 E ActivityThread: Failed to find provider info for com.example.voxmatrix.AutofillThirdPartyModeContentProvider
+02-01 10:48:33.765  2639  2639 D AutofillSession: Service did not request to wait for delayed fill response.
+02-01 10:48:33.767  5125  5125 V InlinePresentationRendererServiceImpl: onRenderSuggestion: width=-2, height=90
+02-01 10:48:33.768  5125  5125 V InlineSuggestionRenderService: width=-2, height=90, measuredSize=427x90
+02-01 10:48:33.769  1795  2237 I SurfaceFlinger: id=4161 createSurf, flag=84004, SurfaceControlViewHost#4161
+02-01 10:48:33.769  5125  5125 D ViewRootImpl: desktopMode is false
+02-01 10:48:33.769  5125  5125 I ViewRootImpl: dVRR is disabled
+02-01 10:48:33.770  5125 11266 D NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+02-01 10:48:33.770  1795  1795 I SurfaceFlinger: [SurfaceControlViewHost#4161] attach to parent OffscreenRoot
+02-01 10:48:33.775  1795  2229 I SurfaceFlinger: id=4162 createSurf, flag=44004, Leash#4162
+02-01 10:48:33.775  1795  1915 I SurfaceFlinger: id=4163 createSurf, flag=44000, #4163
+02-01 10:48:33.776  2639  7182 W WindowManager: Requires INTERNAL_SYSTEM_WINDOW permission if assign type to input. New type will be 0.
+02-01 10:48:33.776  2639  7182 D InputTransport: Input channel constructed: 'Embedde', fd=1101
+02-01 10:48:33.776  2639  7182 D InputTransport: Input channel constructed: 'Embedde', fd=1321
+02-01 10:48:33.776  2639  7182 D InputTransport: Input channel constructed: 'Embedde', fd=1347
+02-01 10:48:33.776  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4508818  [1687 / 1315]    HINT :      list : [TID_LOW_LATENCY / 1] [TID / 11264] [TID / 11265] [TID / 5125] [TID / 11266] 
+02-01 10:48:33.776  2639  7182 D InputTransport: Input channel destroyed: 'Embedde', fd=1347
+02-01 10:48:33.777  5125  5125 D InputTransport: Input channel constructed: 'Embedde', fd=838
+02-01 10:48:33.777  5125  5125 I VRI[]@3267a03: synced displayState. AttachInfo displayState=2
+02-01 10:48:33.777  5125  5125 I VRI[]@3267a03: setView = android.service.autofill.InlineSuggestionRoot@6499ffe IsHRR=false mFlingFrameRateChange=0 TM=true
+02-01 10:48:33.777  5125  5125 V InlinePresentationRendererServiceImpl: onRenderSuggestion: width=-2, height=90
+02-01 10:48:33.778  5125  5125 V InlineSuggestionRenderService: width=-2, height=90, measuredSize=90x90
+02-01 10:48:33.779  1795  2237 I SurfaceFlinger: id=4164 createSurf, flag=84004, SurfaceControlViewHost#4164
+02-01 10:48:33.779  1795  1795 I SurfaceFlinger: [Leash#4162] attach to parent LayerHierarchy{RequestedLayerState{SurfaceControlViewHost#4161} 1 children}
+02-01 10:48:33.779  1795  1795 I SurfaceFlinger: [#4163] attach to parent LayerHierarchy{RequestedLayerState{Leash#4162 parentId=4161} 1 children}
+02-01 10:48:33.779  1795  1795 I SurfaceFlinger: [SurfaceControlViewHost#4164] attach to parent OffscreenRoot
+02-01 10:48:33.779  5125  5125 D ViewRootImpl: desktopMode is false
+02-01 10:48:33.779  5125  5125 I ViewRootImpl: dVRR is disabled
+02-01 10:48:33.779  5125 11266 D NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+02-01 10:48:33.781  1667  5296 I vendor.qti.bluetooth@1.1-ibs_handler: ProcessIbsCmd: Received IBS_WAKE_IND: 0xFD
+02-01 10:48:33.781  1667  5296 D vendor.qti.bluetooth@1.1-ibs_handler: SerialClockVote: vote for UART CLK ON
+02-01 10:48:33.782  1667  5296 D vendor.qti.bluetooth@1.1-wake_lock: Acquire wakelock is acquired 
+02-01 10:48:33.782  1667  5296 I vendor.qti.bluetooth@1.1-ibs_handler: ProcessIbsCmd: Writing IBS_WAKE_ACK
+02-01 10:48:33.782  1795  2237 I SurfaceFlinger: id=4165 createSurf, flag=44004, Leash#4165
+02-01 10:48:33.782  1795  1915 I SurfaceFlinger: id=4166 createSurf, flag=44000, #4166
+02-01 10:48:33.782  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4514827  [1687 / 1317]    HINT :      list : [TID_LOW_LATENCY / 1] [TID / 11264] [TID / 11265] [TID / 5125] [TID / 11266] 
+02-01 10:48:33.783  2639  3652 W WindowManager: Requires INTERNAL_SYSTEM_WINDOW permission if assign type to input. New type will be 0.
+02-01 10:48:33.783  2639  3652 D InputTransport: Input channel constructed: 'Embedde', fd=1347
+02-01 10:48:33.783  2639  3652 D InputTransport: Input channel constructed: 'Embedde', fd=1412
+02-01 10:48:33.783  2639  3652 D InputTransport: Input channel constructed: 'Embedde', fd=1424
+02-01 10:48:33.783  2639  3652 D InputTransport: Input channel destroyed: 'Embedde', fd=1424
+02-01 10:48:33.783  5125  5125 D InputTransport: Input channel constructed: 'Embedde', fd=843
+02-01 10:48:33.784  5125  5125 I VRI[]@b9bbe0a: synced displayState. AttachInfo displayState=2
+02-01 10:48:33.784  5125  5125 I VRI[]@b9bbe0a: setView = android.service.autofill.InlineSuggestionRoot@692dcf1 IsHRR=false mFlingFrameRateChange=0 TM=true
+02-01 10:48:33.784  5125 11266 D HWUI    : HWUI - treat SMPTE_170M as sRGB
+02-01 10:48:33.786  2639  2997 D AutofillSession: onShown(): 2, 1
+02-01 10:48:33.786  5125  5125 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+02-01 10:48:33.786  5125  5125 I BufferQueueProducer: [](id:140500000008,api:0,p:0,c:5125) setDequeueTimeout:2077252342
+02-01 10:48:33.786  5125  5125 I BLASTBufferQueue_Java: new BLASTBufferQueue, mName= VRI[]@3267a03 mNativeObject= 0xb4000075c6b63030 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3585 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 android.view.Choreographer.doCallbacks:1367 android.view.Choreographer.doFrame:1292 android.view.Choreographer$FrameDisplayEventReceiver.run:1870 
+02-01 10:48:33.786  5125  5125 I BLASTBufferQueue_Java: update, w= 427 h= 90 mName = VRI[]@3267a03 mNativeObject= 0xb4000075c6b63030 sc.mNativeObject= 0xb40000776686d0d0 format= -2 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3590 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+02-01 10:48:33.786  5125  5125 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+02-01 10:48:33.787  5125  5125 I VRI[]@3267a03: Relayout returned: old=(0,0,427,90) new=(0,0,427,90) relayoutAsync=false req=(427,90)0 dur=0 res=0x0 s={true 0xb4000075d68d0070} ch=true seqId=0
+02-01 10:48:33.787  5125  5125 I VRI[]@3267a03: performConfigurationChange setNightDimText nightDimLevel=32
+02-01 10:48:33.787  1795  1795 I SurfaceFlinger: RequestedLayer [Leash#4162] hidden!! flag  from(1) --> to(0)
+02-01 10:48:33.787  5125  5125 D VRI[]@3267a03: mThreadedRenderer.initialize() mSurface={isValid=true 0xb4000075d68d0070} hwInitialized=true
+02-01 10:48:33.787  1795  1795 I SurfaceFlinger: [Leash#4165] attach to parent LayerHierarchy{RequestedLayerState{SurfaceControlViewHost#4164} 1 children}
+02-01 10:48:33.787  1795  1795 I SurfaceFlinger: [#4166] attach to parent LayerHierarchy{RequestedLayerState{Leash#4165 parentId=4164} 1 children}
+02-01 10:48:33.787  5125  5125 I VRI[]@3267a03: registerCallbackForPendingTransactions
+02-01 10:48:33.788  6707  6707 D SurfaceView: 91827399 updateSurface: has no frame
+02-01 10:48:33.788  6707  6707 I SV[91827399 InputMethod]: onWindowVisibilityChanged(0) false android.widget.inline.InlineContentView$4{5792cc7 I.E...... ......I. 0,0-0,0} of VRI[InputMethod]@f915a68
+02-01 10:48:33.788  6707  6707 D SurfaceView: 91827399 updateSurface: has no frame
+02-01 10:48:33.788  6707  6707 D SurfaceView: 91827399 updateSurface: has no frame
+02-01 10:48:33.788  6707  6707 D SurfaceView: 91827399 updateSurface: has no frame
+02-01 10:48:33.788  6707  6707 D SurfaceView: 91827399 updateSurface: has no frame
+02-01 10:48:33.789  5125 11264 I VRI[]@3267a03: mWNT: t=0xb400007746915290 mBlastBufferQueue=0xb4000075c6b63030 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$10.onFrameDraw:6536 android.view.ViewRootImpl$4.onFrameDraw:2489 android.view.ThreadedRenderer$1.onFrameDraw:718 
+02-01 10:48:33.792  4195  5368 I ScanController: onScanResult to scannerId: 5- eventType=0x10, addressType=1, address=XX:XX:XX:XX:23:9E, primaryPhy=1, secondaryPhy=0, advertisingSid=0xff, txPower=127, rssi=-60, periodicAdvInt=0x0
+02-01 10:48:33.793  5125 11266 W qdgralloc: getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+02-01 10:48:33.794  5125 11266 I BLASTBufferQueue: [VRI[]@3267a03#8](f:0,a:0,s:0) onFrameAvailable the first frame is available
+02-01 10:48:33.794  5125 11266 I SurfaceComposerClient: apply transaction with the first frame. layerId: 4163, bufferData(ID: 22011707392032, frameNumber: 1)
+02-01 10:48:33.794  1795  1915 I SurfaceFlinger: [#4163] setTransactionState with the first frame. bufferData(ID: 22011707392032, frameNumber: 1)
+02-01 10:48:33.795  5125 11266 D HWUI    : CFMS:: SetUp Pid : 5125    Tid : 11266
+02-01 10:48:33.795  5125  5125 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+02-01 10:48:33.795  5125  5125 I BufferQueueProducer: [](id:140500000009,api:0,p:0,c:5125) setDequeueTimeout:2077252342
+02-01 10:48:33.795  1795  1795 I SurfaceFlinger: RequestedLayer [Leash#4165] hidden!! flag  from(1) --> to(0)
+02-01 10:48:33.795  5125  5125 I BLASTBufferQueue_Java: new BLASTBufferQueue, mName= VRI[]@b9bbe0a mNativeObject= 0xb4000075c6b62020 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3585 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 android.view.Choreographer.doCallbacks:1367 android.view.Choreographer.doFrame:1292 android.view.Choreographer$FrameDisplayEventReceiver.run:1870 
+02-01 10:48:33.796  5125  5125 I BLASTBufferQueue_Java: update, w= 90 h= 90 mName = VRI[]@b9bbe0a mNativeObject= 0xb4000075c6b62020 sc.mNativeObject= 0xb40000776686d3d0 format= -2 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3590 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+02-01 10:48:33.796  6707  6707 I SurfaceView: 91827399 Changes: creating=false format=true size=true visible=false alpha=false hint=false left=true top=true z=true attached=true lifecycleStrategy=false
+02-01 10:48:33.796  6707  6707 I SurfaceView: 91827399 Changes: creating=true format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+02-01 10:48:33.796  5125  5125 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+02-01 10:48:33.796  5125  5125 I VRI[]@b9bbe0a: Relayout returned: old=(0,0,90,90) new=(0,0,90,90) relayoutAsync=false req=(90,90)0 dur=6 res=0x0 s={true 0xb4000075d68d0d50} ch=true seqId=0
+02-01 10:48:33.796  5125  5125 I VRI[]@b9bbe0a: performConfigurationChange setNightDimText nightDimLevel=32
+02-01 10:48:33.796  1795  2237 I SurfaceFlinger: id=4167 createSurf, flag=84004, 5792cc7 SurfaceView[InputMethod]@0#4167
+02-01 10:48:33.796  1795  2237 I SurfaceFlinger: id=4168 createSurf, flag=44000, 5792cc7 SurfaceView[InputMethod]@0(BLAST)#4168
+02-01 10:48:33.796  5125  5125 D VRI[]@b9bbe0a: mThreadedRenderer.initialize() mSurface={isValid=true 0xb4000075d68d0d50} hwInitialized=true
+02-01 10:48:33.797  1795  2229 I SurfaceFlinger: id=4169 createSurf, flag=20404, Background for 5792cc7 SurfaceView[InputMethod]@0#4169
+02-01 10:48:33.797  6707  6707 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+02-01 10:48:33.797  5125  5125 I VRI[]@b9bbe0a: registerCallbackForPendingTransactions
+02-01 10:48:33.797  6707  6707 I BufferQueueProducer: [](id:1a3300000019,api:0,p:2097196,c:6707) setDequeueTimeout:2077252342
+02-01 10:48:33.797  6707  6707 I BLASTBufferQueue_Java: new BLASTBufferQueue, mName= 5792cc7 SurfaceView[InputMethod]@0 mNativeObject= 0xb4000075c696c0e0 caller= android.view.SurfaceView.createBlastSurfaceControls:1781 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setVisibility:613 android.widget.inline.InlineContentView$3.onDraw:160 android.view.ViewTreeObserver.dispatchOnDraw:1295 android.view.ViewRootImpl.draw:6909 android.view.ViewRootImpl.performDraw:6632 android.view.ViewRootImpl.performTraversals:5531 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 
+02-01 10:48:33.797  6707  6707 I BLASTBufferQueue_Java: update, w= 427 h= 90 mName = 5792cc7 SurfaceView[InputMethod]@0 mNativeObject= 0xb4000075c696c0e0 sc.mNativeObject= 0xb400007766865f90 format= -2 caller= android.view.SurfaceView.createBlastSurfaceControls:1782 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setVisibility:613 android.widget.inline.InlineContentView$3.onDraw:160 android.view.ViewTreeObserver.dispatchOnDraw:1295 android.view.ViewRootImpl.draw:6909 
+02-01 10:48:33.798  6707  6707 I SurfaceView: 91827399 Cur surface: Surface(name=null mNativeObject=0)/@0x88edbf
+02-01 10:48:33.798  6707  6707 D SurfaceComposerClient: setCornerRadius ## 5792cc7 SurfaceView[InputMethod]@0#4167 cornerRadius=0.000000
+02-01 10:48:33.798  6707  6707 I SV[91827399 InputMethod]: pST: sr = Rect(134, 1248 - 561, 1338) sw = 427 sh = 90
+02-01 10:48:33.798  6707  6707 D SurfaceView: 91827399 performSurfaceTransaction RenderWorker position = [134, 1248, 561, 1338] surfaceSize = 427x90
+02-01 10:48:33.798  6707  6707 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+02-01 10:48:33.798  6707  6707 I SV[91827399 InputMethod]: updateSurface: mVisible = true mSurface.isValid() = true
+02-01 10:48:33.798  6707  6707 I SV[91827399 InputMethod]: updateSurface: mSurfaceCreated = false surfaceChanged = true visibleChanged = true
+02-01 10:48:33.798  6707  6707 I SurfaceView: 91827399 visibleChanged -- surfaceCreated
+02-01 10:48:33.798  6707  6707 I SV[91827399 InputMethod]: surfaceCreated 0 #3 android.widget.inline.InlineContentView$4{5792cc7 V.E...... ......ID 0,0-427,90}
+02-01 10:48:33.798  6707  6707 I SurfaceView: 91827399 surfaceChanged -- format=-2 w=427 h=90
+02-01 10:48:33.798  6707  6707 I SV[91827399 InputMethod]: surfaceChanged (427,90) 0 #3 android.widget.inline.InlineContentView$4{5792cc7 V.E...... ......ID 0,0-427,90}
+02-01 10:48:33.798  6707  6707 I SurfaceView: 91827399 surfaceRedrawNeeded
+02-01 10:48:33.798  6707  6707 I SurfaceView: 91827399 finishedDrawing
+02-01 10:48:33.799  6707  6707 V SurfaceView: Layout: x=134 y=1248 w=427 h=90, frame=Rect(0, 0 - 427, 90)
+02-01 10:48:33.799  6707  6707 I VRI[InputMethod]@f915a68: registerCallbackForPendingTransactions
+02-01 10:48:33.799  5125 11265 I VRI[]@b9bbe0a: mWNT: t=0xb400007746918710 mBlastBufferQueue=0xb4000075c6b62020 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$10.onFrameDraw:6536 android.view.ViewRootImpl$4.onFrameDraw:2489 android.view.ThreadedRenderer$1.onFrameDraw:718 
+02-01 10:48:33.799  5125 11266 W qdgralloc: getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+02-01 10:48:33.799  6707  7518 D SurfaceView: 91827399 updateSurfacePosition RenderWorker, frameNr = 30, position = [134, 1248, 561, 1338] surfaceSize = 427x90
+02-01 10:48:33.799  6707  7518 I SV[91827399 InputMethod]: uSP: rtp = Rect(134, 1248 - 561, 1338) rtsw = 427 rtsh = 90
+02-01 10:48:33.799  6707  7518 I SV[91827399 InputMethod]: onSSPAndSRT: pl = 134 pt = 1248 sx = 1.0 sy = 1.0
+02-01 10:48:33.799  6707  7518 I SV[91827399 InputMethod]: aOrMT: VRI[InputMethod]@f915a68 t = android.view.SurfaceControl$Transaction@caf83ea fN = 30 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401 
+02-01 10:48:33.799  6707  7518 I VRI[InputMethod]@f915a68: mWNT: t=0xb4000077468c2cd0 mBlastBufferQueue=0xb4000075c693de00 fn= 30 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 
+02-01 10:48:33.799  6707  7516 I VRI[InputMethod]@f915a68: mWNT: t=0xb4000077468e4450 mBlastBufferQueue=0xb4000075c693de00 fn= 30 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$10.onFrameDraw:6536 android.view.ViewRootImpl$4.onFrameDraw:2489 android.view.ThreadedRenderer$1.onFrameDraw:718 
+02-01 10:48:33.800  5125 11266 I BLASTBufferQueue: [VRI[]@b9bbe0a#9](f:0,a:0,s:0) onFrameAvailable the first frame is available
+02-01 10:48:33.800  5125 11266 I SurfaceComposerClient: apply transaction with the first frame. layerId: 4166, bufferData(ID: 22011707392039, frameNumber: 1)
+02-01 10:48:33.800  1795  2229 I SurfaceFlinger: [#4166] setTransactionState with the first frame. bufferData(ID: 22011707392039, frameNumber: 1)
+02-01 10:48:33.801  5125 11266 D HWUI    : CFMS:: SetUp Pid : 5125    Tid : 11266
+02-01 10:48:33.801  5125 11266 D HWUI    : HWUI - treat SMPTE_170M as sRGB
+02-01 10:48:33.804  1795  1795 I SurfaceFlinger: RequestedLayer [5792cc7 SurfaceView[InputMethod]@0#4167] hidden!! flag  from(1) --> to(0)
+02-01 10:48:33.804  1795  1795 I SurfaceFlinger: RequestedLayer [SurfaceControlViewHost#4161] hidden!! flag  from(1) --> to(0)
+02-01 10:48:33.804  1795  1795 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{SurfaceControlViewHost#4161 parentId=4168} 1 children}] reparent to LayerHierarchy{RequestedLayerState{5792cc7 SurfaceView[InputMethod]@0(BLAST)#4168 parentId=4167} 1 children}
+02-01 10:48:33.804  1795  1795 I SurfaceFlinger: [5792cc7 SurfaceView[InputMethod]@0#4167] attach to parent LayerHierarchy{RequestedLayerState{Bounds for - InputMethod@2#4154 parentId=4146} 1 children}
+02-01 10:48:33.804  1795  1795 I SurfaceFlinger: [5792cc7 SurfaceView[InputMethod]@0(BLAST)#4168] attach to parent LayerHierarchy{RequestedLayerState{5792cc7 SurfaceView[InputMethod]@0#4167 parentId=4154 relativeParentId=4146 z=1} 1 children}
+02-01 10:48:33.804  1795  1795 I SurfaceFlinger: [Background for 5792cc7 SurfaceView[InputMethod]@0#4169] attach to parent LayerHierarchy{RequestedLayerState{5792cc7 SurfaceView[InputMethod]@0#4167 parentId=4154 relativeParentId=4146 z=1} 2 children}
+02-01 10:48:33.806  1795  1795 D SurfaceFlinger: Display 4630946315032985731 HWC layers:
+02-01 10:48:33.806  1795  1795 D SurfaceFlinger:        DEVICE |          108718507163664 | 00000102 | RGBA_8888    |    0.0    0.0 1080.0 2340.0 |    0    0 1080 2340 | 70b609 SurfaceView[com.example.voxma[...]oxmatrix.MainActivity]@0(BLAST)#4113 (485)
+02-01 10:48:33.806  1795  1795 D SurfaceFlinger:        DEVICE |          108718507163667 | 00002100 | RGBA_8888    |    0.0    0.0 1080.0 2340.0 |    0    0 1080 2340 | com.example.voxmatrix/com.example.voxmatrix.MainActivity$_25313#4108 (130)
+02-01 10:48:33.806  1795  1795 D SurfaceFlinger:        DEVICE |           28806345654336 | 00002100 | RGBA_8888    |    0.0    0.0 1080.0 2256.0 |    0   84 1080 2340 | InputMethod$_6707#4146 (30)
+02-01 10:48:33.806  1795  1795 D SurfaceFlinger:        DEVICE |           22011707392032 | 00002100 | RGBA_8888    |    0.0    0.0  427.0   90.0 |  134 1332  561 1422 | #4163 (1)
+02-01 10:48:33.806  1795  1795 D SurfaceFlinger:        DEVICE |           17046725199728 | 00002100 | RGBA_8888    |    0.0    0.0 1080.0   84.0 |    0    0 1080   84 | StatusBar$_3969#104 (6780)
+02-01 10:48:33.806  1795  1795 D SurfaceFlinger:        DEVICE |           17046725199736 | 00002100 | RGBA_8888    |    0.0    0.0 1080.0  135.0 |    0 2205 1080 2340 | NavigationBar0$_3969#100 (6651)
+02-01 10:48:33.806  1795  1795 D SurfaceFlinger: 
+02-01 10:48:33.822  6707  6707 D SurfaceView: 32024283 updateSurface: has no frame
+02-01 10:48:33.822  6707  6707 I SV[32024283 InputMethod]: onWindowVisibilityChanged(0) false android.widget.inline.InlineContentView$4{1e8a6db I.E...... ......I. 0,0-0,0} of VRI[InputMethod]@f915a68
+02-01 10:48:33.822  6707  6707 D SurfaceView: 32024283 updateSurface: has no frame
+02-01 10:48:33.822  6707  6707 D SurfaceView: 32024283 updateSurface: has no frame
+02-01 10:48:33.822  6707  6707 D SurfaceView: 32024283 updateSurface: has no frame
+02-01 10:48:33.822  6707  6707 D SurfaceView: 32024283 updateSurface: has no frame
+02-01 10:48:33.829  6707  6707 I SurfaceView: 32024283 Changes: creating=false format=true size=true visible=false alpha=false hint=false left=true top=true z=true attached=true lifecycleStrategy=false
+02-01 10:48:33.829  6707  6707 I SurfaceView: 32024283 Changes: creating=true format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+02-01 10:48:33.829  1795  2229 I SurfaceFlinger: id=4170 createSurf, flag=84004, 1e8a6db SurfaceView[InputMethod]@0#4170
+02-01 10:48:33.830  1795  2229 I SurfaceFlinger: id=4171 createSurf, flag=44000, 1e8a6db SurfaceView[InputMethod]@0(BLAST)#4171
+02-01 10:48:33.830  1795  2229 I SurfaceFlinger: id=4172 createSurf, flag=20404, Background for 1e8a6db SurfaceView[InputMethod]@0#4172
+02-01 10:48:33.831  6707  6707 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+02-01 10:48:33.831  6707  6707 I BufferQueueProducer: [](id:1a330000001a,api:0,p:0,c:6707) setDequeueTimeout:2077252342
+02-01 10:48:33.831  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:33.831  6707  6707 I BLASTBufferQueue_Java: new BLASTBufferQueue, mName= 1e8a6db SurfaceView[InputMethod]@0 mNativeObject= 0xb4000075c6990320 caller= android.view.SurfaceView.createBlastSurfaceControls:1781 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setVisibility:613 android.widget.inline.InlineContentView$3.onDraw:160 android.view.ViewTreeObserver.dispatchOnDraw:1295 android.view.ViewRootImpl.draw:6909 android.view.ViewRootImpl.performDraw:6632 android.view.ViewRootImpl.performTraversals:5531 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 
+02-01 10:48:33.831  6707  6707 I BLASTBufferQueue_Java: update, w= 90 h= 90 mName = 1e8a6db SurfaceView[InputMethod]@0 mNativeObject= 0xb4000075c6990320 sc.mNativeObject= 0xb400007766868510 format= -2 caller= android.view.SurfaceView.createBlastSurfaceControls:1782 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setVisibility:613 android.widget.inline.InlineContentView$3.onDraw:160 android.view.ViewTreeObserver.dispatchOnDraw:1295 android.view.ViewRootImpl.draw:6909 
+02-01 10:48:33.832  6707  6707 I SurfaceView: 32024283 Cur surface: Surface(name=null mNativeObject=0)/@0x5831653
+02-01 10:48:33.832  1667  5296 I vendor.qti.bluetooth@1.1-ibs_handler: ProcessIbsCmd: Received IBS_SLEEP_IND: 0xFE
+02-01 10:48:33.832  1667  5296 D vendor.qti.bluetooth@1.1-ibs_handler: SerialClockVote: vote for UART CLK OFF
+02-01 10:48:33.832  6707  6707 D SurfaceComposerClient: setCornerRadius ## 1e8a6db SurfaceView[InputMethod]@0#4170 cornerRadius=0.000000
+02-01 10:48:33.832  6707  6707 I SV[32024283 InputMethod]: pST: sr = Rect(583, 1248 - 673, 1338) sw = 90 sh = 90
+02-01 10:48:33.832  6707  6707 D SurfaceView: 32024283 performSurfaceTransaction RenderWorker position = [583, 1248, 673, 1338] surfaceSize = 90x90
+02-01 10:48:33.832  6707  6707 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+02-01 10:48:33.833  6707  6707 I SV[32024283 InputMethod]: updateSurface: mVisible = true mSurface.isValid() = true
+02-01 10:48:33.833  6707  6707 I SV[32024283 InputMethod]: updateSurface: mSurfaceCreated = false surfaceChanged = true visibleChanged = true
+02-01 10:48:33.833  6707  6707 I SurfaceView: 32024283 visibleChanged -- surfaceCreated
+02-01 10:48:33.833  6707  6707 I SV[32024283 InputMethod]: surfaceCreated 0 #3 android.widget.inline.InlineContentView$4{1e8a6db V.E...... ......ID 0,0-90,90}
+02-01 10:48:33.833  6707  6707 I SurfaceView: 32024283 surfaceChanged -- format=-2 w=90 h=90
+02-01 10:48:33.833  6707  6707 I SV[32024283 InputMethod]: surfaceChanged (90,90) 0 #3 android.widget.inline.InlineContentView$4{1e8a6db V.E...... ......ID 0,0-90,90}
+02-01 10:48:33.833  6707  6707 I SurfaceView: 32024283 surfaceRedrawNeeded
+02-01 10:48:33.833  6707  6707 I SurfaceView: 32024283 finishedDrawing
+02-01 10:48:33.833  6707  6707 V SurfaceView: Layout: x=583 y=1248 w=90 h=90, frame=Rect(0, 0 - 90, 90)
+02-01 10:48:33.833  6707  6707 I VRI[InputMethod]@f915a68: registerCallbackForPendingTransactions
+02-01 10:48:33.834  6707  7518 D SurfaceView: 32024283 updateSurfacePosition RenderWorker, frameNr = 32, position = [583, 1248, 673, 1338] surfaceSize = 90x90
+02-01 10:48:33.834  6707  7518 I SV[32024283 InputMethod]: uSP: rtp = Rect(583, 1248 - 673, 1338) rtsw = 90 rtsh = 90
+02-01 10:48:33.834  6707  7518 I SV[32024283 InputMethod]: onSSPAndSRT: pl = 583 pt = 1248 sx = 1.0 sy = 1.0
+02-01 10:48:33.834  6707  7518 I SV[32024283 InputMethod]: aOrMT: VRI[InputMethod]@f915a68 t = android.view.SurfaceControl$Transaction@79ee48e fN = 32 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401 
+02-01 10:48:33.834  6707  7518 I VRI[InputMethod]@f915a68: mWNT: t=0xb4000077468dfad0 mBlastBufferQueue=0xb4000075c693de00 fn= 32 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 
+02-01 10:48:33.834  6707  7517 I VRI[InputMethod]@f915a68: mWNT: t=0xb4000077468dfe50 mBlastBufferQueue=0xb4000075c693de00 fn= 32 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$10.onFrameDraw:6536 android.view.ViewRootImpl$4.onFrameDraw:2489 android.view.ThreadedRenderer$1.onFrameDraw:718 
+02-01 10:48:33.837  2639  5281 D MotionRecognitionService: inject vibrator info = 0.0
+02-01 10:48:33.837  1795  1795 I SurfaceFlinger: RequestedLayer [1e8a6db SurfaceView[InputMethod]@0#4170] hidden!! flag  from(1) --> to(0)
+02-01 10:48:33.837  1795  1795 I SurfaceFlinger: RequestedLayer [SurfaceControlViewHost#4164] hidden!! flag  from(1) --> to(0)
+02-01 10:48:33.837  1795  1795 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{SurfaceControlViewHost#4164 parentId=4171} 1 children}] reparent to LayerHierarchy{RequestedLayerState{1e8a6db SurfaceView[InputMethod]@0(BLAST)#4171 parentId=4170} 1 children}
+02-01 10:48:33.837  1795  1795 I SurfaceFlinger: [1e8a6db SurfaceView[InputMethod]@0#4170] attach to parent LayerHierarchy{RequestedLayerState{Bounds for - InputMethod@2#4154 parentId=4146} 2 children}
+02-01 10:48:33.837  1795  1795 I SurfaceFlinger: [1e8a6db SurfaceView[InputMethod]@0(BLAST)#4171] attach to parent LayerHierarchy{RequestedLayerState{1e8a6db SurfaceView[InputMethod]@0#4170 parentId=4154 relativeParentId=4146 z=1} 1 children}
+02-01 10:48:33.837  1795  1795 I SurfaceFlinger: [Background for 1e8a6db SurfaceView[InputMethod]@0#4172] attach to parent LayerHierarchy{RequestedLayerState{1e8a6db SurfaceView[InputMethod]@0#4170 parentId=4154 relativeParentId=4146 z=1} 2 children}
+02-01 10:48:33.838  1674  1674 I sensors-hal: inject_sensor_data:427, handle:11, type:33 not supported
+02-01 10:48:33.838  1674  1674 I sensors-hal: inject_sensor_data:427, handle:11, type:33 not supported
+02-01 10:48:33.839  1674  1674 I sensors-hal: inject_sensor_data:427, handle:11, type:33 not supported
+02-01 10:48:33.840  1795  1795 D SurfaceFlinger: Display 4630946315032985731 HWC layers:
+02-01 10:48:33.840  1795  1795 D SurfaceFlinger:        DEVICE |          108718507163663 | 00000102 | RGBA_8888    |    0.0    0.0 1080.0 2340.0 |    0    0 1080 2340 | 70b609 SurfaceView[com.example.voxma[...]oxmatrix.MainActivity]@0(BLAST)#4113 (489)
+02-01 10:48:33.840  1795  1795 D SurfaceFlinger:        DEVICE |          108718507163667 | 00002100 | RGBA_8888    |    0.0    0.0 1080.0 2340.0 |    0    0 1080 2340 | com.example.voxmatrix/com.example.voxmatrix.MainActivity$_25313#4108 (130)
+02-01 10:48:33.840  1795  1795 D SurfaceFlinger:        DEVICE |           28806345654337 | 00002100 | RGBA_8888    |    0.0    0.0 1080.0 2256.0 |    0   84 1080 2340 | InputMethod$_6707#4146 (32)
+02-01 10:48:33.840  1795  1795 D SurfaceFlinger:        DEVICE |           22011707392032 | 00002100 | RGBA_8888    |    0.0    0.0  427.0   90.0 |  134 1332  561 1422 | #4163 (1)
+02-01 10:48:33.840  1795  1795 D SurfaceFlinger:        DEVICE |           22011707392039 | 00002100 | RGBA_8888    |    0.0    0.0   90.0   90.0 |  583 1332  673 1422 | #4166 (1)
+02-01 10:48:33.840  1795  1795 D SurfaceFlinger:        DEVICE |           17046725199728 | 00002100 | RGBA_8888    |    0.0    0.0 1080.0   84.0 |    0    0 1080   84 | StatusBar$_3969#104 (6780)
+02-01 10:48:33.840  1795  1795 D SurfaceFlinger:        DEVICE |        
+02-01 10:48:33.841  1795  1795 D SurfaceFlinger:    17046725199736 | 00002100 | RGBA_8888    |    0.0    0.0 1080.0  135.0 |    0 2205 1080 2340 | NavigationBar0$_3969#100 (6651)
+02-01 10:48:33.841  1795  1795 D SurfaceFlinger: 
+02-01 10:48:33.922  1674  3922 I sensors-hal: handle_sns_client_event:159, auto_rotation_event_2 event,255, duration,0, ts,8033318006580, ts_diff,735977
+02-01 10:48:33.922  1674  3922 I sensors-hal: handle_sns_client_event:164, auto_rotation_debug_2 acc,-1.220,2.972,9.677, ar,0, ver,14, pedo,1,e,1,i,3
+02-01 10:48:33.924  2639  2998 D WindowOrientationListener: onSensorChanged device orientation: -1
+02-01 10:48:33.925  3969  3969 D AppController: AppControlSensorListener.onSensorChanged, Rotation: -1
+02-01 10:48:33.926  3969  3969 D NavigationBar: onRotationProposal proposedRotation=-1, isValid=false, mNavBarWindowState=WINDOW_STATE_SHOWING, rotateSuggestionsDisabled=false, isRotateButtonVisible=false
+02-01 10:48:33.926  3969  3969 D RotationButtonController: onRotationProposal unknown rotation
+02-01 10:48:33.933  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:33.954  2639  2639 I GestureDetector: handleMessage TAP
+02-01 10:48:33.954  2639  2998 I GestureDetector: handleMessage TAP
+02-01 10:48:33.982  1667  4650 D vendor.qti.bluetooth@1.1-wake_lock: Release wakelock is released 
+02-01 10:48:34.003  1674 24996 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 524(524),c:163,b:150,m:13,cl:78,l:486,s:500,l0:81600,l1:288,s0:72000,s1:0,acl:1,opr:0.56,f(r):94,u(bl):100,if:0,wi:0,si:0,po:0(N:0)
+02-01 10:48:34.024  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4520840  [1687 / 1319]    HINT :      list : [TID_LOW_LATENCY / 1] [TID / 4164] [TID / 4165] [TID / 4092] [TID / 4166] 
+02-01 10:48:34.025  2639  3652 D HintManagerService: SystemUI make new AppHintSession but force pause
+02-01 10:48:34.026  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4520840  [1687 / 1319]    HINT :      list : [TID_LOW_LATENCY / 0] [TID / 4164] [TID / 4165] [TID / 4092] [TID / 4166] 
+02-01 10:48:34.027  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4520840  [1687 / 1319]    HINT :      list : [TID_LOW_LATENCY / 0] [TID / 4164] [TID / 4165] [TID / 4092] [TID / 4166] 
+02-01 10:48:34.028  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4523848  [1687 / 1320]    HINT :      list : [UCLAMP_MIN_BOOST / 0] [TID / 4164] [TID / 4165] [TID / 4092] [TID / 4166] 
+02-01 10:48:34.028  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 4520840
+02-01 10:48:34.028  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 4523848
+02-01 10:48:34.038  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4526857  [1687 / 1321]    HINT :      list : [TID_LOW_LATENCY / 1] [TID / 4164] [TID / 4165] [TID / 3969] [TID / 4166] 
+02-01 10:48:34.038  2639  3652 D HintManagerService: SystemUI make new AppHintSession but force pause
+02-01 10:48:34.039  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4526857  [1687 / 1321]    HINT :      list : [TID_LOW_LATENCY / 0] [TID / 4164] [TID / 4165] [TID / 3969] [TID / 4166] 
+02-01 10:48:34.040  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4526857  [1687 / 1321]    HINT :      list : [TID_LOW_LATENCY / 0] [TID / 4164] [TID / 4165] [TID / 3969] [TID / 4166] 
+02-01 10:48:34.041  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4529867  [1687 / 1322]    HINT :      list : [UCLAMP_MIN_BOOST / 0] [TID / 4164] [TID / 4165] [TID / 3969] [TID / 4166] 
+02-01 10:48:34.041  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 4526857
+02-01 10:48:34.041  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 4529867
+02-01 10:48:34.050  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4532878  [1687 / 1323]    HINT :      list : [TID_LOW_LATENCY / 1] [TID / 4164] [TID / 4165] [TID / 4092] [TID / 4166] 
+02-01 10:48:34.050  2639  3652 D HintManagerService: SystemUI make new AppHintSession but force pause
+02-01 10:48:34.051  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4532878  [1687 / 1323]    HINT :      list : [TID_LOW_LATENCY / 0] [TID / 4164] [TID / 4165] [TID / 4092] [TID / 4166] 
+02-01 10:48:34.052  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4532878  [1687 / 1323]    HINT :      list : [TID_LOW_LATENCY / 0] [TID / 4164] [TID / 4165] [TID / 4092] [TID / 4166] 
+02-01 10:48:34.052  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4535890  [1687 / 1324]    HINT :      list : [UCLAMP_MIN_BOOST / 0] [TID / 4164] [TID / 4165] [TID / 4092] [TID / 4166] 
+02-01 10:48:34.053  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 4532878
+02-01 10:48:34.053  1795  2229 I SurfaceFlinger: id=4115 Removed Surface(name=fe32360 com.example.voxmatrix/com.example.voxmatrix.MainActivity)/@0xdf59c9a - animation-leash of starting_reveal#4115 (186)
+02-01 10:48:34.053  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 4535890
+02-01 10:48:34.054  1795  2229 I SurfaceFlinger: id=3929 Removed ActivityRecord{233470650 u0 com.samsung.android.waterplugin/.activity.HMLaunchActivity t43}#3929 (186)
+02-01 10:48:34.055  1795  2237 I SurfaceFlinger: id=3917 Removed Task=42#3917 (186)
+02-01 10:48:34.057  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.057  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.057  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.059  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.060  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.060  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.061  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.062  1795  1795 I SurfaceFlinger: destroyed Surface(name=fe32360 com.example.voxmatrix/com.example.voxmatrix.MainActivity)/@0xdf59c9a - animation-leash of starting_reveal#4115 form LifecycleManager
+02-01 10:48:34.062  1795  1795 I SurfaceFlinger: destroyed ActivityRecord{233470650 u0 com.samsung.android.waterplugin/.activity.HMLaunchActivity t43}#3929 form LifecycleManager
+02-01 10:48:34.062  1795  1795 I SurfaceFlinger: destroyed 4171d6b ActivityRecordInputSink com.samsung.android.waterplugin/.activity.HMLaunchActivity#3942 form LifecycleManager
+02-01 10:48:34.062  1795  1795 I SurfaceFlinger: destroyed Task=42#3917 form LifecycleManager
+02-01 10:48:34.062  1795  1795 I SurfaceFlinger: id=4115 onLayerDestroyed from LayerHierarchyBuilder(RequestedLayerState{Surface(name=fe32360 com.example.voxmatrix/com.example.voxmatrix.MainActivity)/@0xdf59c9a - animation-leash of starting_reveal#4115 !handle})
+02-01 10:48:34.062  1795  1795 I SurfaceFlinger: id=3929 onLayerDestroyed from LayerHierarchyBuilder(RequestedLayerState{ActivityRecord{233470650 u0 com.samsung.android.waterplugin/.activity.HMLaunchActivity t43}#3929 !handle})
+02-01 10:48:34.062  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.062  1795  1795 I SurfaceFlinger: id=3942 onLayerDestroyed from LayerHierarchyBuilder(RequestedLayerState{4171d6b ActivityRecordInputSink com.samsung.android.waterplugin/.activity.HMLaunchActivity#3942 !handle z=-2147483648})
+02-01 10:48:34.062  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.062  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.062  1795  1795 I SurfaceFlinger: id=3917 onLayerDestroyed from LayerHierarchyBuilder(RequestedLayerState{Task=42#3917 !handle z=9})
+02-01 10:48:34.062  1795  1795 I Layer   : id=4115 Destroyed Surface(name=fe32360 com.example.voxmatrix/com.example.voxmatrix.MainActivity)/@0xdf59c9a - animation-leash of starting_reveal#4115
+02-01 10:48:34.063  1795  1795 I Layer   : id=3929 Destroyed ActivityRecord{233470650 u0 com.samsung.android.waterplugin/.activity.HMLaunchActivity t43}#3929
+02-01 10:48:34.063  1795  1795 I Layer   : id=3942 Destroyed 4171d6b ActivityRecordInputSink com.samsung.android.waterplugin/.activity.HMLaunchActivity#3942
+02-01 10:48:34.063  1795  1795 I Layer   : id=3917 Destroyed Task=42#3917
+02-01 10:48:34.063  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.063  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.063  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.063  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.064  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.065  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.065  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.065  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.065  3969  3989 W System  : A resource failed to call release. 
+02-01 10:48:34.067  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:34.113  1674  3922 I sensors-hal: handle_sns_client_event:159, auto_rotation_event_2 event,0, duration,0, ts,8033509133090, ts_diff,755248
+02-01 10:48:34.113  1674  3922 I sensors-hal: handle_sns_client_event:164, auto_rotation_debug_2 acc,-1.560,2.958,9.141, ar,0, ver,14, pedo,1,e,1,i,3
+02-01 10:48:34.114  3969  3969 D AppController: AppControlSensorListener.onSensorChanged, Rotation: 0
+02-01 10:48:34.114  2639  2998 D WindowOrientationListener: onSensorChanged device orientation: 0
+02-01 10:48:34.116  3969  3969 D NavigationBar: onRotationProposal proposedRotation=-1, isValid=false, mNavBarWindowState=WINDOW_STATE_SHOWING, rotateSuggestionsDisabled=false, isRotateButtonVisible=false
+02-01 10:48:34.116  3969  3969 D RotationButtonController: onRotationProposal unknown rotation
+02-01 10:48:34.134  1674  3922 I sensors-hal: handle_sns_client_event:159, auto_rotation_event_2 event,255, duration,0, ts,8033530329497, ts_diff,390820
+02-01 10:48:34.134  1674  3922 I sensors-hal: handle_sns_client_event:164, auto_rotation_debug_2 acc,-1.474,2.886,9.370, ar,0, ver,14, pedo,1,e,1,i,3
+02-01 10:48:34.134  3969  3969 D AppController: AppControlSensorListener.onSensorChanged, Rotation: -1
+02-01 10:48:34.134  2639  2998 D WindowOrientationListener: onSensorChanged device orientation: -1
+02-01 10:48:34.135  3969  3969 D NavigationBar: onRotationProposal proposedRotation=-1, isValid=false, mNavBarWindowState=WINDOW_STATE_SHOWING, rotateSuggestionsDisabled=false, isRotateButtonVisible=false
+02-01 10:48:34.135  3969  3969 D RotationButtonController: onRotationProposal unknown rotation
+02-01 10:48:34.219  1674  3922 I sensors-hal: handle_sns_client_event:159, auto_rotation_event_2 event,0, duration,0, ts,8033615279549, ts_diff,463529
+02-01 10:48:34.219  1674  3922 I sensors-hal: handle_sns_client_event:164, auto_rotation_debug_2 acc,-0.952,3.628,9.145, ar,0, ver,14, pedo,1,e,1,i,3
+02-01 10:48:34.219  2639  2998 D WindowOrientationListener: onSensorChanged device orientation: 0
+02-01 10:48:34.220  3969  3969 D AppController: AppControlSensorListener.onSensorChanged, Rotation: 0
+02-01 10:48:34.221  3969  3969 D NavigationBar: onRotationProposal proposedRotation=ROTATION_0, isValid=true, mNavBarWindowState=WINDOW_STATE_SHOWING, rotateSuggestionsDisabled=false, isRotateButtonVisible=false
+02-01 10:48:34.221  3969  3969 D RotationButtonController: onRotationProposal rotation not changed
+02-01 10:48:34.225  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:34.283  2639  3571 D InputReader: Btn_touch(5): value=1 when=7594.606101
+02-01 10:48:34.283  2639  3571 I InputReader: Touch event's action is 0x0 (id=6, t=0) [pCnt=1, s=0.2027 ] when=7594.606101
+02-01 10:48:34.285  1784  1824 E HeatmapThread: ECT Thread time in milliseconds: 1769932114
+02-01 10:48:34.285  2639  3570 I InputDispatcher: Delivering touch to (3969): action: 0x4, f=0x0, d=0, '606f506', t=1 
+02-01 10:48:34.286  2639  3570 I InputDispatcher: Delivering touch to (25313): action: 0x0, f=0x0, d=0, 'fe32360', t=1 
+02-01 10:48:34.286 25313 25313 I VRI[MainActivity]@2799f58: ViewPostIme pointer 0
+02-01 10:48:34.286  4589  4589 I HoneySpace.GestureInputHandler: inputConsumers = [com.honeyspace.gesture.inputconsumer.InputConsumer$Companion$NO_OP$1@e9f927c]
+02-01 10:48:34.287  2639  3570 D PowerManagerService: [api] userActivityFromNative : touch displayId=0 eventTime=7594606
+02-01 10:48:34.287  4589  4589 I HoneySpace.InputSession: inputConsumers = NO_OP
+02-01 10:48:34.287  2639  2998 I GestureDetector: obtain mCurrentDownEvent. id: 850219302 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:392 
+02-01 10:48:34.287  4589  4589 I HoneySpace.InputSession: open
+02-01 10:48:34.287  2639  2998 I GestureDetector: obtain mCurrentDownEvent. id: 850219302 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:392 
+02-01 10:48:34.289  6802  6802 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/6802@30, type = -999
+02-01 10:48:34.289  1784  1824 D HeatmapThread: !@ batteryplugType : 2
+02-01 10:48:34.289  6802  6802 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/6802@31, type = -999
+02-01 10:48:34.289  1784  1824 D HeatmapThread: !@ batteryLevel : 66  batteryTemperature : 321 
+02-01 10:48:34.289  1784  1824 D HeatmapThread: !@ Heatmap currtime: 29498868
+02-01 10:48:34.289  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23341558  [6802 / 30]    HINT :      list : [TABoost / 1] [TIMEOUT / 1500] 
+02-01 10:48:34.289  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23348392  [6802 / 31]    HINT : TA_TOUCH_SHARE    list : [TIMEOUT / 1500] 
+02-01 10:48:34.289  1784  1824 D HeatmapThread: !@ Heatmap prevtime: 29498854
+02-01 10:48:34.290  1784  1824 D HeatmapThread: !@ Heatmap plugstarttime: 29498866
+02-01 10:48:34.290  1784  1824 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29498734
+02-01 10:48:34.290  1784  1824 E HeatmapThread: !@ CAM New BSOH: 100
+02-01 10:48:34.291  2639  2998 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 911022234
+02-01 10:48:34.291  2639  2998 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 911022234
+02-01 10:48:34.323  1674 24996 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 629(629),c:163,b:150,m:13,cl:78,l:670,s:618,l0:108224,l1:384,s0:89000,s1:0,acl:1,opr:0.56,f(r):94,u(bl):100,if:0,wi:0,si:0,po:0(N:0)
+02-01 10:48:34.366  2639  2639 I SemDvfsHyPerManager: acquire hyper - WM_SCROLL_DETECTED/2639@2, type = -999
+02-01 10:48:34.367  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 3488763  [2639 / 2]    HINT :      list : [CoreNumBigMin / 3] 
+02-01 10:48:34.374  1166  1166 D io_stats: !@   8,0 r 1181555 26540284 w 491586 10122832 d 56102 8867248 f 18013 47466 iot 270880 0 th 0 0 0 pt 0 inp 0 0 7594.697
+02-01 10:48:34.374  1166  1166 D io_stats: !@ Read_top(KB): kworker/u16:15(25713) 768 putmethod.latin(6707) 360 on.android.pass(2007) 108
+02-01 10:48:34.374  1166  1166 D io_stats: !@ Write_top(KB): ample.voxmatrix(25313) 272 on.android.pass(2007) 4
+02-01 10:48:34.382  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:34.392  6802  6802 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/6802@30, type = -999
+02-01 10:48:34.392  6802  6802 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/6802@31, type = -999
+02-01 10:48:34.392  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23341558  [6802 / 30]    HINT :      list : [TABoost / 1] [TIMEOUT / 1500] 
+02-01 10:48:34.392  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23348392  [6802 / 31]    HINT : TA_TOUCH_SHARE    list : [TIMEOUT / 1500] 
+02-01 10:48:34.483  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:34.500  6802  6802 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/6802@30, type = -999
+02-01 10:48:34.501  6802  6802 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/6802@31, type = -999
+02-01 10:48:34.501  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23341558  [6802 / 30]    HINT :      list : [TABoost / 1] [TIMEOUT / 1500] 
+02-01 10:48:34.501  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 23348392  [6802 / 31]    HINT : TA_TOUCH_SHARE    list : [TIMEOUT / 1500] 
+02-01 10:48:34.548  2639  3571 D InputReader: Btn_touch(5): value=0 when=7594.871449
+02-01 10:48:34.548  2639  3571 I InputReader: Touch event's action is 0x1 (id=6, t=0) [pCnt=1, s=] when=7594.871449
+02-01 10:48:34.549  2639  3570 I InputDispatcher: Delivering touch to (25313): action: 0x1, f=0x0, d=0, 'fe32360', t=1 
+02-01 10:48:34.549 25313 25313 I VRI[MainActivity]@2799f58: ViewPostIme pointer 1
+02-01 10:48:34.550  4589  4589 I HoneySpace.GestureInputHandler: reset
+02-01 10:48:34.550  4589  4589 I HoneySpace.InputSession: close
+02-01 10:48:34.550  2639  2639 I SemDvfsHyPerManager: acquire hyper - GESTURE_DETECTED_HRR/2639@28, type = -999
+02-01 10:48:34.550  2639  2639 I SemDvfsHyPerManager: acquire hyper - GESTURE_DETECTED_HRR/2639@28, type = -999
+02-01 10:48:34.551  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 3488763
+02-01 10:48:34.551  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 3557806  [2639 / 28]    HINT : GESTURE_DETECTED_HRR    list : [TIMEOUT / 252] 
+02-01 10:48:34.553  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 3557806  [2639 / 28]    HINT : GESTURE_DETECTED_HRR    list : [TIMEOUT / 304] 
+02-01 10:48:34.584  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:48:34.612  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4496812  [1687 / 1311]    HINT :      list : [TID_LOW_LATENCY / 0] [TID / 11264] [TID / 11265] [TID / 5125] [TID / 11266] 
+02-01 10:48:34.613  1681  1818 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 4499812  [1687 / 1312]    HINT :      list : [UCLAMP_MIN_BOOST / 0] [TID / 11264] [TID / 11265] [TID / 5125] [TID / 11266] 
+02-01 10:48:34.614  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 4496812
+02-01 10:48:34.614  1681  1818 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 4499812
+02-01 10:48:34.643  1674  3922 I sensors-hal: handle_sns_client_event:159, auto_rotation_event_2 event,255, duration,0, ts,8034038794549, ts_diff,929466
+02-01 10:48:34.643  1674  3922 I sensors-hal: handle_sns_client_event:164, auto_rotation_debug_2 acc,-0.861,3.312,9.835, ar,0, ver,14, pedo,1,e,1,i,3
+02-01 10:48:34.644  2639  2998 D WindowOrientationListener: onSensorChanged device orientation: -1
+02-01 10:48:34.645  3969  3969 D AppController: AppControlSensorListener.onSensorChanged, Rotation: -1
+02-01 10:48:34.645  3969  3969 D NavigationBar: onRotationProposal proposedRotation=-1, isValid=false, mNavBarWindowState=WINDOW_STATE_SHOWING, rotateSuggestionsDisabled=false, isRotateButtonVisible=false
+02-01 10:48:34.646  3969  3969 D RotationButtonController: onRotationProposal unknown rotation
+02-01 10:48:34.732  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)

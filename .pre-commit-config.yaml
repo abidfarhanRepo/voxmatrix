@@ -1,0 +1,128 @@
+# Pre-commit configuration for VoxMatrix Flutter app
+# Install: pip install pre-commit
+# Run: pre-commit install
+
+default_language_version:
+  python: python3
+
+repos:
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^(.*\.md$|.*\.dart$)
+      - id: end-of-file-fixer
+        exclude: ^(.*\.dart$)
+      - id: check-yaml
+        args: ['--unsafe']
+      - id: check-json
+      - id: check-toml
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+      - id: no-commit-to-branch
+        args: ['--branch', 'main', '--branch', 'master']
+
+  # Dart and Flutter specific checks
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v0.5.1
+    hooks:
+      - id: go-fmt
+        exclude: ^$
+
+  # Flutter format check
+  - repo: local
+    hooks:
+      - id: flutter-format
+        name: Flutter Format
+        entry: dart format --output=none --set-exit-if-changed
+        language: system
+        files: \.dart$
+        pass_filenames: false
+
+      - id: flutter-analyze
+        name: Flutter Analyze
+        entry: flutter analyze
+        language: system
+        files: \.dart$
+        pass_filenames: false
+
+      - id: flutter-pub-get
+        name: Flutter Pub Get
+        entry: flutter pub get
+        language: system
+        files: ^(pubspec\.yaml|pubspec\.lock)$
+        pass_filenames: false
+
+      - id: dart-fix
+        name: Dart Fix
+        entry: dart fix --apply
+        language: system
+        files: \.dart$
+        pass_filenames: false
+
+  # Check for TODO and FIXME comments
+  - repo: local
+    hooks:
+      - id: check-todos
+        name: Check for TODOs
+        entry: bash -c 'grep -rn "TODO\|FIXME" lib/ || true'
+        language: system
+        files: \.dart$
+        pass_filenames: false
+
+      - id: check-hardcoded-values
+        name: Check for Hardcoded Secrets
+        entry: bash -c |
+          ! grep -rn "password\|secret\|api[_-]key\|token" lib/ |
+          grep -v "// ignore:" || true
+        language: system
+        files: \.dart$
+        pass_filenames: false
+
+  # Markdown linting
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.38.0
+    hooks:
+      - id: markdownlint
+        args: ['--fix']
+        exclude: ^(CHANGELOG\.md$)
+
+  # YAML linting
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.33.0
+    hooks:
+      - id: yamllint
+        args: ['-d', '{extends: default, rules: {line-length: disable, document-start: disable}}']
+
+  # Shell script checks
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.6
+    hooks:
+      - id: shellcheck
+        args: ['--severity=warning']
+
+  # Generic file content checks
+  - repo: https://github.com/motet-a/jinjanator-formats
+    rev: 0.5.0
+    hooks:
+      - id: validate-with-defaults
+        exclude: ^$
+
+# CI configuration
+ci:
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit.com hooks
+
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false

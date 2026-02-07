@@ -1,0 +1,73 @@
+# VoxMatrix Docker Ignore File
+# Files/directories to exclude from Docker build context
+
+# Core dumps
+*.core
+core
+app/android/core
+app/android/*.core
+
+# Git
+.git
+.gitignore
+
+# Flutter/Dart build artifacts
+**/build/
+**/.dart_tool/
+**/.pub-cache/
+**/.packages
+**/pubspec.lock
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Node modules (if any)
+node_modules/
+
+# Server data directories (not needed for app build)
+server/data/
+server/logs/
+
+# Documentation (not needed for build)
+*.md
+!README.md
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+.DS_Store
+Thumbs.db
+
+# Android specific
+app/android/.gradle/
+app/android/app/debug/
+app/android/app/profile/
+app/android/app/release/
+app/android/local.properties
+app/android/gradle/wrapper/gradle-wrapper.properties
+
+# iOS specific
+app/ios/Pods/
+app/ios/.symlinks/
+app/ios/Flutter/Flutter.framework
+app/ios/Flutter/Flutter.podspec
+
+# Testing
+test/
+*.test.dart
+
+# Coverage
+coverage/
+
+# Docker files themselves (not needed in context)
+docker/
+.dockerignore
+
+# Scripts
+scripts/
+*.sh

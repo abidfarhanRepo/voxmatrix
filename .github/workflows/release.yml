@@ -1,0 +1,169 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release (e.g., v1.0.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      tag_name: ${{ steps.get_tag.outputs.tag }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get tag name
+        id: get_tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.tag }}"
+          else
+            TAG="${{ github.ref_name }}"
+          fi
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "Releasing tag: $TAG"
+
+      - name: Generate Release Notes
+        id: release_notes
+        env:
+          TAG: ${{ steps.get_tag.outputs.tag }}
+        run: |
+          # Get previous tag
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+
+          if [ -n "$PREV_TAG" ]; then
+            echo "## What's Changed" > release_notes.md
+            echo "" >> release_notes.md
+            echo "### Changes since $PREV_TAG" >> release_notes.md
+            echo "" >> release_notes.md
+
+            # Generate changelog
+            git log ${PREV_TAG}..HEAD --pretty=format:"- %s (%h)" --reverse >> release_notes.md
+
+            # Categorize commits
+            echo "" >> release_notes.md
+            echo "### Categories" >> release_notes.md
+            echo "" >> release_notes.md
+
+            echo "**Features:**" >> release_notes.md
+            git log ${PREV_TAG}..HEAD --grep="feat" --oneline | sed 's/^/- /' || echo "None" >> release_notes.md
+            echo "" >> release_notes.md
+
+            echo "**Bug Fixes:**" >> release_notes.md
+            git log ${PREV_TAG}..HEAD --grep="fix" --oneline | sed 's/^/- /' || echo "None" >> release_notes.md
+            echo "" >> release_notes.md
+
+            echo "**Breaking Changes:**" >> release_notes.md
+            git log ${PREV_TAG}..HEAD --grep="BREAKING" --oneline | sed 's/^/- /' || echo "None" >> release_notes.md
+          else
+            echo "## Initial Release" > release_notes.md
+            echo "" >> release_notes.md
+            echo "First release of VoxMatrix Flutter app." >> release_notes.md
+          fi
+
+          # Add download stats placeholder
+          echo "" >> release_notes.md
+          echo "---" >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### Download" >> release_notes.md
+          echo "" >> release_notes.md
+          echo "- **Android APK**: \`voxmatrix-${TAG}.apk\`" >> release_notes.md
+          echo "- **Android App Bundle**: \`voxmatrix-${TAG}.aab\` (for Play Store)" >> release_notes.md
+          echo "- **iOS IPA**: \`voxmatrix-${TAG}.ipa\`" >> release_notes.md
+
+          cat release_notes.md
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.get_tag.outputs.tag }}
+          name: VoxMatrix ${{ steps.get_tag.outputs.tag }}
+          body_path: release_notes.md
+          draft: false
+          prerelease: ${{ contains(steps.get_tag.outputs.tag, 'beta') || contains(steps.get_tag.outputs.tag, 'alpha') }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  download-artifacts:
+    name: Download and Upload Release Assets
+    runs-on: ubuntu-latest
+    needs: [release]
+    timeout-minutes: 20
+
+    steps:
+      - name: Download Android APK
+        uses: actions/download-artifact@v4
+        with:
+          name: android-release-apk
+          path: ./assets
+
+      - name: Download Android AAB
+        uses: actions/download-artifact@v4
+        with:
+          name: android-app-bundle
+          path: ./assets
+
+      - name: Download iOS IPA
+        uses: actions/download-artifact@v4
+        with:
+          name: ios-release-ipa
+          path: ./assets
+
+      - name: List assets
+        run: ls -lh ./assets
+
+      - name: Upload Android APK to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.release.outputs.tag_name }}
+          files: ./assets/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Android AAB to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.release.outputs.tag_name }}
+          files: ./assets/*.aab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload iOS IPA to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.release.outputs.tag_name }}
+          files: ./assets/*.ipa
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    name: Notify Release
+    runs-on: ubuntu-latest
+    needs: [release, download-artifacts]
+    if: always()
+
+    steps:
+      - name: Send notification
+        run: |
+          echo "Release ${{ needs.release.outputs.tag_name }} completed!"
+          echo "Status: ${{ job.status }}"

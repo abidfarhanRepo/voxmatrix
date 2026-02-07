@@ -1,0 +1,35 @@
+# Caddy configuration for VoxMatrix on Tailscale
+{
+    auto_https off
+}
+
+# HTTP endpoint
+:80 {
+    reverse_proxy synapse:8008
+}
+
+# HTTPS endpoint with self-signed certificate
+:443 {
+    # Generate and use self-signed certificate
+    tls internal
+
+    # Matrix Client API
+    handle_path /_matrix/* {
+        reverse_proxy synapse:8008
+    }
+
+    # Well-known for client discovery
+    handle /.well-known/matrix/client {
+        header Content-Type application/json
+        header Access-Control-Allow-Origin *
+        respond `{"m.homeserver": {"base_url": "https://100.92.210.91:443"}}` 200
+    }
+
+    # Health check
+    handle /health {
+        respond "OK" 200
+    }
+
+    # Everything else
+    reverse_proxy synapse:8008
+}

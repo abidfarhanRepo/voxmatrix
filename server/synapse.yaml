@@ -1,0 +1,51 @@
+# Synapse configuration - Production setup with PostgreSQL
+server_name: "192.168.10.4"
+pid_file: /data/homeserver.pid
+report_stats: false
+
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+        compress: false
+
+database:
+  name: psycopg2
+  args:
+    host: postgres
+    port: 5432
+    user: synapse
+    password: synapse_password
+    database: synapse
+    cp_min: 5
+    cp_max: 10
+
+enable_registration: true
+enable_registration_captcha: false
+enable_registration_without_verification: true
+
+turn_uris:
+  - "turn:192.168.10.4:3478?transport=udp"
+  - "turn:192.168.10.4:3478?transport=tcp"
+
+federation_enabled: false
+media_store_path: /data/media_store
+uploads_path: /data/uploads
+max_upload_size: 50M
+url_preview_enabled: false
+redis_enabled: false
+metrics_enabled: false
+
+macaroon_secret_key: "macaroon_secret_change_me_to_random_string_at_least_50_chars_long"
+form_secret: "form_secret_change_me_to_random_string"
+no_tls: true
+suppress_key_server_warning: true
+public_baseurl: "http://192.168.10.4:8008"
+trusted_key_servers: []
+
+# Logging
+log_config: "/data/log_config.yaml"
+log_level: DEBUG

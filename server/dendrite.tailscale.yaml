@@ -1,0 +1,61 @@
+# Dendrite configuration for Tailscale Networking
+version: 2
+
+global:
+  server_name: voxmatrix.local
+  # Let Dendrite auto-generate the key on first run
+  database:
+    connection_string: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
+    max_open_conns: 90
+    max_idle_conns: 5
+    conn_max_lifetime: -1
+  jetstream:
+    storage_path: /var/dendrite/jetstream
+  disable_federation: true
+  presence:
+    enable_inbound: true
+    enable_outbound: true
+
+client_api:
+  registration_disabled: false
+  guests_disabled: true
+  recaptcha_public_key: ""
+  recaptcha_private_key: ""
+  turn:
+    turn_username: ${TURN_USERNAME}
+    turn_password: ${TURN_PASSWORD}
+    turn_uris:
+      - turn:${TAILSCALE_IP}:3478?transport=udp
+      - turn:${TAILSCALE_IP}:3478?transport=tcp
+      - stun:stun.l.google.com:19302
+
+media_api:
+  media_path: /var/dendrite/media
+  max_file_size_bytes: 52428800
+  dynamic_thumbnails: false
+  thumbnail_sizes:
+    - width: 32
+      height: 32
+      method: crop
+    - width: 96
+      height: 96
+      method: crop
+    - width: 320
+      height: 240
+      method: scale
+    - width: 640
+      height: 480
+      method: scale
+
+sync_api:
+  real_ip_header: X-Real-IP
+
+federation_api:
+  enabled: false
+
+room_server:
+  room_server_visibility:
+    allowed: ["*"]
+
+user_api:
+  bcrypt_cost: 10

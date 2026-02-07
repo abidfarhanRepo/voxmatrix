@@ -1,0 +1,65 @@
+# Codecov configuration for VoxMatrix Flutter app
+# https://docs.codecov.com/docs/codecov-yaml
+
+# Coverage configuration
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+
+  # Status checks
+  status:
+    project:
+      default:
+        target: 70%
+        threshold: 1%
+        informational: false
+        if_ci_failed: error
+
+    patch:
+      default:
+        target: 75%
+        threshold: 5%
+        informational: false
+        if_ci_failed: error
+
+# Ignore paths
+ignore:
+  - "lib/**/.g.dart"
+  - "lib/**/*.freezed.dart"
+  - "lib/**/*.mocks.dart"
+  - "test/**"
+  - "test/**/_mock_*.dart"
+  - "**/*.generated.dart"
+  - "**/l10n.dart"
+
+# Comment configuration
+comment:
+  layout: "reach,diff,flags,files,footer"
+  behavior: default
+  require_changes: false
+  require_base: false
+  require_head: true
+
+# Flag configurations
+flags:
+  unittests:
+    paths:
+      - test/
+    carryforward: true
+
+  integrationtests:
+    paths:
+      - integration_test/
+    carryforward: true
+
+# GitHub checks
+github_checks:
+  annotations: true
+
+# Ignore specific commits
+ignore:
+  - "dependabot/**"
+  - "translation/**"
+  - "ci/**"
+  - "docs/**"

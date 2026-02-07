@@ -1,0 +1,3 @@
+Flutter failed to delete a directory at "/home/xaf/Desktop/VoxMatrix/app/linux/flutter/ephemeral/.plugin_symlinks".
+Please ensure that the SDK and/or project is installed in a location that has read/write permissions for the current user.
+

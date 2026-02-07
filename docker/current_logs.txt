@@ -1,0 +1,131 @@
+--------- beginning of system
+02-01 10:54:34.655  1166  1166 D io_stats: !@   8,0 r 1193995 26704760 w 498867 10283664 d 56944 8961352 f 18326 47985 iot 276484 0 th 0 0 0 pt 0 inp 0 0 7954.978
+02-01 10:54:34.655  1166  1166 D io_stats: !@ Write_top(KB): kworker/u16:1(24683) 3496
+--------- beginning of main
+02-01 10:54:35.102  1674 26724 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 513(513),c:169,b:150,m:13,cl:82,l:519,s:500,l0:86848,l1:192,s0:72000,s1:0,acl:1,opr:0.42,f(r):94,u(bl):100,if:0,wi:0,si:0,po:0(N:0)
+02-01 10:54:35.285  1784  1824 E HeatmapThread: ECT Thread time in milliseconds: 1769932475
+02-01 10:54:35.289  1784  1824 D HeatmapThread: !@ batteryplugType : 2
+02-01 10:54:35.289  1784  1824 D HeatmapThread: !@ batteryLevel : 68  batteryTemperature : 318 
+02-01 10:54:35.290  1784  1824 D HeatmapThread: !@ Heatmap currtime: 29498874
+02-01 10:54:35.290  1784  1824 D HeatmapThread: !@ Heatmap prevtime: 29498854
+02-01 10:54:35.290  1784  1824 D HeatmapThread: !@ Heatmap plugstarttime: 29498866
+02-01 10:54:35.290  1784  1824 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29498734
+02-01 10:54:35.290  1784  1824 E HeatmapThread: !@ CAM New BSOH: 100
+02-01 10:54:35.901  1728  1757 E BatteryDump: !@new_battery_dump : 4087,1138,1200,1500,68,318,314,327,318,0,328,327,0,Charging,NO_CHARGING,Normal,Good,USB,1,Normal,0,0,9283,0x8000,0x10010000,0x0,0,0,0000,0000,00000000,0,0,0,0,321,4023,6758,990,0,
+02-01 10:54:35.903  1733  1733 I seh_thermal_service: getTemperaturesWithType SehTemperatureType: 3
+02-01 10:54:35.903  1728  1728 I sehhealth-service: updateLrpSysfs: write: 327
+02-01 10:54:35.950 32072 32072 I GWT:SessionWorker: [intelligence] Clear appWidget-40-worker resource
+02-01 10:54:35.951 32072 32072 I GWT:SessionWorker: [intelligence] SessionWorker appWidget-40 end
+02-01 10:54:35.951 32072 32072 I GWT:SessionWorker: [intelligence] closeSession appWidget-40
+02-01 10:54:35.951 32072 32072 I GWT:GlanceSession: [intelligence] close: this=AppWidgetSession{de723f9 id=40 widget=com.samsung.android.settings.intelligence.widget.ui.ArcWidget }
+02-01 10:54:35.956 32072 32105 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=4485aa14-fa01-4098-9c13-6135feb72995, tags={ androidx.glance.session.SessionWorker, com.android.settings.intelligence, appWidget-40 } ]
+02-01 10:54:35.966  2639  4163 I ActivityManager: Changes in 10132 8 to 10, 128 to 0
+02-01 10:54:36.285  1784  1824 E HeatmapThread: ECT Thread time in milliseconds: 1769932476
+02-01 10:54:36.289  1784  1824 D HeatmapThread: !@ batteryplugType : 2
+02-01 10:54:36.290  1784  1824 D HeatmapThread: !@ batteryLevel : 68  batteryTemperature : 318 
+02-01 10:54:36.290  1784  1824 D HeatmapThread: !@ Heatmap currtime: 29498874
+02-01 10:54:36.290  1784  1824 D HeatmapThread: !@ Heatmap prevtime: 29498854
+02-01 10:54:36.290  1784  1824 D HeatmapThread: !@ Heatmap plugstarttime: 29498866
+02-01 10:54:36.290  1784  1824 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29498734
+02-01 10:54:36.291  1784  1824 E HeatmapThread: !@ CAM New BSOH: 100
+02-01 10:54:36.658  1166  1166 D io_stats: !@   8,0 r 1193996 26704764 w 498869 10283672 d 56944 8961352 f 18326 47985 iot 276492 0 th 0 0 0 pt 0 inp 0 0 7956.981
+02-01 10:54:36.929  2639  6374 D SemWifiUsabilityStatsMonitor: onWifiUsabilityStats - seqNum 1159, isSameBssidAndFreq true
+02-01 10:54:36.930  2639  3709 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [110 WIFI]
+02-01 10:54:36.930  2639  3816 E SemWifiLinkQualityMonitor: Too old or invalid TMI: currentTime=1769932476930 lastDateWindow=1769926059000
+02-01 10:54:36.931  2639  3817 D SemInsManager: {"bssid": "98d02d565500","rssi": -66.0,"latency": 0.0,"outage_count": 3,"lq_callback_triggered": true,"outage_log": "Unreliable statistics: -66.0 / 5 / 473 / 47 / 0 || 98d02d565500: 0.000 / 0.000 / @ || N N / 3 0 / N 2.0 / Y X 0 / 7957253 0 || 2026-02-01 09:07:39  / 0: 0 0 0 0 0 0 / 0: 0 0 0 0 0 0 / 0: 0 0 0 0 0 0""Magnetic Sensor Events size": "0""Pressure Sensor Events size": "0"}
+02-01 10:54:36.933  2639  3764 D SemWifiApNsd:Client: lpInterface:wlan0
+02-01 10:54:36.933  2639  3764 D SemWifiSwitchForIndividualAppsService: stopTCPMonitoring : already stopped
+02-01 10:54:36.933  2639  3764 I WifiConnectivityMonitor.NCC: sNetworkCallback(oCC) FULL : 110(valid: true/captive: false)
+02-01 10:54:36.933  2639  3764 I WifiConnectivityMonitor.NCC: [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=8539Kbps LinkDnBandwidth>=10529Kbps TransportInfo: <SSID: <unknown ssid>, BSSID: 02:00:00:**:**:00, MAC: 02:00:00:**:**:00, IP: /10.*.**.166, Security type: 2, Supplicant state: COMPLETED, Wi-Fi standard: 11ax, RSSI: -66, Link speed: 864Mbps, Tx Link speed: 864Mbps, Max Supported Tx Link speed: 1200Mbps, Rx Link speed: 864Mbps, Max Supported Rx Link speed: 1200Mbps, Frequency: 5500MHz, Net ID: -1, Metered hint: false, score: 60, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: 1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none><none>MLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -66 AdminUids: [1110024] SSID: "OUC-STUDENT-WIFI" UnderlyingNetworks: Null]
+02-01 10:54:36.934  2639  3845 D WifiConnectivityMonitor: HANDLE_ON_CAPABILITIES_CHANGED
+02-01 10:54:36.934  2639  3837 D SemApeService: Deducted link capacity (M: R=604 T=604) RSSI=-66
+02-01 10:54:36.934  2639  3845 I WifiConnectivityMonitor: determineMode : MODE_NON_SWITCHABLE_BY_POOR_NETWORK_DETECTION_DISABLED
+02-01 10:54:36.934  2639  3837 D SemApeService: Deducted link capacity (M: R=604 T=604) on (wlan0) GoogleAPI(M: R=10 T=8) RSSI=-66 isDefault=false isMlo=false
+02-01 10:54:36.934  2639  3845 D OpenNetworkQos[4.00]: updateBssidNoInternet: mBssidNoInternet = false
+02-01 10:54:36.934  2639  3845 D OpenNetworkQos[4.00]: getOpenNetworkQosNoInternetStatus: false
+02-01 10:54:36.934  2639  3845 D OpenNetworkQos[4.00]: getOpenNetworkQosScores: 25 26 10 
+02-01 10:54:36.935  2639  3845 D KNOX_MDM_SettingsProvider: isChangeAllowed() : name = wifi_wcm_qos_sharing_score_summary
+02-01 10:54:36.935  2639  3845 I WifiProfileShare: network QoS data was changed (internet), updateQoSData networkType: true, qosData: false
+02-01 10:54:36.936  2639  5148 D WifiProfileShare: nearby scanning settings stop
+02-01 10:54:36.937  2639  5148 V WifiProfileShare.Caster: checkAndGetShareData - nearby scanning
+02-01 10:54:36.937  3969  4344 I WifiPickerTracker: NetworkCallback : onCapabilitiesChanged
+02-01 10:54:36.938  3969  4344 D WifiPickerTracker: updateWifiEntries capabilities
+02-01 10:54:36.938  3969  4111 D Tile.WifiTile: handleUpdateState isTransient=false transientEnabling =false cb.isTransient=false state.state = 2 mStateBeforeClick.value =false enabled =true
+02-01 10:54:36.938  4148  5850 I EPDG -- SIM0 [NetController]: WifiNetworkCallback onCapabilitiesChanged(): validated true
+02-01 10:54:36.939  4148  5850 I EPDG -- SIM0 [SMARTWIFI]: mWiFiValidateNetworkCallback onCapabilitiesChanged(): validated true captiveportal false
+02-01 10:54:36.940  3969  4344 D WifiPickerTracker: update AutoHotspot Entries() : bleAccessPoints -> 0
+02-01 10:54:36.940  3969  4344 D WifiPickerTracker: handleNetworkCapabilitiesChanged
+02-01 10:54:36.947  2639  5122 D ActivityManager: unpendingScheduleServiceRestart: u=10372, drop=false
+02-01 10:54:36.949  2639  3709 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [106 WIFI|VPN]
+02-01 10:54:36.950  2639  5120 D FreecessController: UFZ : com.bizce.accountbook(10372) [14462] reason: Binder(1)-free_buffer_full
+02-01 10:54:36.951  4287  4615 I WfcEpdgManager: mDefaultNetworkCallback onCapabilitiesChanged(): isWifi :true,validated :true
+02-01 10:54:36.951  3969  4344 I WifiPickerTracker: DefaultNetworkCallback : onCapabilitiesChanged
+02-01 10:54:36.951  2639  5126 W LocationManagerService: onFreezeStateChanged, uid[10372]=false
+02-01 10:54:36.951  2639  5126 I PowerManagerService: [PWL] SetWakeLockEnableDisable uid = 10372 , disable= false
+02-01 10:54:36.951  2639  5126 I PowerManagerService: [PWL] can not change uid =  10372
+02-01 10:54:36.954  3969  4152 D WifiInteractor: get wifiIconGroup ePDGConnected : false
+02-01 10:54:36.954  4753 27157 I NearbyMediums: [WifiNetworkV2] defaultNetworkCallback onCapabilitiesChanged network:106 [ WIFI VPN ] isNonBypassable:true
+02-01 10:54:36.954  3969  4152 D WifiInteractor: get wifiIconGroup ePDGConnected : false
+02-01 10:54:36.955  4287  4525 I WfcEpdgManager: [Connected] processMessage WIFI_CONNECTED
+02-01 10:54:36.956  4589  4709 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Wifi(visible=true, resId=2131236022, activityId=2131236043)
+02-01 10:54:36.956  4589  4709 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Wifi(visible=true, resId=2131236022, activityId=2131236043)
+02-01 10:54:36.958  1795  2229 I VSyncReactor: Current= 120, Period= 120, Distance= 0
+02-01 10:54:36.962  1795  1795 I SurfaceFlinger: SFWD update time=7957285636076
+02-01 10:54:36.964  1795  2147 I CompositionEngine: [setDisplaySize] size=(434, 42)
+02-01 10:54:36.964 14462 14462 D ActivityThread: Package [qa.ooredoo.android] reported as REPLACED, but missing application info. Assuming REMOVED.
+02-01 10:54:36.965 14462 14462 D ActivityThread: Package [qa.ooredoo.android] reported as REPLACED, but missing application info. Assuming REMOVED.
+02-01 10:54:36.965 14462 14462 D ActivityThread: Package [qa.ooredoo.android] reported as REPLACED, but missing application info. Assuming REMOVED.
+02-01 10:54:36.965 14462 14462 D ActivityThread: Package [com.ebdaadt.syaanhclient] reported as REPLACED, but missing application info. Assuming REMOVED.
+02-01 10:54:36.965 14462 14462 D ActivityThread: Package [com.ebdaadt.syaanhclient] reported as REPLACED, but missing application info. Assuming REMOVED.
+02-01 10:54:36.965 14462 14462 D ActivityThread: Package [com.ebdaadt.syaanhclient] reported as REPLACED, but missing application info. Assuming REMOVED.
+02-01 10:54:36.966  1795  4506 I VSyncReactor: Current= 120, Period= 120, Distance= 120
+02-01 10:54:37.022  1674 26724 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 450(450),c:169,b:150,m:13,cl:82,l:447,s:441,l0:76480,l1:192,s0:63500,s1:0,acl:1,opr:0.42,f(r):94,u(bl):100,if:0,wi:0,si:0,po:0(N:0)
+02-01 10:54:37.285  1784  1824 E HeatmapThread: ECT Thread time in milliseconds: 1769932477
+02-01 10:54:37.290  1784  1824 D HeatmapThread: !@ batteryplugType : 2
+02-01 10:54:37.290  1784  1824 D HeatmapThread: !@ batteryLevel : 68  batteryTemperature : 318 
+02-01 10:54:37.290  1784  1824 D HeatmapThread: !@ Heatmap currtime: 29498874
+02-01 10:54:37.290  1784  1824 D HeatmapThread: !@ Heatmap prevtime: 29498854
+02-01 10:54:37.290  1784  1824 D HeatmapThread: !@ Heatmap plugstarttime: 29498866
+02-01 10:54:37.290  1784  1824 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29498734
+02-01 10:54:37.291  1784  1824 E HeatmapThread: !@ CAM New BSOH: 100
+02-01 10:54:37.442  4753 27157 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=false, isWifiConnected=true)
+02-01 10:54:37.453  2178  2178 I CNSS    : cnss_open_log_file: directory /data/vendor/log/wifi/ created
+02-01 10:54:37.664  1674  3922 I sensors-hal: handle_sns_std_sensor_event:131, [SSC_LIGHT] A: 411(411),c:169,b:150,m:13,cl:82,l:410,s:402,l0:71136,l1:192,s0:58000,s1:0,acl:1,opr:0.42,f(r):94,u(bl):100,if:0,wi:0,si:0,po:0(N:0)
+02-01 10:54:38.008  1714 21353 I StatsHandler: [vp9D_170] Stats: Pending(0) i/p-done(0) Works: Q: 30/Done 23|Work-Rate: Q(0.0/s Avg=0.0/s) Done(0.000/s Avg=0.023/s)| Stream: 25.00fps 129.8Kbps
+02-01 10:54:38.009  1714 21353 I StatsHandler: [vp9D_170] Mem-usage:  [In-1D: 12 bufs 96.000 MB] [1D-241: 34 bufs 0.531 MB] [2D-242: 22 bufs 4.984 MB] | Total: 101.516 MB
+02-01 10:54:38.009  1714 21353 I StatsHandler: [vp9D_171] Stats: Pending(0) i/p-done(0) Works: Q: 30/Done 23|Work-Rate: Q(0.0/s Avg=0.0/s) Done(0.000/s Avg=0.023/s)| Stream: 24.39fps 83.0Kbps
+02-01 10:54:38.009  1714 21353 I StatsHandler: [vp9D_171] Mem-usage:  [In-1D: 13 bufs 104.000 MB] [1D-243: 35 bufs 0.547 MB] [2D-244: 22 bufs 8.078 MB] | Total: 112.625 MB
+02-01 10:54:38.009  1714 21353 I StatsHandler: [vp9D_172] Stats: Pending(0) i/p-done(0) Works: Q: 30/Done 23|Work-Rate: Q(0.0/s Avg=0.0/s) Done(0.000/s Avg=0.023/s)| Stream: 30.30fps 213.0Kbps
+02-01 10:54:38.009  1714 21353 I StatsHandler: [vp9D_172] Mem-usage:  [In-1D: 11 bufs 88.000 MB] [1D-245: 33 bufs 0.516 MB] [2D-246: 22 bufs 4.984 MB] | Total: 93.500 MB
+02-01 10:54:38.009  1714 21353 I StatsHandler: [vp9D_173] Stats: Pending(0) i/p-done(0) Works: Q: 31/Done 24|Work-Rate: Q(0.0/s Avg=0.0/s) Done(0.000/s Avg=0.024/s)| Stream: 30.30fps 55.2Kbps
+02-01 10:54:38.010  1714 21353 I StatsHandler: [vp9D_173] Mem-usage:  [In-1D: 11 bufs 88.000 MB] [1D-247: 33 bufs 0.516 MB] [2D-248: 22 bufs 8.078 MB] | Total: 96.594 MB
+02-01 10:54:38.142  1674 26724 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 400(400),c:169,b:150,m:13,cl:82,l:400,s:389,l0:69664,l1:192,s0:56000,s1:0,acl:1,opr:0.42,f(r):94,u(bl):100,if:0,wi:0,si:0,po:0(N:0)
+02-01 10:54:38.285  1784  1824 E HeatmapThread: ECT Thread time in milliseconds: 1769932478
+02-01 10:54:38.289  1784  1824 D HeatmapThread: !@ batteryplugType : 2
+02-01 10:54:38.289  1784  1824 D HeatmapThread: !@ batteryLevel : 68  batteryTemperature : 318 
+02-01 10:54:38.290  1784  1824 D HeatmapThread: !@ Heatmap currtime: 29498874
+02-01 10:54:38.290  1784  1824 D HeatmapThread: !@ Heatmap prevtime: 29498854
+02-01 10:54:38.290  1784  1824 D HeatmapThread: !@ Heatmap plugstarttime: 29498866
+02-01 10:54:38.290  1784  1824 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29498734
+02-01 10:54:38.290  1784  1824 E HeatmapThread: !@ CAM New BSOH: 100
+02-01 10:54:38.659  1166  1166 D io_stats: !@   8,0 r 1194007 26705400 w 498883 10283720 d 56944 8961352 f 18329 47987 iot 276496 0 th 0 0 0 pt 0 inp 0 0 7958.982
+02-01 10:54:38.660  1166  1166 D io_stats: !@ Read_top(KB): zce.accountbook(14462) 636 gs.intelligence(32072) 4
+02-01 10:54:38.660  1166  1166 D io_stats: !@ Write_top(KB): appmanager:auth(30148) 16 otonvpn.android(10649) 12 ck_tile_service(764) 12
+02-01 10:54:39.285  1784  1824 E HeatmapThread: ECT Thread time in milliseconds: 1769932479
+02-01 10:54:39.289  1784  1824 D HeatmapThread: !@ batteryplugType : 2
+02-01 10:54:39.289  1784  1824 D HeatmapThread: !@ batteryLevel : 68  batteryTemperature : 318 
+02-01 10:54:39.290  1784  1824 D HeatmapThread: !@ Heatmap currtime: 29498874
+02-01 10:54:39.290  1784  1824 D HeatmapThread: !@ Heatmap prevtime: 29498854
+02-01 10:54:39.290  1784  1824 D HeatmapThread: !@ Heatmap plugstarttime: 29498866
+02-01 10:54:39.290  1784  1824 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29498734
+02-01 10:54:39.290  1784  1824 E HeatmapThread: !@ CAM New BSOH: 100
+02-01 10:54:39.359  1667  5296 I vendor.qti.bluetooth@1.1-ibs_handler: ProcessIbsCmd: Received IBS_WAKE_IND: 0xFD
+02-01 10:54:39.359  1667  5296 D vendor.qti.bluetooth@1.1-ibs_handler: SerialClockVote: vote for UART CLK ON
+02-01 10:54:39.360  1667  5296 D vendor.qti.bluetooth@1.1-wake_lock: Acquire wakelock is acquired 
+02-01 10:54:39.360  1667  5296 I vendor.qti.bluetooth@1.1-ibs_handler: ProcessIbsCmd: Writing IBS_WAKE_ACK
+02-01 10:54:39.370  4195  5368 I ScanController: onScanResult to scannerId: 5- eventType=0x0, addressType=1, address=XX:XX:XX:XX:EC:94, primaryPhy=1, secondaryPhy=1, advertisingSid=0x0, txPower=127, rssi=-89, periodicAdvInt=0x0
+02-01 10:54:39.376  4195  5368 I ScanController: onScanResult to scannerId: 5- eventType=0x10, addressType=1, address=XX:XX:XX:XX:E5:E7, primaryPhy=1, secondaryPhy=0, advertisingSid=0xff, txPower=127, rssi=-88, periodicAdvInt=0x0
+02-01 10:54:39.416  1667  5296 I vendor.qti.bluetooth@1.1-ibs_handler: ProcessIbsCmd: Received IBS_SLEEP_IND: 0xFE
+02-01 10:54:39.417  1667  5296 D vendor.qti.bluetooth@1.1-ibs_handler: SerialClockVote: vote for UART CLK OFF
+02-01 10:54:39.478  2178  2178 I CNSS    : /sys/wifi/max_chipset_log_size doesn't exist
+02-01 10:54:39.568  1667  4650 D vendor.qti.bluetooth@1.1-wake_lock: Release wakelock is released 

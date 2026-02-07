@@ -1,0 +1,46 @@
+# Environment variables (contains sensitive data)
+.env
+
+# Data directories (contains user data and databases)
+data/
+
+# Backup files
+backups/
+*.tar.gz
+*.sha256
+
+# Caddy data
+data/caddy/*.pem
+data/caddy/*.key
+
+# Coturn data
+coturn/turnserver.db
+coturn/*.log
+
+# Dendrite keys and certificates
+data/dendrite/matrix_key.pem
+data/dendrite/*.key
+data/dendrite/*.pem
+
+# Log files
+*.log
+logs/
+
+# Docker volumes
+docker-compose.override.yml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp

@@ -1,0 +1,45 @@
+# Synapse configuration - Simple HTTP setup
+server_name: "100.92.210.91"
+pid_file: /data/homeserver.pid
+report_stats: false
+
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+        compress: false
+
+database:
+  name: sqlite3
+  args:
+    database: /data/homeserver.db
+
+enable_registration: true
+enable_registration_captcha: false
+enable_registration_without_verification: true
+registration_shared_secret: "voxmatrix_registration_secret_20260206"
+
+turn_uris:
+  - "turn:100.92.210.91:3478?transport=udp"
+  - "turn:100.92.210.91:3478?transport=tcp"
+turn_shared_secret: "shared_secret_change_me"
+turn_user_lifetime: 86400000
+turn_allow_guests: true
+
+federation_enabled: false
+media_store_path: /data/media_store
+uploads_path: /data/uploads
+max_upload_size: 50M
+url_preview_enabled: false
+redis_enabled: false
+metrics_enabled: false
+
+macaroon_secret_key: "macaroon_secret_change_me_to_random_string"
+form_secret: "form_secret_change_me_to_random_string"
+no_tls: true
+suppress_key_server_warning: true
+public_baseurl: "http://100.92.210.91:8008"
+trusted_key_servers: []

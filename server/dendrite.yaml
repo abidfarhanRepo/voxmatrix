@@ -1,0 +1,5 @@
+version: 2
+global:
+  server_name: voxmatrix.local
+  jetstream:
+    storage_path: /tmp/jetstream

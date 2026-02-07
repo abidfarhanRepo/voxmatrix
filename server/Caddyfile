@@ -1,0 +1,110 @@
+# Caddyfile for VoxMatrix
+# Reverse proxy with automatic TLS for Dendrite Matrix server
+
+{
+    # Email for Let's Encrypt certificate notifications
+    email {$CADDY_EMAIL}
+
+    # Global options
+    servers {
+        protocols h1 h2 h3
+    }
+}
+
+# Main Matrix domain configuration
+{$SERVER_NAME}:443 {
+    # Health check endpoint
+    handle /health {
+        respond "OK" 200
+    }
+
+    # Matrix Client API
+    handle_path /_matrix/* {
+        reverse_proxy dendrite:8008
+    }
+
+    # Matrix Federation API
+    handle_path /_matrix/federation/* {
+        reverse_proxy dendrite:8008
+    }
+
+    # Matrix Key distribution
+    handle /.well-known/matrix/* {
+        reverse_proxy dendrite:8008
+    }
+
+    # Matrix Client-Server API endpoints
+    handle / {
+        reverse_proxy dendrite:8008
+    }
+
+    # Security headers
+    header {
+        # Enable HSTS
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+        # Prevent clickjacking
+        X-Frame-Options "SAMEORIGIN"
+
+        # Prevent MIME type sniffing
+        X-Content-Type-Options "nosniff"
+
+        # XSS protection
+        X-XSS-Protection "1; mode=block"
+
+        # Referrer policy
+        Referrer-Policy "strict-origin-when-cross-origin"
+
+        # Remove server header
+        -Server
+    }
+
+    # Log configuration
+    log {
+        output file /logs/access.log {
+            roll_size 100mb
+            roll_keep 5
+        }
+        format json
+    }
+}
+
+# HTTP to HTTPS redirect
+:80 {
+    handle /.well-known/acme-challenge/* {
+        respond /acme_challenge_root 200
+    }
+
+    handle {
+        redir https://{host}{uri} permanent
+    }
+
+    # ACME challenge for automatic TLS
+    tls {
+        dns_provider cloudflare
+    }
+}
+
+# Federation port (8448) configuration
+{$SERVER_NAME}:8448 {
+    handle / {
+        reverse_proxy dendrite:8448
+    }
+
+    # Security headers for federation
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Frame-Options "DENY"
+        X-Content-Type-Options "nosniff"
+        -Server
+    }
+
+    # Log federation requests
+    log {
+        output file /logs/federation.log {
+            roll_size 100mb
+            roll_keep 5
+        }
+        format json
+    }
+}
