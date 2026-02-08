@@ -60,14 +60,22 @@ class _ChatPageState extends State<ChatPage> {
   bool _isTyping = false;
   MessageEntity? _replyingToMessage;
   MessageEntity? _editingMessage;
+  Timer? _typingTimer;
 
   @override
   void initState() {
     super.initState();
     context.read<ChatBloc>().add(LoadMessages(roomId: widget.roomId));
     context.read<ChatBloc>().add(SubscribeToMessages(widget.roomId));
+    context.read<ChatBloc>().add(const ProcessOfflineQueue());
     context.read<CryptoBloc>().add(const InitializeCrypto());
     context.read<CryptoBloc>().add(GetRoomCryptoInfo(widget.roomId));
+    
+    // Add scroll listener for pagination
+    _scrollController.addListener(_onScroll);
+    
+    // Listen to text changes for typing indicator
+    _messageController.addListener(_onTextChanged);
   }
 
   @override
@@ -75,7 +83,43 @@ class _ChatPageState extends State<ChatPage> {
     _messageController.dispose();
     _scrollController.dispose();
     _focusNode.dispose();
+    _typingTimer?.cancel();
     super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels <= _scrollController.position.minScrollExtent + 200) {
+      // Near top, load more messages
+      final state = context.read<ChatBloc>().state;
+      if (state is ChatLoaded && !state.hasReachedMax) {
+        context.read<ChatBloc>().add(LoadMoreMessages(roomId: widget.roomId));
+      }
+    }
+  }
+
+  void _onTextChanged() {
+    if (_messageController.text.isNotEmpty && !_isTyping) {
+      _isTyping = true;
+      context.read<ChatBloc>().add(StartTyping(widget.roomId));
+      
+      // Reset timer
+      _typingTimer?.cancel();
+      _typingTimer = Timer(const Duration(seconds: 30), () {
+        _isTyping = false;
+        context.read<ChatBloc>().add(StopTyping(widget.roomId));
+      });
+    } else if (_messageController.text.isEmpty && _isTyping) {
+      _isTyping = false;
+      _typingTimer?.cancel();
+      context.read<ChatBloc>().add(StopTyping(widget.roomId));
+    } else if (_isTyping) {
+      // Reset timer on continued typing
+      _typingTimer?.cancel();
+      _typingTimer = Timer(const Duration(seconds: 30), () {
+        _isTyping = false;
+        context.read<ChatBloc>().add(StopTyping(widget.roomId));
+      });
+    }
   }
 
   @override

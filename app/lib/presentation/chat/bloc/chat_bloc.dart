@@ -17,6 +17,8 @@ import 'package:voxmatrix/domain/usecases/chat/subscribe_to_messages_usecase.dar
 import 'package:voxmatrix/domain/usecases/chat/upload_file_usecase.dart';
 import 'package:voxmatrix/core/services/matrix_client_service.dart';
 import 'package:voxmatrix/data/datasources/auth_local_datasource.dart';
+import 'package:voxmatrix/core/services/typing_service.dart';
+import 'package:voxmatrix/core/services/offline_queue_service.dart';
 import 'chat_event.dart';
 import 'chat_state.dart';
 
@@ -34,19 +36,25 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     this._markAsReadUseCase,
     this._matrixClientService,
     this._authLocalDataSource,
+    this._typingService,
+    this._offlineQueueService,
     this._logger,
   ) : super(const ChatInitial()) {
     on<LoadMessages>(_onLoadMessages);
+    on<LoadMoreMessages>(_onLoadMoreMessages);
     on<SubscribeToMessages>(_onSubscribeToMessages);
     on<SendMessage>(_onSendMessage);
     on<EditMessage>(_onEditMessage);
     on<DeleteMessage>(_onDeleteMessage);
     on<SendTypingNotification>(_onSendTypingNotification);
+    on<StartTyping>(_onStartTyping);
+    on<StopTyping>(_onStopTyping);
     on<MarkAsRead>(_onMarkAsRead);
     on<UploadFile>(_onUploadFile);
     on<SendMediaMessage>(_onSendMediaMessage);
     on<AddReaction>(_onAddReaction);
     on<RemoveReaction>(_onRemoveReaction);
+    on<ProcessOfflineQueue>(_onProcessOfflineQueue);
   }
 
   final GetMessagesUseCase _getMessagesUseCase;
@@ -60,6 +68,8 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   final MarkAsReadUseCase _markAsReadUseCase;
   final MatrixClientService _matrixClientService;
   final AuthLocalDataSource _authLocalDataSource;
+  final TypingService _typingService;
+  final OfflineQueueService _offlineQueueService;
   final Logger _logger;
 
   StreamSubscription<Either<Failure, MessageEntity>>? _messageSubscription;
@@ -339,5 +349,87 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     _syncDebounce?.cancel();
     _logger.d('ChatBloc disposed');
     await super.close();
+  }
+
+  Future<void> _onLoadMoreMessages(
+    LoadMoreMessages event,
+    Emitter<ChatState> emit,
+  ) async {
+    final currentState = state;
+    if (currentState is! ChatLoaded || currentState.hasReachedMax) {
+      return;
+    }
+
+    final oldestMessage = currentState.messages.firstOrNull;
+    if (oldestMessage == null) return;
+
+    final result = await _getMessagesUseCase(
+      roomId: event.roomId,
+      limit: event.limit,
+      from: oldestMessage.id,
+    );
+
+    result.fold(
+      (failure) => emit(ChatError(failure.message)),
+      (newMessages) {
+        if (newMessages.isEmpty) {
+          emit(currentState.copyWith(hasReachedMax: true));
+        } else {
+          emit(ChatLoaded(
+            messages: [...newMessages, ...currentState.messages],
+            hasReachedMax: newMessages.length < event.limit,
+          ));
+        }
+      },
+    );
+  }
+
+  Future<void> _onStartTyping(
+    StartTyping event,
+    Emitter<ChatState> emit,
+  ) async {
+    await _typingService.startTyping(event.roomId);
+  }
+
+  Future<void> _onStopTyping(
+    StopTyping event,
+    Emitter<ChatState> emit,
+  ) async {
+    await _typingService.stopTyping(event.roomId);
+  }
+
+  Future<void> _onProcessOfflineQueue(
+    ProcessOfflineQueue event,
+    Emitter<ChatState> emit,
+  ) async {
+    if (!_matrixClientService.isInitialized) {
+      _logger.w('Cannot process offline queue - Matrix client not initialized');
+      return;
+    }
+
+    final queuedMessages = await _offlineQueueService.getQueuedMessages();
+    _logger.i('Processing ${queuedMessages.length} queued messages');
+
+    for (final messageData in queuedMessages) {
+      try {
+        final result = await _sendMessageUseCase(
+          roomId: messageData['roomId'] as String,
+          content: messageData['content'] as String,
+          replyToId: messageData['replyToId'] as String?,
+        );
+
+        result.fold(
+          (failure) {
+            _logger.e('Failed to send queued message: ${failure.message}');
+          },
+          (message) {
+            _offlineQueueService.removeMessage(messageData['id'] as String);
+            _logger.i('Queued message sent successfully');
+          },
+        );
+      } catch (e) {
+        _logger.e('Error processing queued message', error: e);
+      }
+    }
   }
 }

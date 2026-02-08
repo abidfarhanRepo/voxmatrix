@@ -107,6 +107,41 @@ class SubscribeToMessages extends ChatEvent {
   List<Object> get props => [roomId];
 }
 
+class LoadMoreMessages extends ChatEvent {
+  const LoadMoreMessages({
+    required this.roomId,
+    this.limit = 50,
+  });
+
+  final String roomId;
+  final int limit;
+
+  @override
+  List<Object> get props => [roomId, limit];
+}
+
+class ProcessOfflineQueue extends ChatEvent {
+  const ProcessOfflineQueue();
+}
+
+class StartTyping extends ChatEvent {
+  const StartTyping(this.roomId);
+
+  final String roomId;
+
+  @override
+  List<Object> get props => [roomId];
+}
+
+class StopTyping extends ChatEvent {
+  const StopTyping(this.roomId);
+
+  final String roomId;
+
+  @override
+  List<Object> get props => [roomId];
+}
+
 class UploadFile extends ChatEvent {
   const UploadFile({
     required this.roomId,

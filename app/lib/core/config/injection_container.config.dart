@@ -18,8 +18,11 @@ import 'package:voxmatrix/core/config/injection_container.dart' as _i593;
 import 'package:voxmatrix/core/services/device_verification_service.dart'
     as _i293;
 import 'package:voxmatrix/core/services/matrix_client_service.dart' as _i377;
+import 'package:voxmatrix/core/services/offline_queue_service.dart' as _i279;
+import 'package:voxmatrix/core/services/presence_service.dart' as _i853;
 import 'package:voxmatrix/core/services/push_notification_service.dart'
     as _i176;
+import 'package:voxmatrix/core/services/typing_service.dart' as _i992;
 import 'package:voxmatrix/data/datasources/account_remote_datasource.dart'
     as _i385;
 import 'package:voxmatrix/data/datasources/auth_local_datasource.dart' as _i631;
@@ -190,6 +193,16 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i385.AccountRemoteDataSource(gh<_i974.Logger>()));
     gh.factory<_i517.PushNotificationDataSource>(
         () => _i517.PushNotificationDataSource(gh<_i974.Logger>()));
+    gh.factory<_i279.OfflineQueueService>(
+        () => _i279.OfflineQueueService(gh<_i974.Logger>()));
+    gh.factory<_i853.PresenceService>(() => _i853.PresenceService(
+          gh<_i377.MatrixClientService>(),
+          gh<_i974.Logger>(),
+        ));
+    gh.factory<_i992.TypingService>(() => _i992.TypingService(
+          gh<_i377.MatrixClientService>(),
+          gh<_i974.Logger>(),
+        ));
     gh.factory<_i798.RoomMembersBloc>(() => _i798.RoomMembersBloc(
           gh<_i288.RoomMembersDataSource>(),
           gh<_i631.AuthLocalDataSource>(),
@@ -291,18 +304,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i71.LogoutUseCase(gh<_i169.AuthRepository>()));
     gh.factory<_i193.RegisterUseCase>(
         () => _i193.RegisterUseCase(gh<_i169.AuthRepository>()));
-    gh.factory<_i252.DirectMessagesBloc>(() => _i252.DirectMessagesBloc(
-          gh<_i376.RoomManagementRemoteDataSource>(),
-          gh<_i631.AuthLocalDataSource>(),
-          gh<_i633.RoomRemoteDataSource>(),
-          gh<_i974.Logger>(),
-        ));
-    gh.lazySingleton<_i688.RoomRepository>(() => _i129.RoomRepositoryImpl(
-          gh<_i633.RoomRemoteDataSource>(),
-          gh<_i376.RoomManagementRemoteDataSource>(),
-          gh<_i631.AuthLocalDataSource>(),
-          gh<_i974.Logger>(),
-        ));
     gh.factory<_i887.ChatBloc>(() => _i887.ChatBloc(
           gh<_i348.GetMessagesUseCase>(),
           gh<_i759.SendMessageUseCase>(),
@@ -314,6 +315,20 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i804.SubscribeToMessagesUseCase>(),
           gh<_i764.MarkAsReadUseCase>(),
           gh<_i377.MatrixClientService>(),
+          gh<_i631.AuthLocalDataSource>(),
+          gh<_i992.TypingService>(),
+          gh<_i279.OfflineQueueService>(),
+          gh<_i974.Logger>(),
+        ));
+    gh.factory<_i252.DirectMessagesBloc>(() => _i252.DirectMessagesBloc(
+          gh<_i376.RoomManagementRemoteDataSource>(),
+          gh<_i631.AuthLocalDataSource>(),
+          gh<_i633.RoomRemoteDataSource>(),
+          gh<_i974.Logger>(),
+        ));
+    gh.lazySingleton<_i688.RoomRepository>(() => _i129.RoomRepositoryImpl(
+          gh<_i633.RoomRemoteDataSource>(),
+          gh<_i376.RoomManagementRemoteDataSource>(),
           gh<_i631.AuthLocalDataSource>(),
           gh<_i974.Logger>(),
         ));
