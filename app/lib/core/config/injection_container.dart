@@ -86,12 +86,7 @@ abstract class DataSourceModule {
   ) =>
       AuthLocalDataSource(secureStorage);
 
-  @lazySingleton
-  WebRTCDataSource webrtcDataSource(
-    Logger logger,
-  ) =>
-      WebRTCDataSource(logger: logger);
-
+  // Note: WebRTCDataSource is registered via @injectable annotation in the class
   // Note: LiveKitDataSource is registered via @injectable annotation in the class
   // Note: MatrixCallSignalingDataSource is registered via @injectable annotation in the class
 

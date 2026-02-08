@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
-import 'package:voxmatrix/core/constants/app_constants.dart';
-import 'package:voxmatrix/core/theme/app_colors.dart';
-import 'package:voxmatrix/presentation/profile/bloc/profile_bloc.dart';
+import 'package:voxmatrix/core/config/injection_container.dart' as di;
+import 'package:voxmatrix/core/services/device_verification_service.dart';
+import 'package:voxmatrix/data/datasources/auth_local_datasource.dart';
 
-/// Devices management page
+/// Devices page - shows user's devices and their verification status
 class DevicesPage extends StatefulWidget {
   const DevicesPage({super.key});
 
@@ -14,39 +12,129 @@ class DevicesPage extends StatefulWidget {
 }
 
 class _DevicesPageState extends State<DevicesPage> {
-  bool _isLoading = false;
-  List<Device> _devices = [];
+  late final DeviceVerificationService _verificationService;
+  late final AuthLocalDataSource _authLocalDataSource;
+  List<DeviceInfo>? _devices;
+  bool _isLoading = true;
+  String? _errorMessage;
+  String? _userId;
 
   @override
   void initState() {
     super.initState();
+    _verificationService = di.sl<DeviceVerificationService>();
+    _authLocalDataSource = di.sl<AuthLocalDataSource>();
     _loadDevices();
   }
 
   Future<void> _loadDevices() async {
     setState(() {
       _isLoading = true;
+      _errorMessage = null;
     });
 
     try {
-      // TODO: Load devices from Matrix SDK
-      // For now, showing a placeholder
-      setState(() {
-        _devices = [
-          Device(
-            id: 'CURRENT_DEVICE',
-            name: 'This Device',
-            lastSeen: DateTime.now(),
-            isCurrent: true,
-            isVerified: true,
-          ),
-        ];
-        _isLoading = false;
-      });
+      // Get current user ID
+      _userId = await _authLocalDataSource.getUserId();
+      
+      if (_userId == null) {
+        setState(() {
+          _errorMessage = 'Not logged in';
+          _isLoading = false;
+        });
+        return;
+      }
+
+      final devices = await _verificationService.getUserDevices(_userId!);
+      if (mounted) {
+        setState(() {
+          _devices = devices;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
-      setState(() {
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _errorMessage = 'Failed to load devices: $e';
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  Future<void> _verifyDevice(DeviceInfo device) async {
+    if (_userId == null) return;
+
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Verify Device'),
+        content: Text(
+          'Mark "${device.deviceName}" as verified? '
+          'This should only be done after confirming device security through another method.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            style: TextButton.styleFrom(foregroundColor: Colors.green),
+            child: const Text('Verify'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      await _verificationService.verifyDevice(_userId!, device.deviceId);
+      if (mounted) {
+        _loadDevices();
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Device marked as verified'),
+            backgroundColor: Colors.green,
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> _blockDevice(DeviceInfo device) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Block Device'),
+        content: Text(
+          'Are you sure you want to block "${device.deviceName}"? '
+          'Messages from this device will not be readable.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: const Text('Block'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true && _userId != null) {
+      await _verificationService.blockDevice(_userId!, device.deviceId);
+      if (mounted) {
+        _loadDevices();
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Device blocked'),
+            backgroundColor: Colors.orange,
+          ),
+        );
+      }
     }
   }
 
@@ -59,223 +147,203 @@ class _DevicesPageState extends State<DevicesPage> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _loadDevices,
+            tooltip: 'Refresh',
           ),
         ],
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              itemCount: _devices.length,
-              itemBuilder: (context, index) {
-                final device = _devices[index];
-                return _buildDeviceTile(device);
-              },
-            ),
+      body: _buildBody(),
     );
   }
 
-  Widget _buildDeviceTile(Device device) {
-    return ListTile(
-      leading: CircleAvatar(
-        child: Icon(
-          device.isCurrent ? Icons.smartphone : Icons.devices,
-          color: AppColors.primary,
-        ),
-      ),
-      title: Row(
-        children: [
-          Text(device.name),
-          if (device.isCurrent) ...[
-            const SizedBox(width: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8,
-                vertical: 2,
-              ),
-              decoration: BoxDecoration(
-                color: AppColors.primary,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Text(
-                'CURRENT',
-                style: TextStyle(
-                  fontSize: 10,
-                  color: AppColors.onPrimary,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+  Widget _buildBody() {
+    if (_isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    if (_errorMessage != null) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.error_outline, size: 64, color: Colors.red[300]),
+            const SizedBox(height: 16),
+            Text(_errorMessage!, textAlign: TextAlign.center),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: _loadDevices,
+              icon: const Icon(Icons.refresh),
+              label: const Text('Retry'),
             ),
           ],
+        ),
+      );
+    }
+
+    if (_devices == null || _devices!.isEmpty) {
+      return const Center(
+        child: Text('No devices found'),
+      );
+    }
+
+    return Column(
+      children: [
+        _buildE2EEInfoBanner(),
+        Expanded(
+          child: ListView.builder(
+            itemCount: _devices!.length,
+            itemBuilder: (context, index) {
+              return _buildDeviceCard(_devices![index]);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildE2EEInfoBanner() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.blue.withOpacity(0.1),
+        border: Border.all(color: Colors.blue.withOpacity(0.3)),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.info_outline, color: Colors.blue[700]),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              'Verify devices to enable end-to-end encryption. Only verified devices can decrypt your messages.',
+              style: TextStyle(color: Colors.blue[900], fontSize: 13),
+            ),
+          ),
         ],
       ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('ID: ${device.id}'),
-          if (device.lastSeen != null)
-            Text(
-              'Last seen: ${DateFormat.yMMMd().add_jm().format(device.lastSeen!)}',
-            ),
-          if (device.isVerified)
+    );
+  }
+
+  Widget _buildDeviceCard(DeviceInfo device) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: ListTile(
+        leading: Icon(
+          device.verified
+              ? Icons.verified_user
+              : (device.blocked ? Icons.block : Icons.devices),
+          color: _getStatusColor(device),
+          size: 32,
+        ),
+        title: Text(
+          device.deviceName,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 4),
+            Text('Device ID: ${device.deviceId}'),
+            const SizedBox(height: 4),
             Row(
               children: [
-                const Icon(
-                  Icons.verified_user,
-                  size: 14,
-                  color: Colors.green,
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  'Verified',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.green,
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: _getStatusColor(device).withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: _getStatusColor(device)),
+                  ),
+                  child: Text(
+                    _getStatusText(device),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: _getStatusColor(device),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
+                if (device.lastSeenTs != null) ...[
+                  const SizedBox(width: 8),
+                  Text(
+                    _formatLastSeen(device.lastSeenTs!),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ],
               ],
             ),
-        ],
-      ),
-      trailing: device.isCurrent
-          ? null
-          : PopupMenuButton<String>(
-              onSelected: (value) {
-                if (value == 'verify') {
-                  _verifyDevice(device);
-                } else if (value == 'logout') {
-                  _logoutDevice(device);
-                } else if (value == 'block') {
-                  _blockDevice(device);
-                }
-              },
-              itemBuilder: (context) => [
-                const PopupMenuItem(
-                  value: 'verify',
-                  child: Row(
-                    children: [
-                      Icon(Icons.verified_user, size: 18),
-                      SizedBox(width: 12),
-                      Text('Verify'),
-                    ],
-                  ),
-                ),
-                const PopupMenuItem(
-                  value: 'logout',
-                  child: Row(
-                    children: [
-                      Icon(Icons.logout, size: 18),
-                      SizedBox(width: 12),
-                      Text('Sign out'),
-                    ],
-                  ),
-                ),
-                const PopupMenuItem(
-                  value: 'block',
-                  child: Row(
-                    children: [
-                      Icon(Icons.block, size: 18, color: AppColors.error),
-                      SizedBox(width: 12),
-                      Text('Block', style: TextStyle(color: AppColors.error)),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-    );
-  }
-
-  void _verifyDevice(Device device) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Verify Device'),
-        content: Text('Verify ${device.name}?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              // Handle verification
-            },
-            child: const Text('Verify'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _logoutDevice(Device device) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Sign Out Device'),
-        content: Text('Sign out from ${device.name}?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              // Handle logout
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.error,
-            ),
-            child: const Text('Sign Out'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _blockDevice(Device device) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Block Device'),
-        content: Text(
-          'Block ${device.name}?\n\n'
-          'Blocked devices will not be able to read your encrypted messages.',
+          ],
         ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              // Handle blocking
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.error,
-            ),
-            child: const Text('Block'),
-          ),
-        ],
+        trailing: PopupMenuButton<String>(
+          onSelected: (value) {
+            switch (value) {
+              case 'verify':
+                _verifyDevice(device);
+                break;
+              case 'block':
+                _blockDevice(device);
+                break;
+            }
+          },
+          itemBuilder: (context) => [
+            if (!device.verified)
+              const PopupMenuItem(
+                value: 'verify',
+                child: Row(
+                  children: [
+                    Icon(Icons.verified_user, size: 20),
+                    SizedBox(width: 8),
+                    Text('Verify'),
+                  ],
+                ),
+              ),
+            if (!device.blocked)
+              const PopupMenuItem(
+                value: 'block',
+                child: Row(
+                  children: [
+                    Icon(Icons.block, size: 20, color: Colors.red),
+                    SizedBox(width: 8),
+                    Text('Block'),
+                  ],
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
-}
 
-/// Device model
-class Device {
-  const Device({
-    required this.id,
-    required this.name,
-    this.lastSeen,
-    this.isCurrent = false,
-    this.isVerified = false,
-  });
+  Color _getStatusColor(DeviceInfo device) {
+    if (device.blocked) return Colors.red;
+    if (device.verified) return Colors.green;
+    return Colors.orange;
+  }
 
-  final String id;
-  final String name;
-  final DateTime? lastSeen;
-  final bool isCurrent;
-  final bool isVerified;
+  String _getStatusText(DeviceInfo device) {
+    if (device.blocked) return 'Blocked';
+    if (device.verified) return 'Verified';
+    return 'Unverified';
+  }
+
+  String _formatLastSeen(int timestamp) {
+    final lastSeen = DateTime.fromMillisecondsSinceEpoch(timestamp);
+    final now = DateTime.now();
+    final difference = now.difference(lastSeen);
+
+    if (difference.inMinutes < 1) {
+      return 'Active now';
+    } else if (difference.inHours < 1) {
+      return '${difference.inMinutes}m ago';
+    } else if (difference.inDays < 1) {
+      return '${difference.inHours}h ago';
+    } else if (difference.inDays < 7) {
+      return '${difference.inDays}d ago';
+    } else {
+      return '${lastSeen.day}/${lastSeen.month}/${lastSeen.year}';
+    }
+  }
 }

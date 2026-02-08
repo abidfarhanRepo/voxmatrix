@@ -15,6 +15,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:logger/logger.dart' as _i974;
 import 'package:voxmatrix/core/config/injection_container.dart' as _i593;
+import 'package:voxmatrix/core/services/device_verification_service.dart'
+    as _i293;
 import 'package:voxmatrix/core/services/matrix_client_service.dart' as _i377;
 import 'package:voxmatrix/core/services/push_notification_service.dart'
     as _i176;
@@ -25,6 +27,7 @@ import 'package:voxmatrix/data/datasources/auth_remote_datasource.dart'
     as _i474;
 import 'package:voxmatrix/data/datasources/crypto_local_datasource.dart'
     as _i791;
+import 'package:voxmatrix/data/datasources/livekit_datasource.dart' as _i721;
 import 'package:voxmatrix/data/datasources/matrix_call_signaling_datasource.dart'
     as _i242;
 import 'package:voxmatrix/data/datasources/media_remote_datasource.dart'
@@ -89,11 +92,13 @@ import 'package:voxmatrix/domain/usecases/chat/edit_message_usecase.dart'
 import 'package:voxmatrix/domain/usecases/chat/get_messages_usecase.dart'
     as _i348;
 import 'package:voxmatrix/domain/usecases/chat/mark_as_read_usecase.dart'
-    as _i750;
+    as _i764;
 import 'package:voxmatrix/domain/usecases/chat/remove_reaction_usecase.dart'
     as _i330;
 import 'package:voxmatrix/domain/usecases/chat/send_message_usecase.dart'
     as _i759;
+import 'package:voxmatrix/domain/usecases/chat/send_typing_notification_usecase.dart'
+    as _i385;
 import 'package:voxmatrix/domain/usecases/chat/subscribe_to_messages_usecase.dart'
     as _i804;
 import 'package:voxmatrix/domain/usecases/chat/upload_file_usecase.dart'
@@ -141,8 +146,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i409.Key>(() => coreModule.rootKey);
     gh.lazySingleton<_i474.AuthRemoteDataSource>(
         () => dataSourceModule.authRemoteDataSource(gh<_i974.Logger>()));
-    gh.lazySingleton<_i910.WebRTCDataSource>(
-        () => dataSourceModule.webrtcDataSource(gh<_i974.Logger>()));
     gh.factory<_i67.MegolmSessionDataSource>(() => _i67.MegolmSessionDataSource(
           gh<_i558.FlutterSecureStorage>(),
           gh<_i974.Logger>(),
@@ -155,6 +158,10 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i558.FlutterSecureStorage>(),
           gh<_i974.Logger>(),
         ));
+    gh.factory<_i721.LiveKitDataSource>(
+        () => _i721.LiveKitDataSource(logger: gh<_i974.Logger>()));
+    gh.factory<_i910.WebRTCDataSource>(
+        () => _i910.WebRTCDataSource(logger: gh<_i974.Logger>()));
     gh.singleton<_i377.MatrixClientService>(
         () => _i377.MatrixClientService(logger: gh<_i974.Logger>()));
     gh.lazySingleton<_i631.AuthLocalDataSource>(() =>
@@ -175,8 +182,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i267.MessageRemoteDataSource(gh<_i974.Logger>()));
     gh.factory<_i187.MessageEditDataSource>(
         () => _i187.MessageEditDataSource(gh<_i974.Logger>()));
-    gh.factory<_i633.RoomRemoteDataSource>(() => _i633.RoomRemoteDataSource(
-        gh<_i974.Logger>(), gh<_i377.MatrixClientService>()));
     gh.factory<_i376.RoomManagementRemoteDataSource>(
         () => _i376.RoomManagementRemoteDataSource(gh<_i974.Logger>()));
     gh.factory<_i288.RoomMembersDataSource>(
@@ -185,31 +190,13 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i385.AccountRemoteDataSource(gh<_i974.Logger>()));
     gh.factory<_i517.PushNotificationDataSource>(
         () => _i517.PushNotificationDataSource(gh<_i974.Logger>()));
-    gh.factory<_i252.DirectMessagesBloc>(() => _i252.DirectMessagesBloc(
-          gh<_i376.RoomManagementRemoteDataSource>(),
-          gh<_i631.AuthLocalDataSource>(),
-          gh<_i633.RoomRemoteDataSource>(),
-          gh<_i974.Logger>(),
-        ));
-    gh.lazySingleton<_i688.RoomRepository>(() => _i129.RoomRepositoryImpl(
-          gh<_i633.RoomRemoteDataSource>(),
-          gh<_i376.RoomManagementRemoteDataSource>(),
-          gh<_i631.AuthLocalDataSource>(),
-          gh<_i974.Logger>(),
-        ));
     gh.factory<_i798.RoomMembersBloc>(() => _i798.RoomMembersBloc(
           gh<_i288.RoomMembersDataSource>(),
           gh<_i631.AuthLocalDataSource>(),
           gh<_i974.Logger>(),
         ));
-    gh.factory<_i600.GetRoomsUseCase>(
-        () => _i600.GetRoomsUseCase(gh<_i688.RoomRepository>()));
-    gh.factory<_i1003.JoinRoomUseCase>(
-        () => _i1003.JoinRoomUseCase(gh<_i688.RoomRepository>()));
-    gh.factory<_i642.LeaveRoomUseCase>(
-        () => _i642.LeaveRoomUseCase(gh<_i688.RoomRepository>()));
-    gh.factory<_i376.CreateRoomUseCase>(
-        () => _i376.CreateRoomUseCase(gh<_i688.RoomRepository>()));
+    gh.factory<_i293.DeviceVerificationService>(
+        () => _i293.DeviceVerificationService(gh<_i377.MatrixClientService>()));
     gh.lazySingleton<_i80.ChatRepository>(() => _i459.ChatRepositoryImpl(
           gh<_i267.MessageRemoteDataSource>(),
           gh<_i631.AuthLocalDataSource>(),
@@ -221,17 +208,13 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i631.AuthLocalDataSource>(),
           gh<_i974.Logger>(),
         ));
-    gh.factory<_i649.SearchBloc>(() => _i649.SearchBloc(
-          gh<_i895.SearchRemoteDataSource>(),
-          gh<_i688.RoomRepository>(),
-          gh<_i631.AuthLocalDataSource>(),
-          gh<_i974.Logger>(),
-        ));
     gh.lazySingleton<_i773.AuthRepositoryImpl>(
         () => repositoryModule.authRepository(
               gh<_i474.AuthRemoteDataSource>(),
               gh<_i631.AuthLocalDataSource>(),
             ));
+    gh.factory<_i385.SendTypingNotificationUseCase>(
+        () => _i385.SendTypingNotificationUseCase(gh<_i80.ChatRepository>()));
     gh.factory<_i759.SendMessageUseCase>(
         () => _i759.SendMessageUseCase(gh<_i80.ChatRepository>()));
     gh.factory<_i384.AddReactionUseCase>(
@@ -248,8 +231,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i804.SubscribeToMessagesUseCase(gh<_i80.ChatRepository>()));
     gh.factory<_i227.DeleteMessageUseCase>(
         () => _i227.DeleteMessageUseCase(gh<_i80.ChatRepository>()));
-    gh.factory<_i750.MarkAsReadUseCase>(
-        () => _i750.MarkAsReadUseCase(gh<_i80.ChatRepository>()));
+    gh.lazySingleton<_i764.MarkAsReadUseCase>(
+        () => _i764.MarkAsReadUseCase(gh<_i80.ChatRepository>()));
     gh.factory<_i1011.RoomSettingsBloc>(() => _i1011.RoomSettingsBloc(
           gh<_i376.RoomManagementRemoteDataSource>(),
           gh<_i631.AuthLocalDataSource>(),
@@ -277,6 +260,18 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i631.AuthLocalDataSource>(),
           gh<_i974.Logger>(),
         ));
+    gh.factory<_i633.RoomRemoteDataSource>(() => _i633.RoomRemoteDataSource(
+          gh<_i974.Logger>(),
+          gh<_i377.MatrixClientService>(),
+        ));
+    gh.lazySingleton<_i942.CallRepositoryImpl>(
+        () => repositoryModule.callRepository(
+              gh<_i910.WebRTCDataSource>(),
+              gh<_i242.MatrixCallSignalingDataSource>(),
+              gh<_i288.RoomMembersDataSource>(),
+              gh<_i631.AuthLocalDataSource>(),
+              gh<_i974.Logger>(),
+            ));
     gh.lazySingleton<_i412.CryptoRepository>(() => _i784.CryptoRepositoryImpl(
           gh<_i791.CryptoLocalDataSource>(),
           gh<_i631.AuthLocalDataSource>(),
@@ -296,22 +291,17 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i71.LogoutUseCase(gh<_i169.AuthRepository>()));
     gh.factory<_i193.RegisterUseCase>(
         () => _i193.RegisterUseCase(gh<_i169.AuthRepository>()));
-    gh.factory<_i139.RoomsBloc>(() => _i139.RoomsBloc(
-          gh<_i600.GetRoomsUseCase>(),
-          gh<_i376.CreateRoomUseCase>(),
-          gh<_i1003.JoinRoomUseCase>(),
-          gh<_i642.LeaveRoomUseCase>(),
-          gh<_i377.MatrixClientService>(),
+    gh.factory<_i252.DirectMessagesBloc>(() => _i252.DirectMessagesBloc(
+          gh<_i376.RoomManagementRemoteDataSource>(),
           gh<_i631.AuthLocalDataSource>(),
+          gh<_i633.RoomRemoteDataSource>(),
           gh<_i974.Logger>(),
         ));
-    gh.factory<_i1018.AuthBloc>(() => _i1018.AuthBloc(
-          gh<_i773.LoginUseCase>(),
-          gh<_i71.LogoutUseCase>(),
-          gh<_i141.GetCurrentUserUseCase>(),
-          gh<_i193.RegisterUseCase>(),
-          gh<_i377.MatrixClientService>(),
+    gh.lazySingleton<_i688.RoomRepository>(() => _i129.RoomRepositoryImpl(
+          gh<_i633.RoomRemoteDataSource>(),
+          gh<_i376.RoomManagementRemoteDataSource>(),
           gh<_i631.AuthLocalDataSource>(),
+          gh<_i974.Logger>(),
         ));
     gh.factory<_i887.ChatBloc>(() => _i887.ChatBloc(
           gh<_i348.GetMessagesUseCase>(),
@@ -322,7 +312,7 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i895.EditMessageUseCase>(),
           gh<_i227.DeleteMessageUseCase>(),
           gh<_i804.SubscribeToMessagesUseCase>(),
-          gh<_i750.MarkAsReadUseCase>(),
+          gh<_i764.MarkAsReadUseCase>(),
           gh<_i377.MatrixClientService>(),
           gh<_i631.AuthLocalDataSource>(),
           gh<_i974.Logger>(),
@@ -334,28 +324,51 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i631.AuthLocalDataSource>(),
           gh<_i974.Logger>(),
         ));
-    gh.factory<_i1015.CryptoBloc>(() => _i1015.CryptoBloc(
-          gh<_i791.CryptoLocalDataSource>(),
-          gh<_i631.AuthLocalDataSource>(),
-          gh<_i377.MatrixClientService>(),
-          gh<_i974.Logger>(),
-        ));
-    gh.lazySingleton<_i942.CallRepositoryImpl>(
-        () => repositoryModule.callRepository(
-              gh<_i910.WebRTCDataSource>(),
-              gh<_i242.MatrixCallSignalingDataSource>(),
-              gh<_i288.RoomMembersDataSource>(),
-              gh<_i631.AuthLocalDataSource>(),
-              gh<_i974.Logger>(),
-            ));
     gh.factory<_i537.CreateCallUseCase>(
         () => _i537.CreateCallUseCase(gh<_i758.CallRepository>()));
     gh.factory<_i724.HangupCallUseCase>(
         () => _i724.HangupCallUseCase(gh<_i758.CallRepository>()));
     gh.factory<_i1066.AnswerCallUseCase>(
         () => _i1066.AnswerCallUseCase(gh<_i758.CallRepository>()));
+    gh.factory<_i1015.CryptoBloc>(() => _i1015.CryptoBloc(
+          gh<_i791.CryptoLocalDataSource>(),
+          gh<_i631.AuthLocalDataSource>(),
+          gh<_i377.MatrixClientService>(),
+          gh<_i974.Logger>(),
+        ));
+    gh.factory<_i600.GetRoomsUseCase>(
+        () => _i600.GetRoomsUseCase(gh<_i688.RoomRepository>()));
+    gh.factory<_i1003.JoinRoomUseCase>(
+        () => _i1003.JoinRoomUseCase(gh<_i688.RoomRepository>()));
+    gh.factory<_i642.LeaveRoomUseCase>(
+        () => _i642.LeaveRoomUseCase(gh<_i688.RoomRepository>()));
+    gh.factory<_i376.CreateRoomUseCase>(
+        () => _i376.CreateRoomUseCase(gh<_i688.RoomRepository>()));
+    gh.factory<_i1018.AuthBloc>(() => _i1018.AuthBloc(
+          gh<_i773.LoginUseCase>(),
+          gh<_i71.LogoutUseCase>(),
+          gh<_i141.GetCurrentUserUseCase>(),
+          gh<_i193.RegisterUseCase>(),
+          gh<_i377.MatrixClientService>(),
+          gh<_i631.AuthLocalDataSource>(),
+        ));
+    gh.factory<_i649.SearchBloc>(() => _i649.SearchBloc(
+          gh<_i895.SearchRemoteDataSource>(),
+          gh<_i688.RoomRepository>(),
+          gh<_i631.AuthLocalDataSource>(),
+          gh<_i974.Logger>(),
+        ));
     gh.factory<_i331.CallBloc>(
         () => _i331.CallBloc(gh<_i758.CallRepository>()));
+    gh.factory<_i139.RoomsBloc>(() => _i139.RoomsBloc(
+          gh<_i600.GetRoomsUseCase>(),
+          gh<_i376.CreateRoomUseCase>(),
+          gh<_i1003.JoinRoomUseCase>(),
+          gh<_i642.LeaveRoomUseCase>(),
+          gh<_i377.MatrixClientService>(),
+          gh<_i631.AuthLocalDataSource>(),
+          gh<_i974.Logger>(),
+        ));
     return this;
   }
 }
