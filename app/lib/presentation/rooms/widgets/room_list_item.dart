@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voxmatrix/core/constants/accessibility_constants.dart';
 import 'package:voxmatrix/core/constants/app_constants.dart';
 import 'package:voxmatrix/core/theme/app_colors.dart';
 import 'package:voxmatrix/domain/entities/room.dart';
@@ -21,26 +22,35 @@ class RoomListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.spacing,
-        vertical: 6,
-      ),
-      child: GestureDetector(
-        onTap: onTap,
-        onLongPress: onLongPress,
-        child: GlassContainer(
-          borderRadius: 24,
-          opacity: isSelected ? 0.25 : 0.1,
-          color: isSelected ? AppColors.primary : Colors.white,
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-              _buildAvatar(context),
-              const SizedBox(width: 16),
-              Expanded(child: _buildContent(context)),
-              _buildTrailing(context),
-            ],
+    final unreadCount = room.unreadCount ?? 0;
+    final hasUnread = unreadCount > 0;
+    
+    return Semantics(
+      button: true,
+      label: '${room.name}${hasUnread ? ". $unreadCount unread messages" : ""}',
+      onTap: onTap,
+      onLongPress: onLongPress,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppConstants.spacing,
+          vertical: 6,
+        ),
+        child: GestureDetector(
+          onTap: onTap,
+          onLongPress: onLongPress,
+          child: GlassContainer(
+            borderRadius: 24,
+            opacity: isSelected ? 0.25 : 0.1,
+            color: isSelected ? AppColors.primary : Colors.white,
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: [
+                _buildAvatar(context),
+                const SizedBox(width: 16),
+                Expanded(child: _buildContent(context)),
+                _buildTrailing(context),
+              ],
+            ),
           ),
         ),
       ),

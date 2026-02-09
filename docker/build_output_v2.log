@@ -1,0 +1,75 @@
+[0;34m========================================[0m
+[0;34m  VoxMatrix Android Builder[0m
+[0;34m========================================[0m
+
+[0;34mBuilding debug APK...[0m
+
+Building android-builder
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  1.573MB
+Step 1/20 : FROM eclipse-temurin:17-jdk
+ ---> 53c2311899d3
+Step 2/20 : ENV DEBIAN_FRONTEND=noninteractive
+ ---> Using cache
+ ---> 0978dafc4418
+Step 3/20 : ENV TZ=UTC
+ ---> Using cache
+ ---> dcd28af255e5
+Step 4/20 : RUN apt-get update -qq &&     apt-get install -y -qq     wget     unzip     git     curl     xz-utils     zip     libglu1-mesa     && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> 83f70884fde1
+Step 5/20 : ENV FLUTTER_HOME=/opt/flutter
+ ---> Using cache
+ ---> 54234472cb6f
+Step 6/20 : ENV PATH="${FLUTTER_HOME}/bin:${PATH}"
+ ---> Using cache
+ ---> e3bf4ad693d1
+Step 7/20 : ENV ANDROID_SDK_ROOT=/opt/android-sdk
+ ---> Using cache
+ ---> 0c5eeee17a4e
+Step 8/20 : ENV ANDROID_HOME=/opt/android-sdk
+ ---> Using cache
+ ---> 4b9e27c8c588
+Step 9/20 : ENV PATH="${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin:${ANDROID_SDK_ROOT}/platform-tools"
+ ---> Using cache
+ ---> 85e8692337b1
+Step 10/20 : RUN git clone --depth 1 --branch stable https://github.com/flutter/flutter.git ${FLUTTER_HOME}
+ ---> Using cache
+ ---> 7def9004b709
+Step 11/20 : RUN flutter precache --android &&     flutter config --no-analytics &&     flutter doctor -v
+ ---> Using cache
+ ---> f19bb91098f2
+Step 12/20 : RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools &&     unzip -q commandlinetools-linux-11076708_latest.zip -d ${ANDROID_SDK_ROOT}/cmdline-tools &&     mv ${ANDROID_SDK_ROOT}/cmdline-tools/cmdline-tools ${ANDROID_SDK_ROOT}/cmdline-tools/latest &&     rm commandlinetools-linux-11076708_latest.zip
+ ---> Using cache
+ ---> 498bc1214022
+Step 13/20 : RUN yes | sdkmanager --licenses > /dev/null 2>&1
+ ---> Using cache
+ ---> 0f01ce359354
+Step 14/20 : RUN sdkmanager     "platform-tools"     "platforms;android-34"     "build-tools;34.0.0"     "ndk;25.2.9519653" > /dev/null 2>&1
+ ---> Using cache
+ ---> 392ff8635816
+Step 15/20 : WORKDIR /workspace
+ ---> Using cache
+ ---> 84e7e2c3fd27
+Step 16/20 : ENV GRADLE_OPTS="-Xmx4g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
+ ---> Using cache
+ ---> d7dcd4ee90fa
+Step 17/20 : ENV JAVA_OPTS="-Xmx4g"
+ ---> Using cache
+ ---> 739dc6d5524c
+Step 18/20 : VOLUME ["/opt/android-sdk"]
+ ---> Using cache
+ ---> b078d92b6386
+Step 19/20 : VOLUME ["/opt/flutter/.pub-cache"]
+ ---> Using cache
+ ---> 49e96bd0dfe3
+Step 20/20 : CMD ["flutter", "--version"]
+ ---> Using cache
+ ---> 08fd0cbdc45b
+Successfully built 08fd0cbdc45b
+Successfully tagged docker_android-builder:latest
+Creating docker_android-builder_run ... 
+Creating docker_android-builder_run ... done

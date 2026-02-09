@@ -1,0 +1,577 @@
+--------- beginning of main
+02-10 01:15:11.531 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:11.531 E/flutter (14053): 
+02-10 01:15:11.531 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:11.531 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:11.531 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:11.531 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:11.531 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:11.531 E/flutter (14053): 
+02-10 01:15:11.531 E/flutter (14053):   **BAD**
+02-10 01:15:11.531 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:11.531 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:11.531 E/flutter (14053):   });
+02-10 01:15:11.531 E/flutter (14053): 
+02-10 01:15:11.531 E/flutter (14053):   **GOOD**
+02-10 01:15:11.531 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:11.531 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:11.531 E/flutter (14053):   });
+02-10 01:15:11.531 E/flutter (14053): 
+02-10 01:15:11.531 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:11.531 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:11.531 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:11.531 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:11.531 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:11.531 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:11.531 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:11.531 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:11.531 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:11.531 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:11.531 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:11.531 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:11.531 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:11.531 E/flutter (14053): 
+02-10 01:15:11.645 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:11.645 E/flutter (14053): 
+02-10 01:15:11.645 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:11.645 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:11.645 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:11.645 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:11.645 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:11.645 E/flutter (14053): 
+02-10 01:15:11.645 E/flutter (14053):   **BAD**
+02-10 01:15:11.645 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:11.645 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:11.645 E/flutter (14053):   });
+02-10 01:15:11.645 E/flutter (14053): 
+02-10 01:15:11.645 E/flutter (14053):   **GOOD**
+02-10 01:15:11.645 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:11.645 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:11.645 E/flutter (14053):   });
+02-10 01:15:11.645 E/flutter (14053): 
+02-10 01:15:11.645 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:11.645 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:11.645 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:11.645 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:11.645 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:11.645 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:11.645 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:11.645 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:11.645 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:11.645 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:11.645 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:11.645 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:11.645 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:11.645 E/flutter (14053): 
+02-10 01:15:12.903 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:12.903 E/flutter (14053): 
+02-10 01:15:12.903 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:12.903 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:12.903 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:12.903 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:12.903 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:12.903 E/flutter (14053): 
+02-10 01:15:12.903 E/flutter (14053):   **BAD**
+02-10 01:15:12.903 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:12.903 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:12.903 E/flutter (14053):   });
+02-10 01:15:12.903 E/flutter (14053): 
+02-10 01:15:12.903 E/flutter (14053):   **GOOD**
+02-10 01:15:12.903 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:12.903 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:12.903 E/flutter (14053):   });
+02-10 01:15:12.903 E/flutter (14053): 
+02-10 01:15:12.903 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:12.903 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:12.903 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:12.903 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:12.903 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:12.903 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:12.903 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:12.903 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:12.903 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:12.903 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:12.903 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:12.903 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:12.903 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:12.903 E/flutter (14053): 
+02-10 01:15:13.065 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:13.065 E/flutter (14053): 
+02-10 01:15:13.065 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:13.065 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:13.065 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:13.065 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:13.065 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:13.065 E/flutter (14053): 
+02-10 01:15:13.065 E/flutter (14053):   **BAD**
+02-10 01:15:13.065 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:13.065 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:13.065 E/flutter (14053):   });
+02-10 01:15:13.065 E/flutter (14053): 
+02-10 01:15:13.065 E/flutter (14053):   **GOOD**
+02-10 01:15:13.065 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:13.065 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:13.065 E/flutter (14053):   });
+02-10 01:15:13.065 E/flutter (14053): 
+02-10 01:15:13.065 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:13.065 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:13.065 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:13.065 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:13.065 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:13.065 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:13.065 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:13.065 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:13.065 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:13.065 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:13.065 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:13.065 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:13.065 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:13.065 E/flutter (14053): 
+02-10 01:15:14.361 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:14.361 E/flutter (14053): 
+02-10 01:15:14.361 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:14.361 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:14.361 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:14.361 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:14.361 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:14.361 E/flutter (14053): 
+02-10 01:15:14.361 E/flutter (14053):   **BAD**
+02-10 01:15:14.361 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:14.361 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:14.361 E/flutter (14053):   });
+02-10 01:15:14.361 E/flutter (14053): 
+02-10 01:15:14.361 E/flutter (14053):   **GOOD**
+02-10 01:15:14.361 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:14.361 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:14.361 E/flutter (14053):   });
+02-10 01:15:14.361 E/flutter (14053): 
+02-10 01:15:14.361 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:14.361 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:14.361 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:14.361 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:14.361 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:14.361 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:14.361 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:14.361 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:14.361 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:14.361 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:14.361 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:14.361 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:14.361 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:14.361 E/flutter (14053): 
+02-10 01:15:14.530 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:14.530 E/flutter (14053): 
+02-10 01:15:14.530 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:14.530 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:14.530 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:14.530 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:14.530 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:14.530 E/flutter (14053): 
+02-10 01:15:14.530 E/flutter (14053):   **BAD**
+02-10 01:15:14.530 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:14.530 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:14.530 E/flutter (14053):   });
+02-10 01:15:14.530 E/flutter (14053): 
+02-10 01:15:14.530 E/flutter (14053):   **GOOD**
+02-10 01:15:14.530 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:14.530 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:14.530 E/flutter (14053):   });
+02-10 01:15:14.530 E/flutter (14053): 
+02-10 01:15:14.530 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:14.530 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:14.530 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:14.530 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:14.530 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:14.530 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:14.530 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:14.530 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:14.530 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:14.530 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:14.530 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:14.530 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:14.530 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:14.530 E/flutter (14053): 
+02-10 01:15:15.924 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:15.924 E/flutter (14053): 
+02-10 01:15:15.924 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:15.924 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:15.924 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:15.924 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:15.924 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:15.924 E/flutter (14053): 
+02-10 01:15:15.924 E/flutter (14053):   **BAD**
+02-10 01:15:15.924 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:15.924 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:15.924 E/flutter (14053):   });
+02-10 01:15:15.924 E/flutter (14053): 
+02-10 01:15:15.924 E/flutter (14053):   **GOOD**
+02-10 01:15:15.924 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:15.924 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:15.924 E/flutter (14053):   });
+02-10 01:15:15.924 E/flutter (14053): 
+02-10 01:15:15.924 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:15.924 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:15.924 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:15.924 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:15.924 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:15.924 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:15.924 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:15.924 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:15.924 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:15.924 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:15.924 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:15.924 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:15.924 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:15.924 E/flutter (14053): 
+02-10 01:15:16.038 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:16.038 E/flutter (14053): 
+02-10 01:15:16.038 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:16.038 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:16.038 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:16.038 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:16.038 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:16.038 E/flutter (14053): 
+02-10 01:15:16.038 E/flutter (14053):   **BAD**
+02-10 01:15:16.038 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:16.038 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:16.038 E/flutter (14053):   });
+02-10 01:15:16.038 E/flutter (14053): 
+02-10 01:15:16.038 E/flutter (14053):   **GOOD**
+02-10 01:15:16.038 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:16.038 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:16.038 E/flutter (14053):   });
+02-10 01:15:16.038 E/flutter (14053): 
+02-10 01:15:16.038 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:16.038 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:16.038 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:16.038 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:16.038 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:16.038 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:16.038 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:16.038 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:16.038 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:16.038 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:16.038 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:16.038 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:16.038 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:16.038 E/flutter (14053): 
+02-10 01:15:17.416 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:17.416 E/flutter (14053): 
+02-10 01:15:17.416 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:17.416 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:17.416 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:17.416 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:17.416 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:17.416 E/flutter (14053): 
+02-10 01:15:17.416 E/flutter (14053):   **BAD**
+02-10 01:15:17.416 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:17.416 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:17.416 E/flutter (14053):   });
+02-10 01:15:17.416 E/flutter (14053): 
+02-10 01:15:17.416 E/flutter (14053):   **GOOD**
+02-10 01:15:17.416 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:17.416 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:17.416 E/flutter (14053):   });
+02-10 01:15:17.416 E/flutter (14053): 
+02-10 01:15:17.416 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:17.416 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:17.416 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:17.416 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:17.416 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:17.416 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:17.416 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:17.416 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:17.416 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:17.416 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:17.416 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:17.416 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:17.416 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:17.416 E/flutter (14053): 
+02-10 01:15:17.558 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:17.558 E/flutter (14053): 
+02-10 01:15:17.558 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:17.558 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:17.558 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:17.558 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:17.558 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:17.558 E/flutter (14053): 
+02-10 01:15:17.558 E/flutter (14053):   **BAD**
+02-10 01:15:17.558 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:17.558 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:17.558 E/flutter (14053):   });
+02-10 01:15:17.558 E/flutter (14053): 
+02-10 01:15:17.558 E/flutter (14053):   **GOOD**
+02-10 01:15:17.558 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:17.558 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:17.558 E/flutter (14053):   });
+02-10 01:15:17.558 E/flutter (14053): 
+02-10 01:15:17.558 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:17.558 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:17.558 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:17.558 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:17.558 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:17.558 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:17.558 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:17.558 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:17.558 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:17.558 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:17.558 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:17.558 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:17.558 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:17.558 E/flutter (14053): 
+02-10 01:15:18.783 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:18.783 E/flutter (14053): 
+02-10 01:15:18.783 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:18.783 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:18.783 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:18.783 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:18.783 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:18.783 E/flutter (14053): 
+02-10 01:15:18.783 E/flutter (14053):   **BAD**
+02-10 01:15:18.783 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:18.783 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:18.783 E/flutter (14053):   });
+02-10 01:15:18.783 E/flutter (14053): 
+02-10 01:15:18.783 E/flutter (14053):   **GOOD**
+02-10 01:15:18.783 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:18.783 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:18.783 E/flutter (14053):   });
+02-10 01:15:18.783 E/flutter (14053): 
+02-10 01:15:18.783 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:18.783 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:18.783 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:18.783 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:18.783 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:18.783 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:18.783 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:18.783 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:18.783 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:18.783 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:18.783 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:18.783 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:18.783 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:18.783 E/flutter (14053): 
+02-10 01:15:18.862 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:18.862 E/flutter (14053): 
+02-10 01:15:18.862 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:18.862 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:18.862 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:18.862 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:18.862 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:18.862 E/flutter (14053): 
+02-10 01:15:18.862 E/flutter (14053):   **BAD**
+02-10 01:15:18.862 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:18.862 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:18.862 E/flutter (14053):   });
+02-10 01:15:18.862 E/flutter (14053): 
+02-10 01:15:18.862 E/flutter (14053):   **GOOD**
+02-10 01:15:18.862 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:18.862 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:18.862 E/flutter (14053):   });
+02-10 01:15:18.862 E/flutter (14053): 
+02-10 01:15:18.862 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:18.862 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:18.862 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:18.862 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:18.862 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:18.862 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:18.862 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:18.862 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:18.862 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:18.862 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:18.862 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:18.862 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:18.862 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:18.862 E/flutter (14053): 
+02-10 01:15:19.936 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:19.936 E/flutter (14053): 
+02-10 01:15:19.936 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:19.936 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:19.936 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:19.936 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:19.936 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:19.936 E/flutter (14053): 
+02-10 01:15:19.936 E/flutter (14053):   **BAD**
+02-10 01:15:19.936 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:19.936 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:19.936 E/flutter (14053):   });
+02-10 01:15:19.936 E/flutter (14053): 
+02-10 01:15:19.936 E/flutter (14053):   **GOOD**
+02-10 01:15:19.936 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:19.936 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:19.936 E/flutter (14053):   });
+02-10 01:15:19.936 E/flutter (14053): 
+02-10 01:15:19.936 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:19.936 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:19.936 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:19.936 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:19.936 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:19.936 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:19.936 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:19.936 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:19.936 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:19.936 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:19.936 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:19.936 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:19.936 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:19.936 E/flutter (14053): 
+02-10 01:15:20.015 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:20.015 E/flutter (14053): 
+02-10 01:15:20.015 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:20.015 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:20.015 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:20.015 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:20.015 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:20.015 E/flutter (14053): 
+02-10 01:15:20.015 E/flutter (14053):   **BAD**
+02-10 01:15:20.015 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:20.015 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:20.015 E/flutter (14053):   });
+02-10 01:15:20.015 E/flutter (14053): 
+02-10 01:15:20.015 E/flutter (14053):   **GOOD**
+02-10 01:15:20.015 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:20.015 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:20.015 E/flutter (14053):   });
+02-10 01:15:20.015 E/flutter (14053): 
+02-10 01:15:20.015 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:20.015 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:20.015 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:20.015 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:20.015 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:20.015 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:20.015 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:20.015 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:20.015 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:20.015 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:20.015 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:20.015 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:20.015 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:20.015 E/flutter (14053): 
+02-10 01:15:21.443 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:21.443 E/flutter (14053): 
+02-10 01:15:21.443 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:21.443 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:21.443 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:21.443 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:21.443 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:21.443 E/flutter (14053): 
+02-10 01:15:21.443 E/flutter (14053):   **BAD**
+02-10 01:15:21.443 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:21.443 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:21.443 E/flutter (14053):   });
+02-10 01:15:21.443 E/flutter (14053): 
+02-10 01:15:21.443 E/flutter (14053):   **GOOD**
+02-10 01:15:21.443 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:21.443 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:21.443 E/flutter (14053):   });
+02-10 01:15:21.443 E/flutter (14053): 
+02-10 01:15:21.443 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:21.443 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:21.443 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:21.443 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:21.443 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:21.443 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:21.443 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:21.443 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:21.443 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:21.443 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:21.443 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:21.443 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:21.443 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:21.443 E/flutter (14053): 
+02-10 01:15:21.537 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:21.537 E/flutter (14053): 
+02-10 01:15:21.537 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:21.537 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:21.537 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:21.537 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:21.537 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:21.537 E/flutter (14053): 
+02-10 01:15:21.537 E/flutter (14053):   **BAD**
+02-10 01:15:21.537 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:21.537 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:21.537 E/flutter (14053):   });
+02-10 01:15:21.537 E/flutter (14053): 
+02-10 01:15:21.537 E/flutter (14053):   **GOOD**
+02-10 01:15:21.537 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:21.537 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:21.537 E/flutter (14053):   });
+02-10 01:15:21.537 E/flutter (14053): 
+02-10 01:15:21.537 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:21.537 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:21.537 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:21.537 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:21.537 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:21.537 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:21.537 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:21.537 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:21.537 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:21.537 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:21.537 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:21.537 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:21.537 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:21.537 E/flutter (14053): 
+02-10 01:15:24.944 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:24.944 E/flutter (14053): 
+02-10 01:15:24.944 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:24.944 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:24.944 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:24.944 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:24.944 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:24.944 E/flutter (14053): 
+02-10 01:15:24.944 E/flutter (14053):   **BAD**
+02-10 01:15:24.944 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:24.944 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:24.944 E/flutter (14053):   });
+02-10 01:15:24.944 E/flutter (14053): 
+02-10 01:15:24.944 E/flutter (14053):   **GOOD**
+02-10 01:15:24.944 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:24.944 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:24.944 E/flutter (14053):   });
+02-10 01:15:24.944 E/flutter (14053): 
+02-10 01:15:24.944 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:24.944 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:24.944 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:24.944 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:24.944 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:24.944 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:24.944 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:24.944 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:24.944 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:24.944 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:24.944 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:24.944 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:24.944 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:24.944 E/flutter (14053): 
+02-10 01:15:25.025 E/flutter (14053): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:bloc/src/emitter.dart': Failed assertion: line 114 pos 7: '!_isCompleted': 
+02-10 01:15:25.025 E/flutter (14053): 
+02-10 01:15:25.025 E/flutter (14053): emit was called after an event handler completed normally.
+02-10 01:15:25.025 E/flutter (14053): This is usually due to an unawaited future in an event handler.
+02-10 01:15:25.025 E/flutter (14053): Please make sure to await all asynchronous operations with event handlers
+02-10 01:15:25.025 E/flutter (14053): and use emit.isDone after asynchronous operations before calling emit() to
+02-10 01:15:25.025 E/flutter (14053): ensure the event handler has not completed.
+02-10 01:15:25.025 E/flutter (14053): 
+02-10 01:15:25.025 E/flutter (14053):   **BAD**
+02-10 01:15:25.025 E/flutter (14053):   on<Event>((event, emit) {
+02-10 01:15:25.025 E/flutter (14053):     future.whenComplete(() => emit(...));
+02-10 01:15:25.025 E/flutter (14053):   });
+02-10 01:15:25.025 E/flutter (14053): 
+02-10 01:15:25.025 E/flutter (14053):   **GOOD**
+02-10 01:15:25.025 E/flutter (14053):   on<Event>((event, emit) async {
+02-10 01:15:25.025 E/flutter (14053):     await future.whenComplete(() => emit(...));
+02-10 01:15:25.025 E/flutter (14053):   });
+02-10 01:15:25.025 E/flutter (14053): 
+02-10 01:15:25.025 E/flutter (14053): #0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+02-10 01:15:25.025 E/flutter (14053): #1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+02-10 01:15:25.025 E/flutter (14053): #2      _Emitter.call (package:bloc/src/emitter.dart:114:7)
+02-10 01:15:25.025 E/flutter (14053): #3      ChatBloc._onSubscribeToMessages.<anonymous closure>.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:193:19)
+02-10 01:15:25.025 E/flutter (14053): #4      Right.fold (package:dartz/src/either.dart:200:64)
+02-10 01:15:25.025 E/flutter (14053): #5      ChatBloc._onSubscribeToMessages.<anonymous closure> (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:174:16)
+02-10 01:15:25.025 E/flutter (14053): #6      _RootZone.runUnaryGuarded (dart:async/zone.dart:1778:10)
+02-10 01:15:25.025 E/flutter (14053): #7      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+02-10 01:15:25.025 E/flutter (14053): #8      _DelayedData.perform (dart:async/stream_impl.dart:573:14)
+02-10 01:15:25.025 E/flutter (14053): #9      _PendingEvents.handleNext (dart:async/stream_impl.dart:678:11)
+02-10 01:15:25.025 E/flutter (14053): #10     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649:7)
+02-10 01:15:25.025 E/flutter (14053): #11     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+02-10 01:15:25.025 E/flutter (14053): #12     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+02-10 01:15:25.025 E/flutter (14053): 

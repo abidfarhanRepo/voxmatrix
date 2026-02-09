@@ -1,0 +1,236 @@
+--------- beginning of main
+02-10 00:11:27.643 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:28.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671488
+02-10 00:11:28.424 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:28.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:29.150 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:29.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671489
+02-10 00:11:29.424 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:29.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:29.574 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671489574 lastDateWindow=1770658852000
+02-10 00:11:29.576 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:29.835 E/BatteryDump( 1714): !@new_battery_dump : 4170,-17,1000,2000,84,371,345,434,371,0,388,434,0,Not-charging,NO_CHARGING,Normal,Good,PDIC,0,Normal,0,0,9300,0x8000,0x11010000,0x0,0,0,0000,0000,00000000,0,0,0,0,329,4172,8321,990,0,
+02-10 00:11:30.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671490
+02-10 00:11:30.423 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:30.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:30.656 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:31.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671491
+02-10 00:11:31.423 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:31.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:32.163 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:32.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671492
+02-10 00:11:32.426 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:32.426 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:32.497 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:32.515 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:32.515 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:32.517 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:32.588 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671492588 lastDateWindow=1770658852000
+02-10 00:11:32.590 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:33.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671493
+02-10 00:11:33.422 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:33.422 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:33.664 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:33.669 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:33.675 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:34.162 I/flutter ( 1789): [Matrix] [32mInitialize client voxmatrix[0m
+02-10 00:11:34.172 I/flutter ( 1789): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-10 00:11:34.182 I/flutter ( 1789): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-10 00:11:34.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671494
+02-10 00:11:34.423 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:34.423 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:34.767 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:34.773 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:35.177 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:35.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671495
+02-10 00:11:35.425 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:35.425 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:35.602 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671495602 lastDateWindow=1770658852000
+02-10 00:11:35.605 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:36.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671496
+02-10 00:11:36.425 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:36.425 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:36.682 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:37.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671497
+02-10 00:11:37.424 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:37.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:38.142 E/HwcComposer( 1804): getLuts failed Status(-129, EX_TRANSACTION_FAILED): 'UNKNOWN_TRANSACTION: '
+02-10 00:11:38.185 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:38.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671498
+02-10 00:11:38.424 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:38.425 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:38.615 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671498615 lastDateWindow=1770658852000
+02-10 00:11:38.616 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:39.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671499
+02-10 00:11:39.427 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:39.427 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:39.695 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:39.722 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:39.735 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:39.736 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:39.737 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:39.911 E/SecVibrator-HAL-AIDL-EXT( 1739): V_5_0: performPrebakedHapticPattern 23 : 8000 : 0
+02-10 00:11:39.911 E/SecVibrator-HAL-AIDL-CORE( 1739): HW_API: [setForceFeedbackAmplitude]amplitude: 8000
+02-10 00:11:39.928 E/SecVibrator-HAL-AIDL-CORE( 1739): HW_API: [uploadForceFeedbackeffect]ioctl success ,uploaded effect with ID: 0
+02-10 00:11:39.929 E/SecVibrator-HAL-AIDL-CORE( 1739): HW_API: do_on for timeoutMs: 1000
+02-10 00:11:39.929 E/SecVibrator-HAL-AIDL-CORE( 1739): HW_API: [triggerForceFeedbackVibration]on: 1
+02-10 00:11:40.018 E/BatteryDump( 1714): !@new_battery_dump : 4171,0,1000,2000,84,372,346,435,372,0,390,435,0,Not-charging,NO_CHARGING,Normal,Good,PDIC,0,Normal,0,0,9300,0x8000,0x11010000,0x0,0,0,0000,0000,00000000,0,0,0,0,329,4172,8320,990,0,
+02-10 00:11:40.031 E/SecVibrator-HAL-AIDL-CORE( 1739): V_2_0: Vibrator off
+02-10 00:11:40.031 E/SecVibrator-HAL-AIDL-CORE( 1739): HW_API: do_off
+02-10 00:11:40.031 E/SecVibrator-HAL-AIDL-CORE( 1739): HW_API: [triggerForceFeedbackVibration]on: 0
+--------- beginning of system
+02-10 00:11:40.290 E/WindowManager( 2640): win=Window{1495b55 u0 BackPanelController} destroySurfaces: appStopped=true cleanupOnResume=false win.mWindowRemovalAllowed=false win.mRemoveOnExit=false win.mViewVisibility=8 caller=com.android.server.wm.WindowManagerService.tryStartExitingAnimation:134 com.android.server.wm.WindowManagerService.relayoutWindow:1138 com.android.server.wm.Session.relayout:27 android.view.IWindowSession$Stub.onTransact:829 com.android.server.wm.Session.onTransact:1 android.os.Binder.execTransactInternal:1462 android.os.Binder.execTransact:1401 
+02-10 00:11:40.368 E/Watchdog( 2640): !@Sync: 693 heap(MB): 144 / 184 FD: 1479 [2026-02-10 00:11:40.368]
+02-10 00:11:40.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671500
+02-10 00:11:40.422 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:40.422 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:40.827 E/flutter ( 1789): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Bad state: Future already completed
+02-10 00:11:40.827 E/flutter ( 1789): #0      _AsyncCompleter.complete (dart:async/future_impl.dart:97)
+02-10 00:11:40.827 E/flutter ( 1789): #1      MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:153)
+02-10 00:11:40.827 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:40.827 E/flutter ( 1789): #2      ChatRepositoryImpl._ensureMatrixInitialized.<anonymous closure> (package:voxmatrix/data/repositories/chat_repository_impl.dart:66)
+02-10 00:11:40.827 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:40.827 E/flutter ( 1789): #3      ChatRepositoryImpl._ensureMatrixInitialized (package:voxmatrix/data/repositories/chat_repository_impl.dart:76)
+02-10 00:11:40.827 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:40.827 E/flutter ( 1789): #4      ChatRepositoryImpl.getMessages (package:voxmatrix/data/repositories/chat_repository_impl.dart:88)
+02-10 00:11:40.827 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:40.827 E/flutter ( 1789): #5      GetMessagesUseCase.call (package:voxmatrix/domain/usecases/chat/get_messages_usecase.dart:18)
+02-10 00:11:40.827 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:40.827 E/flutter ( 1789): #6      ChatBloc._onLoadMessages (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:128)
+02-10 00:11:40.827 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:40.827 E/flutter ( 1789): #7      Bloc.on.<anonymous closure>.handleEvent (package:bloc/src/bloc.dart:229)
+02-10 00:11:40.827 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:40.827 E/flutter ( 1789): 
+02-10 00:11:40.833 I/flutter ( 1789): [Matrix] [32mInitialize client voxmatrix[0m
+02-10 00:11:40.842 I/flutter ( 1789): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-10 00:11:40.846 I/flutter ( 1789): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-10 00:11:41.200 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:41.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671501
+02-10 00:11:41.424 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:41.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:41.627 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671501627 lastDateWindow=1770658852000
+02-10 00:11:41.630 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:42.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671502
+02-10 00:11:42.425 E/HeatmapThread( 1776): !@Entered the read from path function
+02-10 00:11:42.425 E/HeatmapThread( 1776): !@Read Extended_heatmap from efs is: 23245 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1284 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1533 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1456 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1516 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1529 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1460 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1540 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1557 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1603 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1382 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5973 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20055 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 23274 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 23297 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 21725 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18370 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 13747 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4246 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2985 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1552 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 589 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 62 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 51 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 52 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18 0 0 0 0 
+02-10 00:11:42.426 E/HeatmapThread( 1776): !@Write Extended Heatmap to efs is: 23245 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1284 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1533 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1456 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1516 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1529 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1460 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1540 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1557 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1603 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1382 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5973 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20056 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 23274 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 23297 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 21725 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18370 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 13747 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4246 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2985 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1552 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 589 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 62 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 51 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 52 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18 0 0 0 0 0
+02-10 00:11:42.427 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:42.428 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:42.520 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:42.531 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:42.708 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:42.762 E/MQTTBypassDGWStreamGroupConnection.cpp(30491): connect failed. Callbacks terminated before ack received
+02-10 00:11:42.763 E/MQTTBypassDGWStreamGroupCallbacks.cpp(30491): onStreamGroupError StreamGroupNetworkRequest request cancelled: max retries reached; last err (TransientError domain: MNSSecureTCP code: 1 detail: SecureTCP connection establish timeout)
+02-10 00:11:43.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671503
+02-10 00:11:43.424 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:43.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:43.767 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:43.780 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:44.162 I/flutter ( 1789): [Matrix] [32mInitialize client voxmatrix[0m
+02-10 00:11:44.173 I/flutter ( 1789): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-10 00:11:44.180 I/flutter ( 1789): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-10 00:11:44.212 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:44.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671504
+02-10 00:11:44.425 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:44.426 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:44.644 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671504644 lastDateWindow=1770658852000
+02-10 00:11:44.645 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:45.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671505
+02-10 00:11:45.425 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:45.425 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:45.719 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:45.914 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:45.927 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:45.927 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:45.929 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:46.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671506
+02-10 00:11:46.424 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:46.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:46.942 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:46.951 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:46.951 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:46.953 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:46.953 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:46.955 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:47.225 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:47.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671507
+02-10 00:11:47.421 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:47.421 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:47.656 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671507656 lastDateWindow=1770658852000
+02-10 00:11:47.657 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:48.192 E/flutter ( 1789): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Bad state: Future already completed
+02-10 00:11:48.192 E/flutter ( 1789): #0      _AsyncCompleter.complete (dart:async/future_impl.dart:97)
+02-10 00:11:48.192 E/flutter ( 1789): #1      MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:153)
+02-10 00:11:48.192 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:48.192 E/flutter ( 1789): #2      ChatRepositoryImpl._ensureMatrixInitialized.<anonymous closure> (package:voxmatrix/data/repositories/chat_repository_impl.dart:66)
+02-10 00:11:48.192 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:48.192 E/flutter ( 1789): #3      ChatRepositoryImpl._ensureMatrixInitialized (package:voxmatrix/data/repositories/chat_repository_impl.dart:76)
+02-10 00:11:48.192 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:48.192 E/flutter ( 1789): #4      ChatRepositoryImpl.getMessages (package:voxmatrix/data/repositories/chat_repository_impl.dart:88)
+02-10 00:11:48.192 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:48.192 E/flutter ( 1789): #5      GetMessagesUseCase.call (package:voxmatrix/domain/usecases/chat/get_messages_usecase.dart:18)
+02-10 00:11:48.192 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:48.192 E/flutter ( 1789): #6      ChatBloc._onLoadMessages (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:128)
+02-10 00:11:48.192 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:48.192 E/flutter ( 1789): #7      Bloc.on.<anonymous closure>.handleEvent (package:bloc/src/bloc.dart:229)
+02-10 00:11:48.192 E/flutter ( 1789): <asynchronous suspension>
+02-10 00:11:48.192 E/flutter ( 1789): 
+02-10 00:11:48.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671508
+02-10 00:11:48.424 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:48.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:48.734 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:49.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671509
+02-10 00:11:49.425 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:49.425 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:50.177 E/BatteryDump( 1714): !@new_battery_dump : 4170,28,1000,1800,84,373,346,443,373,0,390,443,0,Not-charging,NO_CHARGING,Normal,Good,PDIC,0,Normal,0,0,9300,0x8000,0x11010000,0x0,0,0,0000,0000,00000000,0,0,0,0,329,4172,8320,990,0,
+02-10 00:11:50.241 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:50.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671510
+02-10 00:11:50.422 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:50.422 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:50.676 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671510676 lastDateWindow=1770658852000
+02-10 00:11:50.678 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:51.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671511
+02-10 00:11:51.423 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:51.423 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:51.651 E/VRI[dismiss-button-overlay-Type_Pip]@8ef11b5( 3998): Attempting to destroy the window while drawing!
+02-10 00:11:51.651 E/VRI[dismiss-button-overlay-Type_Pip]@8ef11b5( 3998):   window=android.view.ViewRootImpl@557438f, title=dismiss-button-overlay-Type_Pip
+02-10 00:11:51.746 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:52.009 E/TransitionChain( 2640): Can't collect into a chain with no transition
+02-10 00:11:52.419 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671512
+02-10 00:11:52.425 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:52.425 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:53.251 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:53.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671513
+02-10 00:11:53.423 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:53.423 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:53.507 E/VRI[dismiss-button-overlay-Type_Pip]@dff8452( 3998): Attempting to destroy the window while drawing!
+02-10 00:11:53.507 E/VRI[dismiss-button-overlay-Type_Pip]@dff8452( 3998):   window=android.view.ViewRootImpl@74da602, title=dismiss-button-overlay-Type_Pip
+02-10 00:11:53.616 E/TransitionChain( 2640): Can't collect into a chain with no transition
+02-10 00:11:53.688 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671513688 lastDateWindow=1770658852000
+02-10 00:11:53.694 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:54.161 I/flutter ( 1789): [Matrix] [32mInitialize client voxmatrix[0m
+02-10 00:11:54.163 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:54.173 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:54.173 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:54.173 I/flutter ( 1789): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-10 00:11:54.175 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:54.179 I/flutter ( 1789): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-10 00:11:54.261 E/msys    (30491): E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+02-10 00:11:54.270 E/msys    (30491): E[N mns]_LogError(228)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+02-10 00:11:54.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671514
+02-10 00:11:54.423 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:54.424 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:54.756 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:55.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671515
+02-10 00:11:55.424 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:55.425 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:56.264 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()
+02-10 00:11:56.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671516
+02-10 00:11:56.423 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:56.423 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:56.704 E/SemWifiLinkQualityMonitor( 2640): Too old or invalid TMI: currentTime=1770671516704 lastDateWindow=1770658852000
+02-10 00:11:56.706 E/InsController( 2640): Error in onOutageCountUpdate: android.net.VpnTransportInfo cannot be cast to android.net.wifi.WifiInfo
+02-10 00:11:57.418 E/HeatmapThread( 1776): ECT Thread time in milliseconds: 1770671517
+02-10 00:11:57.425 E/HeatmapThread( 1776): !@ CAM New BSOH: 100
+02-10 00:11:57.425 E/HeatmapThread( 1776): !@ CAM is Working
+02-10 00:11:57.772 E/NativeCustomFrequencyManager( 1804): [NativeCFMS] BpCustomFrequencyManager::acquire()

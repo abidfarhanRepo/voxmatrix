@@ -1,0 +1,315 @@
+02-09 23:28:26.841 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:28:40.472 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:28:44.212 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:28:45.065 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:28:48.990 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:28:48.993 D/nativeloader(12675): Load /data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk): ok
+02-09 23:28:49.043 I/flutter (12675): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+02-09 23:28:49.705 I/imsdk   (11993): TIM: |-im_offlinepush_impl.cpp:33              SetOfflinePushInfo                      |offline_push_plugin_version:7.9.9999|notification_bar_state:1|system_language:en_GB_null
+02-09 23:28:49.708 I/liteav  (11993): [I][02-09/23:28:49.708+3.0][11993,11993][im_offlinepush_impl.cpp:33]Tuikit: [imsdk]|SetOfflinePushInfo|offline_push_plugin_version:7.9.9999|notification_bar_state:1|system_language:en_GB_null
+02-09 23:28:49.712 I/imsdk   (11993): TIM: |-im_offlinepush_impl.cpp:33              SetOfflinePushInfo                      |offline_push_plugin_version:7.9.9999|notification_bar_state:1|system_language:en_GB_null
+02-09 23:28:49.718 I/liteav  (11993): [I][02-09/23:28:49.718+3.0][11993,11993][im_offlinepush_impl.cpp:33]Tuikit: [imsdk]|SetOfflinePushInfo|offline_push_plugin_version:7.9.9999|notification_bar_state:1|system_language:en_GB_null
+02-09 23:28:49.720 I/imsdk   (11993): TIM: |-im_offlinepush_impl.cpp:33              SetOfflinePushInfo                      |offline_push_plugin_version:7.9.9999|notification_bar_state:1|system_language:en_GB_null
+02-09 23:28:49.720 I/liteav  (11993): [I][02-09/23:28:49.720+3.0][11993,11993][im_offlinepush_impl.cpp:33]Tuikit: [imsdk]|SetOfflinePushInfo|offline_push_plugin_version:7.9.9999|notification_bar_state:1|system_language:en_GB_null
+02-09 23:28:49.969 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:28:49.969 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:28:54.321 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:11.273 W/service (13345): Thread Pool max thread count is 0. Cannot cache binder as linkToDeath cannot be implemented. serviceName: notification
+02-09 23:29:12.061 I/flutter (12675): [Matrix] [32mInitialize client voxmatrix[0m
+02-09 23:29:12.103 I/flutter (12675): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-09 23:29:12.106 I/flutter (12675): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-09 23:29:27.652 I/NotificationListener( 7554): [Service]v6.1.9-eap02 Received new notification
+02-09 23:29:27.652 I/NotificationPipeline( 7554): Processing new notification: -1|com.android.systemui|2131364006|tag_battery_protection|10049
+02-09 23:29:27.657 I/HoneySpace.NotificationListener( 4611): invalid notification: com.android.systemui UserHandle{-1}: canShowBadge is false
+02-09 23:29:27.662 I/NotificationPipeline( 7554): Discarding notification: -1|com.android.systemui|2131364006|tag_battery_protection|10049
+02-09 23:29:33.014 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:33.022 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:33.196 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:33.318 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:57.260 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:57.267 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:57.273 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:57.636 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:57.641 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:57.670 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:57.697 D/TSBackgroundFetch(15302): - Background Fetch event received: flutter_background_fetch
+02-09 23:29:57.697 D/TSBackgroundFetch(15302): 💀 [HeadlessTask flutter_background_fetch]
+02-09 23:29:57.715 E/flutter (15302): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Invalid argument(s): Type PageManager is already registered inside GetIt. 
+02-09 23:29:57.715 E/flutter (15302): #0      throwIfNot (package:get_it/get_it_impl.dart:14)
+02-09 23:29:57.715 E/flutter (15302): #1      _GetItImplementation._register (package:get_it/get_it_impl.dart:1097)
+02-09 23:29:57.715 E/flutter (15302): #2      _GetItImplementation.registerLazySingleton (package:get_it/get_it_impl.dart:737)
+02-09 23:29:57.715 E/flutter (15302): #3      setupServiceProviders (package:fively_app/services/provider_services.dart:8)
+02-09 23:29:57.715 E/flutter (15302): #4      backgroundFetchHeadlessTask (package:fively_app/main.dart:29)
+02-09 23:29:57.715 E/flutter (15302): #5      _headlessCallbackDispatcher.<anonymous closure> (package:background_fetch/background_fetch.dart:676)
+02-09 23:29:57.715 E/flutter (15302): #6      MethodChannel._handleAsMethodCall (package:flutter/src/services/platform_channel.dart:611)
+02-09 23:29:57.715 E/flutter (15302): #7      MethodChannel.setMethodCallHandler.<anonymous closure> (package:flutter/src/services/platform_channel.dart:601)
+02-09 23:29:57.715 E/flutter (15302): #8      _DefaultBinaryMessenger.setMessageHandler.<anonymous closure> (package:flutter/src/services/binding.dart:653)
+02-09 23:29:57.715 E/flutter (15302): #9      _invoke2 (dart:ui/hooks.dart:363)
+02-09 23:29:57.715 E/flutter (15302): #10     _ChannelCallbackRecord.invoke (dart:ui/channel_buffers.dart:45)
+02-09 23:29:57.715 E/flutter (15302): #11     _Channel.push (dart:ui/channel_buffers.dart:136)
+02-09 23:29:57.715 E/flutter (15302): #12     ChannelBuffers.push (dart:ui/channel_buffers.dart:344)
+02-09 23:29:57.715 E/flutter (15302): #13     PlatformDispatcher._dispatchPlatformMessage (dart:ui/platform_dispatcher.dart:802)
+02-09 23:29:57.715 E/flutter (15302): #14     _dispatchPlatformMessage (dart:ui/hooks.dart:277)
+02-09 23:29:57.715 E/flutter (15302): 
+02-09 23:29:58.019 D/SYS_EVENT( 6853): [qc debug] send event 8 notification to client
+02-09 23:29:58.019 D/SYS_EVENT_AIDL( 6853): send event 8 notification to client
+02-09 23:29:58.034 W/View    ( 3998): requestLayout() improperly called by com.android.systemui.shade.NotificationsQuickSettingsContainer{b9b4ce V.E...... ......ID 0,0-1080,2340 #7f0a087e app:id/notification_container_parent} during layout: running second layout pass
+02-09 23:29:58.059 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:29:58.069 W/View    ( 3998): requestLayout() improperly called by com.android.systemui.shade.NotificationsQuickSettingsContainer{b9b4ce V.E...... ......ID 0,0-1080,2340 #7f0a087e app:id/notification_container_parent} during second layout pass: posting in next frame
+02-09 23:29:58.187 D/InsignificantCoordinator( 3998): no update for Insignificant summary, there is no notifications 
+02-09 23:30:02.676 I/flutter (12675): [Matrix] [33mSyncloop failed: Client has not connection to the server[0m
+02-09 23:30:03.094 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:03.102 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:03.392 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:05.101 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:05.395 D/SYS_EVENT( 6853): [qc debug] send event 16 notification to client
+02-09 23:30:05.396 D/SYS_EVENT_AIDL( 6853): send event 16 notification to client
+02-09 23:30:05.441 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:05.447 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:05.454 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:05.465 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:05.471 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:05.475 E/NotificationService( 2640): Suppressing notification from package com.zorinos.zorin_connect by user request.
+02-09 23:30:05.476 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:07.003 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:07.065 D/SYS_EVENT( 6853): [qc debug] send event 64 notification to client
+02-09 23:30:07.066 D/SYS_EVENT_AIDL( 6853): send event 64 notification to client
+02-09 23:30:07.154 I/View    ( 3998): setRequestedFrameRate frameRate=-2.0, this=StatusBarIconView(slot='com.android.systemui/0x7f0a08a6' alpha=1.0 icon=StatusBarIcon(icon=Icon(typ=RESOURCE pkg=com.android.systemui id=0x7f081396) visible user=-1 ) visibleState=ICON iconColor=#ffb0c6ff staticDrawableColor=#ffb0c6ff decorColor=#ff1b6cf7 animationStartColor=#0 currentSetColor=#ffb0c6ff notification=StatusBarNotification(pkg=com.android.systemui user=UserHandle{-1} id=2131364006 tag=tag_battery_protection key=-1|com.android.systemui|2131364006|tag_battery_protection|10049: Notification(channel=CHR shortcut=null contentView=null vibrate=null sound=null defaults=0 flags=ONGOING_EVENT|ONLY_ALERT_ONCE color=0x00000000 category=sys groupKey=CHARGING vis=PUBLIC semFlags=0x0 semPriority=0 semMissedCount=0))), caller=com.android.systemui.statusbar.StatusBarIconView.onAttachedToWindow:6 android.view.View.dispatchAttachedToWindow:24320 android.view.ViewGroup.addViewInner:5582 android.view.ViewGroup.addView:5358 com.android.systemui.statusbar.phone.LegacyNotificationIconAreaControllerImpl.updateIconsForLayout:468 
+02-09 23:30:07.332 D/InsignificantCoordinator( 3998): no update for Insignificant summary, there is no notifications 
+02-09 23:30:13.122 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:13.129 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:13.141 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:13.278 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:30:57.750 D/TSBackgroundFetch(15302): [BGTask] timeout: flutter_background_fetch
+02-09 23:30:57.750 D/TSBackgroundFetch(15302): 💀 [HeadlessTask flutter_background_fetch]
+02-09 23:30:57.759 I/flutter (15302): [BackgroundFetch] Headless task timed-out: flutter_background_fetch
+02-09 23:30:57.762 D/TSBackgroundFetch(15302): - finish: flutter_background_fetch
+02-09 23:31:09.834 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:31:09.835 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:31:13.136 I/WindowManager( 5713): WindowManagerGlobal#addView, ty=2037, view=com.alibaba.aliexpresshd.notification.headsup.view.HeadsUpSwipeContainer{cde2993 V.E...... ......I. 0,0-0,0}, caller=android.view.WindowManagerImpl.addView:158 com.uflo.windowmanager.b.a:28 com.uflo.windowmanager.f.a:306 
+02-09 23:31:13.144 E/WindowManager( 5713): Couldn't add view: com.alibaba.aliexpresshd.notification.headsup.view.HeadsUpSwipeContainer{cde2993 V.E...... ......I. 0,0-0,0}
+02-09 23:31:13.144 E/WindowManager( 5713): 	at com.alibaba.aliexpresshd.notification.headsup.HeadsUpNotificationManager.e(SourceFile:164)
+02-09 23:31:13.144 I/WindowManager( 5713): WindowManagerGlobal#removeView, ty=2037, view=com.alibaba.aliexpresshd.notification.headsup.view.HeadsUpSwipeContainer{cde2993 V.E...... ......I. 0,0-0,0}, caller=android.view.WindowManagerGlobal.addView:611 android.view.WindowManagerImpl.addView:158 com.uflo.windowmanager.b.a:28 
+02-09 23:31:13.147 W/System.err( 5713): 	at com.alibaba.aliexpresshd.notification.headsup.HeadsUpNotificationManager.e(SourceFile:164)
+02-09 23:31:39.956 I/HoneySpace.NotificationListener( 4611): invalid notification: com.android.systemui UserHandle{-1}: canShowBadge is false
+02-09 23:31:39.960 I/NotificationListener( 7554): [Service]v6.1.9-eap02 Received new notification
+02-09 23:31:39.960 I/NotificationPipeline( 7554): Processing new notification: -1|com.android.systemui|2131364006|tag_battery_protection|10049
+02-09 23:31:39.962 I/NotificationPipeline( 7554): Discarding notification: -1|com.android.systemui|2131364006|tag_battery_protection|10049
+02-09 23:31:52.354 I/AidlLazyServiceRegistrar(23514): Process has 0 (of 1 available) client(s) in use after notification artd has clients: 0
+02-09 23:32:06.838 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:32:08.969 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:32:08.980 D/nativeloader(14079): Load /data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk): ok
+02-09 23:32:09.006 I/flutter (14079): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+02-09 23:32:09.072 I/flutter (14079): [Matrix] [32mInitialize client voxmatrix[0m
+02-09 23:32:09.106 I/flutter (14079): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-09 23:32:09.108 I/flutter (14079): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-09 23:32:40.797 I/flutter (14079): [Matrix] [31m[LibOlm] Unable to update user device keys - M_UNKNOWN_TOKEN: Invalid access token passed.
+02-09 23:32:40.797 I/flutter (14079): #0      MatrixApi.unexpectedResponse (package:matrix/matrix_api_lite/matrix_api.dart:53)
+02-09 23:32:40.797 I/flutter (14079): #1      Api.queryKeys (package:matrix/matrix_api_lite/generated/api.dart:1768)
+02-09 23:32:40.797 I/flutter (14079): <asynchronous suspension>
+02-09 23:32:40.797 I/flutter (14079): #2      Client.updateUserDeviceKeys (package:matrix/src/client.dart:2624)
+02-09 23:32:40.797 I/flutter (14079): <asynchronous suspension>
+02-09 23:32:40.797 I/flutter (14079): #3      Client._innerSync (package:matrix/src/client.dart:1952)
+02-09 23:32:40.797 I/flutter (14079): <asynchronous suspension>
+02-09 23:32:40.797 I/flutter (14079): #4      Client._sync.<anonymous closure> (package:matrix/src/client.dart:1817)
+02-09 23:32:40.797 I/flutter (14079): <asynchronous suspension>
+02-09 23:32:40.797 I/flutter (14079): [0m
+02-09 23:32:40.804 I/flutter (14079): [Matrix] [33mThe user has been logged out![0m
+02-09 23:32:41.989 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:32:42.656 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:32:45.015 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:32:45.856 D/nativeloader(14459): Load /data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk): ok
+02-09 23:32:45.864 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:32:45.889 I/flutter (14459): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+02-09 23:32:53.556 I/AconfigPackage(14644): android.service.notification is mapped to system
+02-09 23:32:53.556 I/AconfigPackage(14633): android.service.notification is mapped to system
+02-09 23:32:53.556 I/AconfigPackage(14644): com.android.server.notification is mapped to system
+02-09 23:32:53.556 I/AconfigPackage(14633): com.android.server.notification is mapped to system
+02-09 23:32:53.661 I/AconfigPackage(14643): android.service.notification is mapped to system
+02-09 23:32:53.662 I/AconfigPackage(14643): com.android.server.notification is mapped to system
+02-09 23:33:22.273 I/flutter (14459): [Matrix] [32mInitialize client voxmatrix[0m
+02-09 23:33:22.286 I/flutter (14459): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-09 23:33:22.288 I/flutter (14459): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-09 23:33:24.232 I/flutter (14459): [Matrix] [32mInitialize client voxmatrix[0m
+02-09 23:33:24.239 I/flutter (14459): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-09 23:33:24.245 I/flutter (14459): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-09 23:33:26.766 E/flutter (14459): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Null check operator used on a null value
+02-09 23:33:26.766 E/flutter (14459): #0      OfflineQueueService.getQueuedMessages (package:voxmatrix/core/services/offline_queue_service.dart:64)
+02-09 23:33:26.766 E/flutter (14459): <asynchronous suspension>
+02-09 23:33:26.766 E/flutter (14459): #1      ChatBloc._onProcessOfflineQueue (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:535)
+02-09 23:33:26.766 E/flutter (14459): <asynchronous suspension>
+02-09 23:33:26.766 E/flutter (14459): #2      Bloc.on.<anonymous closure>.handleEvent (package:bloc/src/bloc.dart:229)
+02-09 23:33:26.766 E/flutter (14459): <asynchronous suspension>
+02-09 23:33:26.766 E/flutter (14459): 
+02-09 23:33:26.766 E/flutter (14459): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: HiveError: You need to initialize Hive or provide a path to store the box.
+02-09 23:33:26.766 E/flutter (14459): #0      BackendManager.open (package:hive/src/backend/vm/backend_manager.dart:21)
+02-09 23:33:26.766 E/flutter (14459): #1      HiveImpl._openBox (package:hive/src/hive_impl.dart:101)
+02-09 23:33:26.766 E/flutter (14459): #2      HiveImpl.openBox (package:hive/src/hive_impl.dart:142)
+02-09 23:33:26.766 E/flutter (14459): #3      OfflineQueueService.initialize (package:voxmatrix/core/services/offline_queue_service.dart:20)
+02-09 23:33:26.766 E/flutter (14459): #4      OfflineQueueService.getQueuedMessages (package:voxmatrix/core/services/offline_queue_service.dart:60)
+02-09 23:33:26.766 E/flutter (14459): #5      ChatBloc._onProcessOfflineQueue (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:535)
+02-09 23:33:26.766 E/flutter (14459): #6      Bloc.on.<anonymous closure>.handleEvent (package:bloc/src/bloc.dart:229)
+02-09 23:33:26.766 E/flutter (14459): #7      Bloc.on.<anonymous closure> (package:bloc/src/bloc.dart:238)
+02-09 23:33:26.766 E/flutter (14459): #8      _MapStream._handleData (dart:async/stream_pipe.dart:247)
+02-09 23:33:26.766 E/flutter (14459): #9      _ForwardingStreamSubscription._handleData (dart:async/stream_pipe.dart:184)
+02-09 23:33:26.766 E/flutter (14459): #10     _RootZone.runUnaryGuarded (dart:async/zone.dart:1778)
+02-09 23:33:26.766 E/flutter (14459): #11     CastStreamSubscription._onData (dart:_internal/async_cast.dart:95)
+02-09 23:33:26.766 E/flutter (14459): #12     _RootZone.runUnaryGuarded (dart:async/zone.dart:1778)
+02-09 23:33:26.766 E/flutter (14459): #13     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381)
+02-09 23:33:26.766 E/flutter (14459): #14     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:312)
+02-09 23:33:26.766 E/flutter (14459): #15     _ForwardingStreamSubscription._add (dart:async/stream_pipe.dart:154)
+02-09 23:33:26.766 E/flutter (14459): #16     _WhereStream._handleData (dart:async/stream_pipe.dart:229)
+02-09 23:33:26.766 E/flutter (14459): #17     _ForwardingStreamSubscription._handleData (dart:async/stream_pipe.dart:184)
+02-09 23:33:26.766 E/flutter (14459): #18     _RootZone.runUnaryGuarded (dart:async/zone.dart:1778)
+02-09 23:33:26.766 E/flutter (14459): #19     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381)
+02-09 23:33:26.766 E/flutter (14459): #20     _DelayedData.perform (dart:async/stream_impl.dart:573)
+02-09 23:33:26.766 E/flutter (14459): #21     _PendingEvents.handleNext (dart:async/stream_impl.dart:678)
+02-09 23:33:26.766 E/flutter (14459): #22     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649)
+02-09 23:33:26.766 E/flutter (14459): #23     _microtaskLoop (dart:async/schedule_microtask.dart:40)
+02-09 23:33:26.766 E/flutter (14459): #24     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49)
+02-09 23:33:26.766 E/flutter (14459): 
+02-09 23:33:30.394 E/flutter (14459): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Null check operator used on a null value
+02-09 23:33:30.394 E/flutter (14459): #0      OfflineQueueService.getQueuedMessages (package:voxmatrix/core/services/offline_queue_service.dart:64)
+02-09 23:33:30.394 E/flutter (14459): <asynchronous suspension>
+02-09 23:33:30.394 E/flutter (14459): #1      ChatBloc._onProcessOfflineQueue (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:535)
+02-09 23:33:30.394 E/flutter (14459): <asynchronous suspension>
+02-09 23:33:30.394 E/flutter (14459): #2      Bloc.on.<anonymous closure>.handleEvent (package:bloc/src/bloc.dart:229)
+02-09 23:33:30.394 E/flutter (14459): <asynchronous suspension>
+02-09 23:33:30.394 E/flutter (14459): 
+02-09 23:33:30.395 E/flutter (14459): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: HiveError: You need to initialize Hive or provide a path to store the box.
+02-09 23:33:30.395 E/flutter (14459): #0      BackendManager.open (package:hive/src/backend/vm/backend_manager.dart:21)
+02-09 23:33:30.395 E/flutter (14459): #1      HiveImpl._openBox (package:hive/src/hive_impl.dart:101)
+02-09 23:33:30.395 E/flutter (14459): #2      HiveImpl.openBox (package:hive/src/hive_impl.dart:142)
+02-09 23:33:30.395 E/flutter (14459): #3      OfflineQueueService.initialize (package:voxmatrix/core/services/offline_queue_service.dart:20)
+02-09 23:33:30.395 E/flutter (14459): #4      OfflineQueueService.getQueuedMessages (package:voxmatrix/core/services/offline_queue_service.dart:60)
+02-09 23:33:30.395 E/flutter (14459): #5      ChatBloc._onProcessOfflineQueue (package:voxmatrix/presentation/chat/bloc/chat_bloc.dart:535)
+02-09 23:33:30.395 E/flutter (14459): #6      Bloc.on.<anonymous closure>.handleEvent (package:bloc/src/bloc.dart:229)
+02-09 23:33:30.395 E/flutter (14459): #7      Bloc.on.<anonymous closure> (package:bloc/src/bloc.dart:238)
+02-09 23:33:30.395 E/flutter (14459): #8      _MapStream._handleData (dart:async/stream_pipe.dart:247)
+02-09 23:33:30.395 E/flutter (14459): #9      _ForwardingStreamSubscription._handleData (dart:async/stream_pipe.dart:184)
+02-09 23:33:30.395 E/flutter (14459): #10     _RootZone.runUnaryGuarded (dart:async/zone.dart:1778)
+02-09 23:33:30.395 E/flutter (14459): #11     CastStreamSubscription._onData (dart:_internal/async_cast.dart:95)
+02-09 23:33:30.395 E/flutter (14459): #12     _RootZone.runUnaryGuarded (dart:async/zone.dart:1778)
+02-09 23:33:30.395 E/flutter (14459): #13     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381)
+02-09 23:33:30.395 E/flutter (14459): #14     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:312)
+02-09 23:33:30.395 E/flutter (14459): #15     _ForwardingStreamSubscription._add (dart:async/stream_pipe.dart:154)
+02-09 23:33:30.395 E/flutter (14459): #16     _WhereStream._handleData (dart:async/stream_pipe.dart:229)
+02-09 23:33:30.395 E/flutter (14459): #17     _ForwardingStreamSubscription._handleData (dart:async/stream_pipe.dart:184)
+02-09 23:33:30.395 E/flutter (14459): #18     _RootZone.runUnaryGuarded (dart:async/zone.dart:1778)
+02-09 23:33:30.395 E/flutter (14459): #19     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381)
+02-09 23:33:30.395 E/flutter (14459): #20     _DelayedData.perform (dart:async/stream_impl.dart:573)
+02-09 23:33:30.395 E/flutter (14459): #21     _PendingEvents.handleNext (dart:async/stream_impl.dart:678)
+02-09 23:33:30.395 E/flutter (14459): #22     _PendingEvents.schedule.<anonymous closure> (dart:async/stream_impl.dart:649)
+02-09 23:33:30.395 E/flutter (14459): #23     _microtaskLoop (dart:async/schedule_microtask.dart:40)
+02-09 23:33:30.395 E/flutter (14459): #24     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49)
+02-09 23:33:30.395 E/flutter (14459): 
+02-09 23:33:31.625 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:33:32.288 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:33:33.018 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:33:33.928 D/nativeloader(14968): Load /data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk): ok
+02-09 23:33:33.928 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:33:33.957 I/flutter (14968): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+02-09 23:33:34.022 I/flutter (14968): [Matrix] [32mInitialize client voxmatrix[0m
+02-09 23:33:34.049 I/flutter (14968): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-09 23:33:34.051 I/flutter (14968): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-09 23:33:39.440 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:33:40.066 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:33:40.686 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:33:41.519 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:33:41.522 D/nativeloader(15083): Load /data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~m_b-xECUMURNUQg9C-bWGw==/org.voxmatrix.app-FumZIjOYwxtF6OgANXmXMQ==/base.apk): ok
+02-09 23:33:41.550 I/flutter (15083): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+02-09 23:33:41.617 I/flutter (15083): [Matrix] [32mInitialize client voxmatrix[0m
+02-09 23:33:41.646 I/flutter (15083): [Matrix] [31mError initializing encryption Invalid argument(s): Failed to load dynamic library 'libolm.so': dlopen failed: library "libolm.so" not found[0m
+02-09 23:33:41.649 I/flutter (15083): [Matrix] [32mSuccessfully connected as test2 with http://100.92.210.91:8008[0m
+02-09 23:33:42.548 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:33:42.554 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:33:42.709 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:33:42.819 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:11.463 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:11.465 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:11.468 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:11.821 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:11.836 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:11.841 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:12.108 D/SYS_EVENT( 6853): [qc debug] send event 8 notification to client
+02-09 23:34:12.108 D/SYS_EVENT_AIDL( 6853): send event 8 notification to client
+02-09 23:34:12.123 W/View    ( 3998): requestLayout() improperly called by com.android.systemui.shade.NotificationsQuickSettingsContainer{b9b4ce V.E...... ......ID 0,0-1080,2340 #7f0a087e app:id/notification_container_parent} during layout: running second layout pass
+02-09 23:34:12.146 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:12.146 W/View    ( 3998): requestLayout() improperly called by com.android.systemui.shade.NotificationsQuickSettingsContainer{b9b4ce V.E...... ........ 0,0-1080,2340 #7f0a087e app:id/notification_container_parent} during second layout pass: posting in next frame
+02-09 23:34:12.296 D/InsignificantCoordinator( 3998): no update for Insignificant summary, there is no notifications 
+02-09 23:34:12.635 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:12.647 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:12.896 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:13.108 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:16.847 I/flutter (15083): [Matrix] [33mSyncloop failed: Client has not connection to the server[0m
+02-09 23:34:54.972 D/SYS_EVENT( 6853): [qc debug] send event 16 notification to client
+02-09 23:34:54.972 D/SYS_EVENT_AIDL( 6853): send event 16 notification to client
+02-09 23:34:54.985 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:54.993 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:55.011 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:55.034 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:55.047 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:55.050 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:55.078 E/NotificationService( 2640): Suppressing notification from package com.zorinos.zorin_connect by user request.
+02-09 23:34:56.321 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:34:56.415 I/View    ( 3998): setRequestedFrameRate frameRate=-2.0, this=StatusBarIconView(slot='com.android.systemui/0x7f0a08a6' alpha=1.0 icon=StatusBarIcon(icon=Icon(typ=RESOURCE pkg=com.android.systemui id=0x7f081396) visible user=-1 ) visibleState=ICON iconColor=#ffb0c6ff staticDrawableColor=#ffb0c6ff decorColor=#ff1b6cf7 animationStartColor=#0 currentSetColor=#ffb0c6ff notification=StatusBarNotification(pkg=com.android.systemui user=UserHandle{-1} id=2131364006 tag=tag_battery_protection key=-1|com.android.systemui|2131364006|tag_battery_protection|10049: Notification(channel=CHR shortcut=null contentView=null vibrate=null sound=null defaults=0 flags=ONGOING_EVENT|ONLY_ALERT_ONCE color=0x00000000 category=sys groupKey=CHARGING vis=PUBLIC semFlags=0x0 semPriority=0 semMissedCount=0))), caller=com.android.systemui.statusbar.StatusBarIconView.onAttachedToWindow:6 android.view.View.dispatchAttachedToWindow:24320 android.view.ViewGroup.addViewInner:5582 android.view.ViewGroup.addView:5358 com.android.systemui.statusbar.phone.LegacyNotificationIconAreaControllerImpl.updateIconsForLayout:468 
+02-09 23:34:56.476 D/SYS_EVENT( 6853): [qc debug] send event 64 notification to client
+02-09 23:34:56.481 D/SYS_EVENT_AIDL( 6853): send event 64 notification to client
+02-09 23:34:56.604 D/InsignificantCoordinator( 3998): no update for Insignificant summary, there is no notifications 
+02-09 23:34:56.849 I/flutter (15083): [Matrix] [31mError during processing events - TimeoutException after 0:00:40.000000: Future not completed
+02-09 23:34:56.849 I/flutter (15083): #0      Future.timeout.<anonymous closure> (dart:async/future_impl.dart:1042)
+02-09 23:34:56.849 I/flutter (15083): <asynchronous suspension>
+02-09 23:34:56.849 I/flutter (15083): #1      Client._innerSync (package:matrix/src/client.dart:1918)
+02-09 23:34:56.849 I/flutter (15083): <asynchronous suspension>
+02-09 23:34:56.849 I/flutter (15083): #2      Client._sync.<anonymous closure> (package:matrix/src/client.dart:1817)
+02-09 23:34:56.849 I/flutter (15083): <asynchronous suspension>
+02-09 23:34:56.849 I/flutter (15083): [0m
+02-09 23:35:00.820 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:35:01.383 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:35:02.088 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:35:02.149 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:35:02.152 I/sensors-hal( 1656): send_sync_sensor_request:537, wait for notification of response
+02-09 23:35:03.266 D/MediaDataManager( 3998): State updated outside of notification
+02-09 23:35:03.298 I/HoneySpace.NotificationListener( 4611): invalid notification: org.jellyfin.mobile UserHandle{0}: canShowBadge is false
+02-09 23:35:03.299 I/NotificationListener( 7554): [Service]v6.1.9-eap02 Received new notification
+02-09 23:35:03.299 I/NotificationPipeline( 7554): Processing new notification: 0|org.jellyfin.mobile|99|null|10442
+02-09 23:35:03.300 I/NotificationPipeline( 7554): Discarding notification: 0|org.jellyfin.mobile|99|null|10442
+02-09 23:35:03.364 I/MediaOngoingActivity( 3998): updateOngoingActivity data: OngoingActivityData(mNotiID=0|com.android.systemui|12030705|null|10049, mPendingIntent=null, mNowbarPendingIntentOnSubScreen=null, mChipIcon=null, mExpandedChipView=null, mChipBackground=0, mPrimaryActionIndex=-1, mActionType=-1, mActions=null, mActionBgColors=null, mCardIcon=null, mCardIconBg=0, mPrimaryInfo=, mSecondaryInfo=, mCustomExpandedCardView=null, mSubScreenCustomExpandedCardView=null, mNeedMarquee=true, mExpandedChipText=, mChronometerView=null, mChronometerPosition=0, mChronometerTag=, mProgress=-1, mProgressMax=0, mProgressIndeterminate=false, mFirstIcon=null, mSecondIcon=null, mOngoingCollapsedView=null, mOngoingOAExpandView=null, mOngoingENRExpandView=null, mOngoingSubScreenExpandView=null, mOngoingNowbarView=null, mOngoingSubScreenNowbarView=null, mCustomNowBarView=null, mSubScreenCustomNowBarView=null, mProgressSegments=[], mProgressSegmentIcon=null, mProgressColor=0, mDescription=, mSecondaryInfoIcon=null, mNowbarIcon=null, mNowbarPrimaryInfo=null, mNowbarSecondaryInfo=null, mUserId=0, mAppName=, mWhen=1770669303308, mAppIcon=null, mPackageName=, mNotificationEntry=com.android.systemui.statusbar.notification.collection.NotificationEntry@c267cec, mStyle=1, mNowbarChronometerPosition=0, mIsMediaOngoingData=true, mAodRemoteAppName=, mAodRemoteAppIcon=null, mAodRemoteAppPendingIntent=null, mNowbarExtraData=null, mDismissRequested=false)
+02-09 23:35:03.421 D/{OngoingActivityDataHelper}( 3998): onAsyncInflationFinished. oa DATA: OngoingActivityData(mNotiID=0|com.android.systemui|12030705|null|10049, mPendingIntent=null, mNowbarPendingIntentOnSubScreen=null, mChipIcon=null, mExpandedChipView=null, mChipBackground=0, mPrimaryActionIndex=-1, mActionType=-1, mActions=null, mActionBgColors=null, mCardIcon=null, mCardIconBg=0, mPrimaryInfo=, mSecondaryInfo=, mCustomExpandedCardView=null, mSubScreenCustomExpandedCardView=null, mNeedMarquee=true, mExpandedChipText=, mChronometerView=null, mChronometerPosition=0, mChronometerTag=, mProgress=-1, mProgressMax=0, mProgressIndeterminate=false, mFirstIcon=null, mSecondIcon=null, mOngoingCollapsedView=null, mOngoingOAExpandView=null, mOngoingENRExpandView=null, mOngoingSubScreenExpandView=null, mOngoingNowbarView=null, mOngoingSubScreenNowbarView=null, mCustomNowBarView=null, mSubScreenCustomNowBarView=null, mProgressSegments=[], mProgressSegmentIcon=null, mProgressColor=0, mDescription=, mSecondaryInfoIcon=null, mNowbarIcon=null, mNowbarPrimaryInfo=null, mNowbarSecondaryInfo=null, mUserId=0, mAppName=, mWhen=1770669303308, mAppIcon=null, mPackageName=, mNotificationEntry=com.android.systemui.statusbar.notification.collection.NotificationEntry@c267cec, mStyle=1, mNowbarChronometerPosition=0, mIsMediaOngoingData=true, mAodRemoteAppName=, mAodRemoteAppIcon=null, mAodRemoteAppPendingIntent=null, mNowbarExtraData=null, mDismissRequested=false)
+02-09 23:35:03.468 W/avrcp   (16699): system/profile/avrcp/device.cc:1315 PlaybackStatusNotificationResponse: Not sending notification due to no state update xx:xx:xx:xx:1c:d8
+02-09 23:35:06.552 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:35:06.559 I/FaceWidgetNotificationControllerWrapper( 3998): updateTopIndex MEDIA_NOWBAR / notificationController = com.samsung.android.app.facewidget.FaceWidgetNotificationController@6e68dc8
+02-09 23:35:06.560 I/{OngoingChipAdapter}( 3998): onBindViewHolder() notificationArrayList.position = 0
+02-09 23:35:14.155 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:35:15.088 E/[AirCmd]_MediaControlStateMonitor( 6728): getActiveNotificationPackageName : notification service monitor is null
+02-09 23:35:15.119 I/AidlLazyServiceRegistrar(15983): Process has 1 (of 1 available) client(s) in use after notification artd has clients: 1
+02-09 23:35:15.315 I/HoneySpace.BadgeDataSourceImpl( 4611): Get notification count. PK(p='com.google.android.packageinstaller', u=UserHandle{0}) - forceBadgeCount: false, notification listener: 1, badge provider: 0
+02-09 23:35:15.319 I/NotificationListener( 7554): [Service]v6.1.9-eap02 Received new notification
+02-09 23:35:15.320 I/NotificationPipeline( 7554): Processing new notification: 0|com.google.android.packageinstaller|-2147483647|null|10083
+02-09 23:35:15.321 D/EdgeLightingPolicyManager.NotificationGroup( 2640): group notification count : 0
+02-09 23:35:15.324 I/NotificationPipeline( 7554): Discarding notification: 0|com.google.android.packageinstaller|-2147483647|null|10083
+02-09 23:35:15.326 I/NotificationPipeline( 7554): Processing notification dismissal on phone: 0|com.google.android.packageinstaller|-2147483647|null|10083
+02-09 23:35:15.328 W/ContextImpl( 2640): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1335 com.android.server.notification.NotificationManagerService$17.enqueueToastForDex:62 com.android.server.notification.NotificationManagerService$17.enqueueTextToastForDex:17 android.app.INotificationManager$Stub.onTransact:4630 android.os.Binder.execTransactInternal:1457 
+02-09 23:35:15.406 I/NotificationImportance( 7554): Falling back to notification fields
+02-09 23:35:15.413 W/NotifFrequencyLogger( 7554): Missing frequency data when notification is being removed
+02-09 23:35:15.491 I/VvmPkgInstalledRcvr( 3961): getCarrierVvmPackages : config: PersistableBundle[{imsvoice.voice_on_default_bearer_supported_bool=false, imsvoice.rtp_inactivity_time_threshold_millis_long=5000, imsss.ut_transport_type_int=1, imsemergency.emergency_call_setup_timer_on_current_network_sec_int=0, carrier_volte_provisioned_bool=false, support_cdma_1x_voice_calls_bool=true, support_ss_over_cdma_bool=false, disable_charge_indication_bool=false, ims.sip_timer_t4_millis_int=17000, support_tdscdma_bool=false, httpSocketTimeout=60000, allowed_initial_attach_apn_types_string_array=[ia, default], disable_supplementary_services_in_airplane_mode_bool=false, call_barring_default_service_class_int=1, call_redirection_service_component_name_string=null, carrier_wfc_supports_wifi_only_bool=false, carrier_default_actions_on_default_network_available_string_array=[false: 7, true: 8], imsvoice.minimum_session_expires_timer_sec_int=90, vonr_on_by_default_bool=true, iwlan_handover_policy_string_array=[source=GERAN|UTRAN|EUTRAN|NGRAN|IWLAN, target=GERAN|UTRAN|EUTRAN|NGRAN|IWLAN, type=disallowed, capabilities=MMS|XCAP|CBS|SUPL|DUN|BIP|FOTA], operator_selection_expand_bool=true, disable_cdma_activation_code_bool=false, simplified_network_settings_bool=false, imsemergency.emergency_registration_timer_millis_int=10000, call_forwarding_when_unanswered_supported_bool=true, imsvt.h264_payload_description_bundle=PersistableBundle[{99=PersistableBundle[{}], 100=PersistableBundle[{imsvt.video_codec_attribute_packetization_mode_int=0}]}], support_tdscdma_roaming_networks_string_array=null, opportunistic.5g_data_switch_hysteresis_time_long=2000, ims.sip_timer_d_millis_int=130000, gps.lpp_profile=2, call_barring_visibility_bool=false, gba_mode_int=1, ims.registration_subscribe_expiry_timer_sec_int=600000, gps.es_extension_sec=0, enable_apps_string_array=null, 5g_icon_display_secondary_grace_period_string=, carrier_default_wfc_ims_roaming_enabled_bool=false, cdma_nonroaming_networks_string_array=null, imsss.ut_as_server_fqdn_string=, imsemergency.emergency_lte_preferred_after_nr_failed_bool=false, signal_strength_nr_nsa_use_lte_as_primary_bool=true, aliasMinChars=2, fdn_number_length_limit_int=20, support_ims_call_forwarding_while_roaming_bool=true, wfc_data_spn_format_idx_int=0, hide_sim_lock_settings_bool=false, premium_capability_network_setup_time_millis_long=300000, satellite_esos_supported_bool=false, drop_video_call_when_answering_audio_call_bool=false, data_stall_recovery_timers_long_array=[180000, 180000, 180000, 180000, 180000], satellite_connection_hysteresis_sec_int=30, opportunistic_esim_download_via_wifi_only_bool=false, imsss.xcap_over_ut_supported_rats_int_array=[3, 5, 6], ci_action_on_sys_update_bool=false, carrier_certificate_string_array=[], convert_cdma_caller_id_mmi_codes_while_roaming_on_3gpp_bool=false, support_enhanced_call_blocking_bool=true, iwlan.ike_rekey_hard_timer_in_sec=14400, vvm_port_number_int=0, premium_capability_notification_display_timeout_millis_long=1800000, wifi_connectivity_extend_cell_delay=-1, imsemergency.emergency_requires_ims_registration_bool=false, carrier_default_wfc_ims_enabled_bool=false, iwlan.ike_session_encryption_aes_ctr_key_size_int_array=[128, 192, 256], dial_string_replace_string_array=null, opportunistic_network_entry_threshold_bandwidth_int=1024, imsemergency.emergency_requires_volte_enabled_bool=false, opportunistic_network_data_switch_exit_hysteresis_time_long=3000, imsss.use_csfb_on_xcap_over_ut_failure_bool=true, gsm_nonroaming_networks_string_array=null, imsserviceentitlement.ims_provisioning_bool=false, wifi.avoid_5ghz_softap_for_laa_bool=false, hide_ims_apn_bool=false, carrier_network_service_wlan_class_override_string=, vvm_destination_number_string=, ims.ipsec_encryption_algorithms_int_array=[0, 1, 2], opportunistic.5g_backoff_time_long=10000, enable_cross_sim_calling_on_opportunistic_data_bool=false, vonr_setting_visibility_bool=true, imssms.sms_over_ims_supported_bool=true, dtmf_type_enabled_bool=false, ims.sip_timer_f_millis_int=128000, allow_video_calling_fallback_bo
+02-09 23:35:15.502 I/Finsky  (21188): [2] Showing notification: [ID=notificationType959, Title=, Message=Checking for updates for Wear..., channelId=maintenance-v2, filtered=0, targetType=3, returnCode=-1, uiElementType=959]
+02-09 23:35:15.606 D/NotificationService( 2640): removeFlagFromNotificationLocked pkg = com.android.vending notificationId = 187665336, flag = 64
+02-09 23:35:15.641 E/PhSharedDirectoryWriter( 4705): 	at com.google.android.gms.phenotype.notification.PackagesChangedIntentOperation.onHandleIntent(:com.google.android.gms@260235035@26.02.35 (260400-862924022):105)
+02-09 23:35:15.648 I/Notification4Water_AM( 8544): JsonUtils.sendJsonByDataItem-path : /wcs_extension/sysui/notification/switch/app_settings / jsonString : [{"channels":[{"isAllowed":false,"realPackageName":"com.samsung.android.dialer","virtualName":"missed_call"},{"isAllowed":false,"realPackageName":"com.samsung.android.dialer","virtualName":"Incoming_call"},{"isAllowed":false,"realPackageName":"com.samsung.android.clientconnection","virtualName":"voice_mail"}],"isAllowed":true,"packageName":"call","realPackageName":"com.samsung.android.dialer","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.cellbroadcastreceiver","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.android.chrome","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.android.vending","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0},{"isAllowed":true,"isWatchApp":false,"userId":11}]},{"isAllowed":true,"packageName":"com.google.android.apps.maps","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.apps.tachyon","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.app.contacts","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0},{"isAllowed":true,"isWatchApp":false,"userId":11}]},{"isAllowed":true,"packageName":"com.samsung.android.app.interpreter","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.messaging","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.sec.android.app.camera","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.sec.android.gallery3d","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"app.rvx.android.apps.youtube.music","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"app.rvx.android.youtube","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"ch.protonmail.android","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.brave.browser","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.apps.docs","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.apps.walletnfcrel","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.microsoft.office.outlook","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0},{"isAllowed":true,"isWatchApp":false,"userId":11}]},{"isAllowed":true,"packageName":"com.paypal.android.p2pmobile","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.calendar","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.shealthmonitor","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.sec.android.app.shealth","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.ubercab","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"net.thunderbird.android","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"org.fdroid.
+02-09 23:35:15.649 I/WatchSettings_Water*( 8544): SettingsCompanion > put() : ##:##:##:##:41:31, GW, /wcs_extension/sysui/notification/switch/app_settings, [{"channels":[{"isAllowed":false,"realPackageName":"com.samsung.android.dialer","virtualName":"missed_call"},{"isAllowed":false,"realPackageName":"com.samsung.android.dialer","virtualName":"Incoming_call"},{"isAllowed":false,"realPackageName":"com.samsung.android.clientconnection","virtualName":"voice_mail"}],"isAllowed":true,"packageName":"call","realPackageName":"com.samsung.android.dialer","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.cellbroadcastreceiver","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.android.chrome","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.android.vending","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0},{"isAllowed":true,"isWatchApp":false,"userId":11}]},{"isAllowed":true,"packageName":"com.google.android.apps.maps","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.apps.tachyon","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.app.contacts","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0},{"isAllowed":true,"isWatchApp":false,"userId":11}]},{"isAllowed":true,"packageName":"com.samsung.android.app.interpreter","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.messaging","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.sec.android.app.camera","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.sec.android.gallery3d","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"app.rvx.android.apps.youtube.music","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"app.rvx.android.youtube","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"ch.protonmail.android","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.brave.browser","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.apps.docs","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.apps.walletnfcrel","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.microsoft.office.outlook","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0},{"isAllowed":true,"isWatchApp":false,"userId":11}]},{"isAllowed":true,"packageName":"com.paypal.android.p2pmobile","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.calendar","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.shealthmonitor","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.sec.android.app.shealth","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.ubercab","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"net.thunderbird.android","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"org.fdroid.
+02-09 23:35:15.649 I/WatchSettings_Water( 8544): SettingsCompanion > putPhoneDataItem() : SettingsDataItem(uri=/wcs_extension/sysui/notification/switch/app_settings, key=JSON_STRING, value=[{"channels":[{"isAllowed":false,"realPackageName":"com.samsung.android.dialer","virtualName":"missed_call"},{"isAllowed":false,"realPackageName":"com.samsung.android.dialer","virtualName":"Incoming_call"},{"isAllowed":false,"realPackageName":"com.samsung.android.clientconnection","virtualName":"voice_mail"}],"isAllowed":true,"packageName":"call","realPackageName":"com.samsung.android.dialer","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.cellbroadcastreceiver","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.android.chrome","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.android.vending","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0},{"isAllowed":true,"isWatchApp":false,"userId":11}]},{"isAllowed":true,"packageName":"com.google.android.apps.maps","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.apps.tachyon","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.app.contacts","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0},{"isAllowed":true,"isWatchApp":false,"userId":11}]},{"isAllowed":true,"packageName":"com.samsung.android.app.interpreter","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.messaging","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.sec.android.app.camera","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.sec.android.gallery3d","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"app.rvx.android.apps.youtube.music","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"app.rvx.android.youtube","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"ch.protonmail.android","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.brave.browser","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.apps.docs","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.google.android.apps.walletnfcrel","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.microsoft.office.outlook","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0},{"isAllowed":true,"isWatchApp":false,"userId":11}]},{"isAllowed":true,"packageName":"com.paypal.android.p2pmobile","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.calendar","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.samsung.android.shealthmonitor","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.sec.android.app.shealth","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"com.ubercab","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed":true,"packageName":"net.thunderbird.android","realPackageName":"","users":[{"isAllowed":true,"isWatchApp":false,"userId":0}]},{"isAllowed
+02-09 23:35:15.656 I/WatchSettings_Water*( 8544): SettingsCompanion > notifySettingsValueChangedToObserver() : /wcs_extension/sysui/notification/switch/app_settings
+02-09 23:35:15.670 I/WatchSettings_Water( 8544): SettingsCompanion > putPhoneDataItem() : putDataItem() : Success : wear://a8555e62/wcs_extension/sysui/notification/switch/app_settings
+02-09 23:35:16.063 I/Notification4Water_NB( 7554): WatchReceiver.onReceive-com.samsung.android.waterplugin.notifications.APPS_UPDATED
+02-09 23:35:16.063 I/C_AlarmActionReceiver( 8544): onReceive action = com.samsung.android.waterplugin.notifications.APPS_UPDATED
+02-09 23:35:16.064 I/WMP/NotificationSettingReceiver( 8544): receive action : com.samsung.android.waterplugin.notifications.APPS_UPDATED, nodeId :f498c0e2
+02-09 23:35:16.068 I/Notification4Water_NB( 7554): WatchFactory.onWatchSettingsChanged-{nodeId: f498c0e2, action: com.samsung.android.waterplugin.notifications.APPS_UPDATED}
+02-09 23:35:16.174 I/AidlLazyServiceRegistrar(16164): Process has 1 (of 2 available) client(s) in use after notification android.system.virtualizationmaintenance has clients: 1
+02-09 23:35:16.179 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:35:16.179 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:35:23.352 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:35:23.352 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:35:25.865 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:35:25.866 D/KNOX_MDM_SettingsProvider( 2640): isChangeAllowed() : name = enabled_notification_listeners
+02-09 23:35:27.354 I/AidlLazyServiceRegistrar(16164): Process has 0 (of 2 available) client(s) in use after notification android.system.virtualizationmaintenance has clients: 0

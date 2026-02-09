@@ -1,0 +1,150 @@
+02-10 00:29:59.423  1776  1783 E HeatmapThread: !@ CAM is Working
+02-10 00:29:59.491  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:29:59.492  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:29:59.692  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:29:59.692  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:29:59.892  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:29:59.893  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:00.003  3998  3998 D ClockFaceEvents: com.android.keyguard.KeyguardUpdateMonitor$16.handleMessage:732
+02-10 00:30:00.003  3998  3998 D ClockFaceEvents: com.android.keyguard.KeyguardUpdateMonitor$16.handleMessage:732
+02-10 00:30:00.005  3998  3998 D QSClockBellTower: He is ready to ring the bell. (((QSClockBellSound - TimeText:12:30, TimeContentDescription:12:30 am, DateText:Tue 10 February (Shaban 22), ShortDateText:Tue 10 Feb, Demo:false)))
+02-10 00:30:00.013  3998  3998 D QSClockBellTower: He is ready to ring the bell. (((QSClockBellSound - TimeText:12:30, TimeContentDescription:12:30 am, DateText:Tue 10 February (Shaban 22), ShortDateText:Tue 10 Feb, Demo:false)))
+02-10 00:30:00.013  3998  3998 D ClockFaceEvents: com.android.keyguard.KeyguardUpdateMonitor$16.handleMessage:732
+02-10 00:30:00.013  3998  3998 D ClockFaceEvents: com.android.keyguard.KeyguardUpdateMonitor$16.handleMessage:732
+02-10 00:30:00.093  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:00.094  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:00.294  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:00.295  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:00.418  1776  1783 E HeatmapThread: ECT Thread time in milliseconds: 1770672600
+02-10 00:30:00.420  1776  1783 D HeatmapThread: !@ batteryplugType : 2
+02-10 00:30:00.420  1776  1783 D HeatmapThread: !@ batteryLevel : 84  batteryTemperature : 366 
+02-10 00:30:00.420  1776  1783 D HeatmapThread: !@ Heatmap currtime: 29511210
+02-10 00:30:00.420  1776  1783 D HeatmapThread: !@ Heatmap prevtime: 29511183
+02-10 00:30:00.420  1776  1783 D HeatmapThread: !@ Heatmap plugstarttime: 29511000
+02-10 00:30:00.421  1776  1783 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29511180
+02-10 00:30:00.421  1776  1783 E HeatmapThread: !@ CAM New BSOH: 100
+02-10 00:30:00.422  1776  1783 E HeatmapThread: !@ CAM is Working
+02-10 00:30:00.495  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:00.495  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:00.695  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:00.695  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:00.895  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:00.895  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:01.095  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:01.095  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:01.238  1214  1214 D io_stats: !@ Read_top(KB): monitorprovider(6171) 104 com.ubercab(410) 60 kworker/u16:1(9151) 12
+02-10 00:30:01.295  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:01.295  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:01.418  1776  1783 E HeatmapThread: ECT Thread time in milliseconds: 1770672601
+02-10 00:30:01.422  1776  1783 D HeatmapThread: !@ batteryplugType : 2
+02-10 00:30:01.423  1776  1783 D HeatmapThread: !@ batteryLevel : 84  batteryTemperature : 366 
+02-10 00:30:01.423  1776  1783 D HeatmapThread: !@ Heatmap currtime: 29511210
+02-10 00:30:01.424  1776  1783 D HeatmapThread: !@ Heatmap prevtime: 29511183
+02-10 00:30:01.424  1776  1783 D HeatmapThread: !@ Heatmap plugstarttime: 29511000
+02-10 00:30:01.424  1776  1783 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29511180
+02-10 00:30:01.425  1776  1783 E HeatmapThread: !@ CAM New BSOH: 100
+02-10 00:30:01.425  1776  1783 E HeatmapThread: !@ CAM is Working
+02-10 00:30:01.438  2640  2999 W OptProp : Cannot read opt property android.window.PROPERTY_COMPAT_ALLOW_ORIENTATION_OVERRIDE
+02-10 00:30:01.443 10233 10252 I g.voxmatrix.app: Thread[2,tid=10252,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1452be0,peer=0x2002a70,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:01.495  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:01.495  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:01.699  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:01.700  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:01.899  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:01.900  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:02.059  2640  3064 I CpuScalingPolicyReader: Calling readCpuStats: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 116 3
+02-10 00:30:02.099  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:02.099  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:02.110  2640  3064 I CpuScalingPolicyReader: Calling readCpuStats: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 116 3
+02-10 00:30:02.124  2640  3064 I CpuScalingPolicyReader: Calling readCpuStats: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 116 3
+02-10 00:30:02.299  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:02.300  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:02.418  1776  1783 E HeatmapThread: ECT Thread time in milliseconds: 1770672602
+02-10 00:30:02.421  1776  1783 D HeatmapThread: !@ batteryplugType : 2
+02-10 00:30:02.421  1776  1783 D HeatmapThread: !@ batteryLevel : 84  batteryTemperature : 366 
+02-10 00:30:02.421  1776  1783 D HeatmapThread: !@ Heatmap currtime: 29511210
+02-10 00:30:02.421  1776  1783 D HeatmapThread: !@ Heatmap prevtime: 29511183
+02-10 00:30:02.422  1776  1783 D HeatmapThread: !@ Heatmap plugstarttime: 29511000
+02-10 00:30:02.422  1776  1783 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29511180
+02-10 00:30:02.422  1776  1783 E HeatmapThread: !@ CAM New BSOH: 100
+02-10 00:30:02.422  1776  1783 E HeatmapThread: !@ CAM is Working
+02-10 00:30:02.483  2640  2819 I system_server: Thread[2,tid=2819,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1457f50,peer=0x20074d8,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:02.500  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:02.500  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:02.700  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:02.700  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:02.869  6778  6846 I FuseDaemon: Thread[2,tid=6846,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b145d2c0,peer=0x20031a8,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:02.896  2640  5111 W Binder  : 	at com.android.server.am.FreecessHandler$MainHandler.handleMessage(qb/105117711 790d9bfa6da06eeef6d0fde3c38341bab018595cfa7b0ac6fac4ea395378d8cb:793)
+02-10 00:30:02.896  2640  5111 W Binder  : 	at android.os.Handler.dispatchMessage(Handler.java:110)
+02-10 00:30:02.896  2640  5111 W Binder  : 	at android.os.HandlerThread.run(HandlerThread.java:85)
+02-10 00:30:02.897  2640  5111 W Binder  : 	at com.android.server.am.FreecessHandler$MainHandler.handleMessage(qb/105117711 790d9bfa6da06eeef6d0fde3c38341bab018595cfa7b0ac6fac4ea395378d8cb:793)
+02-10 00:30:02.897  2640  5111 W Binder  : 	at android.os.Handler.dispatchMessage(Handler.java:110)
+02-10 00:30:02.897  2640  5111 W Binder  : 	at android.os.HandlerThread.run(HandlerThread.java:85)
+02-10 00:30:02.900  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:02.900  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:02.964  6709  6713 I putmethod.latin: Thread[2,tid=6713,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b145d2c0,peer=0x20032a0,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.031  6883  6997 I id.diagmonagent: Thread[2,tid=6997,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b145d2c0,peer=0x20017c0,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.075  6897  6932 I c.android.sdhms: Thread[2,tid=6932,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b145d2c0,peer=0x2001818,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.100  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:03.100  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:03.128  6895  6934 I ng.android.sead: Thread[2,tid=6934,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b145d2c0,peer=0x2001410,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.160  6853  6927 I mhelper_service: Thread[2,tid=6927,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b145d2c0,peer=0x2001390,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.211  5871  5874 I alcomm.location: Thread[2,tid=5874,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b145d2c0,peer=0x20031c8,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.247  4299  4374 I .vexfwk.service: Thread[2,tid=4374,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1451010,peer=0x20028d0,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.279 17944 17946 I com.qti.qcc: Thread[2,tid=17946,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1457f50,peer=0x20028d0,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.300  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:03.301  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:03.316  4291  4357 I com.android.se: Thread[2,tid=4357,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1451010,peer=0x2003e18,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.344  4285  4356 I .sec.imsservice: Thread[2,tid=4356,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1451010,peer=0x20027f0,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.419  1776  1783 E HeatmapThread: ECT Thread time in milliseconds: 1770672603
+02-10 00:30:03.423  1776  1783 D HeatmapThread: !@ batteryplugType : 2
+02-10 00:30:03.423  1776  1783 D HeatmapThread: !@ batteryLevel : 84  batteryTemperature : 366 
+02-10 00:30:03.423  1776  1783 D HeatmapThread: !@ Heatmap currtime: 29511210
+02-10 00:30:03.424  1776  1783 D HeatmapThread: !@ Heatmap prevtime: 29511183
+02-10 00:30:03.424  1776  1783 D HeatmapThread: !@ Heatmap plugstarttime: 29511000
+02-10 00:30:03.424  1776  1783 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29511180
+02-10 00:30:03.424  1776  1783 E HeatmapThread: !@ CAM New BSOH: 100
+02-10 00:30:03.424  1776  1783 E HeatmapThread: !@ CAM is Working
+02-10 00:30:03.444  4281  4324 I libnfc_nci: Thread[2,tid=4324,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1451010,peer=0x2003b68,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.500  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:03.500  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:03.508  4271  4310 I .qms    : Thread[2,tid=4310,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1451010,peer=0x2004280,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.540  4276  4292 I com.sec.sve: Thread[2,tid=4292,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1451010,peer=0x2002980,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.593  4235  4247 I qtidataservices: Thread[2,tid=4247,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1451010,peer=0x20042d0,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.659  4144  4151 I rkstack.process: Thread[2,tid=4151,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1451010,peer=0x2003b58,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.700  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:03.700  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:03.702  3998  4015 I ndroid.systemui: Thread[2,tid=4015,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b145b6f0,peer=0x2002790,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.817  3961  3964 I m.android.phone: Thread[2,tid=3964,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b145b6f0,peer=0x2002460,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.900 16699 16707 I droid.bluetooth: Thread[2,tid=16707,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1457f50,peer=0x20027f0,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:03.900  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:03.901  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:04.098  5965  5968 I jellyfin.mobile: Thread[2,tid=5968,WaitingInMainSignalCatcherLoop,Thread*=0xb4000073b1457f50,peer=0x20009e0,"Signal Catcher"]: reacting to signal 3
+02-10 00:30:04.101  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:04.102  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:04.302  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:04.302  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:04.418  1776  1783 E HeatmapThread: ECT Thread time in milliseconds: 1770672604
+02-10 00:30:04.421  1776  1783 D HeatmapThread: !@ batteryplugType : 2
+02-10 00:30:04.421  1776  1783 D HeatmapThread: !@ batteryLevel : 84  batteryTemperature : 366 
+02-10 00:30:04.421  1776  1783 D HeatmapThread: !@ Heatmap currtime: 29511210
+02-10 00:30:04.421  1776  1783 D HeatmapThread: !@ Heatmap prevtime: 29511183
+02-10 00:30:04.421  1776  1783 D HeatmapThread: !@ Heatmap plugstarttime: 29511000
+02-10 00:30:04.421  1776  1783 D HeatmapThread: !@ Heatmap prevv_dsoh_update_time: 29511180
+02-10 00:30:04.421  1776  1783 E HeatmapThread: !@ CAM New BSOH: 100
+02-10 00:30:04.421  1776  1783 E HeatmapThread: !@ CAM is Working
+02-10 00:30:04.502  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:04.502  2640  3103 D PowerManagerService: displayReady: true groupId=0
+02-10 00:30:04.534  2640 10765 E ActivityManager:     2.2% 3724/oregroundThread: 0% user + 2.2% kernel
+02-10 00:30:04.534  2640 10765 E ActivityManager:     2.2% 3882/ackgroundThread: 0% user + 2.2% kernel
+02-10 00:30:04.534  2640 10765 E ActivityManager:     5.3% 16777/bt_main_thread: 2.6% user + 2.6% kernel
+02-10 00:30:04.536  2640  3000 D ActivityManager: !@AM_BOOT_PROGRESS , ensureBootCompleted booting:false /enableScreen:false /caller:com.android.server.am.ActivityManagerService.ensureBootCompleted:47 com.android.server.am.ActivityManagerService$UiHandler.handleMessage$com$android$server$am$ActivityManagerService$UiHandler:563 
+02-10 00:30:04.552  2640  3000 W Settings: Setting show_button_background has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+02-10 00:30:04.558  2640  3000 W Settings: Setting accessibility_reduce_transparency has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+02-10 00:30:04.578  2640  3000 D VRI[app]@6454812: mThreadedRenderer.initialize() mSurface={isValid=true 0xb4000072f14f55b0} hwInitialized=true
+02-10 00:30:04.582  2640 22199 I VRI[app]@6454812: mWNT: t=0xb4000073015013d0 mBlastBufferQueue=0xb4000073c14ba640 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack> 
+02-10 00:30:04.632  2640  5625 D LiftUpHandler: [LTW] Stopped already.
+02-10 00:30:04.632  2640  3639 D SGM:FgCheckThread: onLooperPrepared(), msg: MSG_LCD_ON
+02-10 00:30:04.641  2640  3000 D VRI[app]@6454812: mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb4000072f14f55b0}
+02-10 00:30:04.702  2640  3103 D PowerManagerService: displayReady: false groupId=0
+02-10 00:30:04.703  2640  3103 D PowerManagerService: displayReady: true groupId=0

@@ -1,0 +1,35 @@
+02-10 00:56:05.709 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:106:13)[0m
+02-10 00:56:05.709 I/flutter (31148): [38;5;12m│ 💡 Initializing Matrix SDK client[0m
+02-10 00:56:05.709 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:107:13)[0m
+02-10 00:56:05.710 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:108:13)[0m
+02-10 00:56:05.727 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:106:13)[0m
+02-10 00:56:05.727 I/flutter (31148): [38;5;12m│ 💡 Initializing Matrix SDK client[0m
+02-10 00:56:05.727 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:107:13)[0m
+02-10 00:56:05.727 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:108:13)[0m
+02-10 00:56:05.728 I/flutter (31148): │ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:112:15)
+02-10 00:56:05.729 I/flutter (31148): │ #0   MatrixClientService.startSync (package:voxmatrix/core/services/matrix_client_service.dart:191:13)
+02-10 00:56:05.729 I/flutter (31148): │ 🐛 Matrix SDK background sync enabled
+02-10 00:56:05.740 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:106:13)[0m
+02-10 00:56:05.740 I/flutter (31148): [38;5;12m│ 💡 Initializing Matrix SDK client[0m
+02-10 00:56:05.740 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:107:13)[0m
+02-10 00:56:05.740 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:108:13)[0m
+02-10 00:56:05.740 I/flutter (31148): │ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:112:15)
+02-10 00:56:05.881 I/flutter (31148): [38;5;12m│ #0   MatrixClientService.initialize (package:voxmatrix/core/services/matrix_client_service.dart:156:15)[0m
+02-10 00:56:05.881 I/flutter (31148): [38;5;12m│ 💡 Matrix SDK initialized successfully[0m
+02-10 00:56:05.882 I/flutter (31148): │ #0   MatrixClientService.startSync (package:voxmatrix/core/services/matrix_client_service.dart:191:13)
+02-10 00:56:05.882 I/flutter (31148): │ 🐛 Matrix SDK background sync enabled
+02-10 00:56:05.882 I/flutter (31148): [38;5;12m│ 💡 Matrix SDK client.rooms count: 0[0m
+02-10 00:56:05.882 I/flutter (31148): [38;5;208m│ ⚠️ Matrix SDK has 0 rooms; falling back to HTTP /sync parsing[0m
+02-10 00:56:08.713 I/flutter (31148): │ 🐛 Immediate mark-as-read succeeded for $D4NKciuSqc2kYqAdmXmrGdfvKxvjuz3CS72fjWzO9Ls
+02-10 00:56:08.714 I/flutter (31148): │ 🐛 Marked message as read: $D4NKciuSqc2kYqAdmXmrGdfvKxvjuz3CS72fjWzO9Ls in !mXsIyYiSgHyYVMiWaX:100.92.210.91
+02-10 00:56:08.716 I/flutter (31148): │ 🐛 Immediate mark-as-read succeeded for $D4NKciuSqc2kYqAdmXmrGdfvKxvjuz3CS72fjWzO9Ls
+02-10 00:56:08.716 I/flutter (31148): │ 🐛 Marked message as read: $D4NKciuSqc2kYqAdmXmrGdfvKxvjuz3CS72fjWzO9Ls in !mXsIyYiSgHyYVMiWaX:100.92.210.91
+02-10 00:56:09.183 I/flutter (31148): [38;5;12m│ 💡 Matrix SDK client.rooms count: 5[0m
+02-10 00:56:19.641 I/WindowManager( 2640): ANR in Window{fff4c3e u0 org.voxmatrix.app/org.voxmatrix.app.MainActivity}. Reason:Input dispatching timed out (fff4c3e org.voxmatrix.app/org.voxmatrix.app.MainActivity is not responding. Waited 10001ms for MotionEvent).
+02-10 00:56:19.642 D/ActivityManager( 2640): created ANR temporary file:/data/anr/temp_anr_6277195061273848950.txt
+02-10 00:56:20.783 D/SystemDumpWriter_ANR( 2640): Successful to save dumpsys to log/dumpsys_ANR_WindowManager.txt
+02-10 00:56:20.783 D/SystemDumpWriter_ANR( 2640): save dumpsys, duration=1134
+02-10 00:56:23.239 E/ActivityManager( 2640): ANR in org.voxmatrix.app (org.voxmatrix.app/.MainActivity)
+02-10 00:56:23.241 D/ActivityManager( 2640): Completed ANR of org.voxmatrix.app in 3599ms, latency 1ms
+02-10 00:56:23.259 I/DMASA[D]( 6883): [ANRDetectionService]Enqueue work to ANR
+02-10 00:56:23.259 W/JobInfo ( 2640): Job 'com.sec.android.diagmonagent/.dma.dropbox.ANRDetectionService#11418' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.

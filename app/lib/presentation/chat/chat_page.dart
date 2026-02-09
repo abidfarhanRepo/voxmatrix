@@ -10,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:voxmatrix/core/constants/accessibility_constants.dart';
 import 'package:voxmatrix/core/constants/app_constants.dart';
 import 'package:voxmatrix/core/constants/app_strings.dart';
 import 'package:voxmatrix/core/theme/app_colors.dart';
@@ -247,18 +248,30 @@ class _ChatPageState extends State<ChatPage> {
       ),
       actions: [
         if (widget.isDirect) ...[
-          IconButton(
-            icon: const Icon(Icons.phone_rounded, color: AppColors.textPrimary, size: 20),
-            onPressed: () => _startCall(context, isVideoCall: false),
+          Semantics(
+            button: true,
+            label: AccessibilityConstants.voiceCallLabel,
+            child: IconButton(
+              icon: const Icon(Icons.phone_rounded, color: AppColors.textPrimary, size: 20),
+              onPressed: () => _startCall(context, isVideoCall: false),
+            ),
           ),
-          IconButton(
-            icon: const Icon(Icons.videocam_rounded, color: AppColors.textPrimary, size: 22),
-            onPressed: () => _startCall(context, isVideoCall: true),
+          Semantics(
+            button: true,
+            label: AccessibilityConstants.videoCallLabel,
+            child: IconButton(
+              icon: const Icon(Icons.videocam_rounded, color: AppColors.textPrimary, size: 22),
+              onPressed: () => _startCall(context, isVideoCall: true),
+            ),
           ),
         ],
-        IconButton(
-          icon: const Icon(Icons.more_horiz_rounded, color: AppColors.textPrimary),
-          onPressed: () => _showRoomOptions(context),
+        Semantics(
+          button: true,
+          label: AccessibilityConstants.moreOptionsLabel,
+          child: IconButton(
+            icon: const Icon(Icons.more_horiz_rounded, color: AppColors.textPrimary),
+            onPressed: () => _showRoomOptions(context),
+          ),
         ),
       ],
     );
@@ -488,16 +501,24 @@ class _ChatPageState extends State<ChatPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: Row(
                         children: [
-                          IconButton(
-                            icon: const Icon(Icons.add_rounded, color: Color(0x80FFFFFF), size: 24),
-                            onPressed: () => _showAttachmentOptions(context),
+                          Semantics(
+                            button: true,
+                            label: AccessibilityConstants.attachFileLabel,
+                            child: IconButton(
+                              icon: const Icon(Icons.add_rounded, color: Color(0x80FFFFFF), size: 24),
+                              onPressed: () => _showAttachmentOptions(context),
+                            ),
                           ),
                           Expanded(
-                            child: TextField(
-                              controller: _messageController,
-                              focusNode: _focusNode,
-                              style: const TextStyle(color: Colors.white, fontSize: 15),
-                              decoration: const InputDecoration(
+                            child: Semantics(
+                              textField: true,
+                              label: AccessibilityConstants.messageInputLabel,
+                              hint: AccessibilityConstants.messageInputHint,
+                              child: TextField(
+                                controller: _messageController,
+                                focusNode: _focusNode,
+                                style: const TextStyle(color: Colors.white, fontSize: 15),
+                                decoration: const InputDecoration(
                                 hintText: 'Message...',
                                 hintStyle: TextStyle(color: Color(0x66FFFFFF), fontSize: 15),
                                 border: InputBorder.none,
@@ -517,31 +538,41 @@ class _ChatPageState extends State<ChatPage> {
                                 }
                               },
                             ),
+                            ),
                           ),
-                          IconButton(
-                            icon: const Icon(Icons.mic_rounded, color: Color(0x80FFFFFF), size: 22),
-                            onPressed: () => _showVoiceRecorder(context),
+                          Semantics(
+                            button: true,
+                            label: AccessibilityConstants.recordVoiceMessageLabel,
+                            child: IconButton(
+                              icon: const Icon(Icons.mic_rounded, color: Color(0x80FFFFFF), size: 22),
+                              onPressed: () => _showVoiceRecorder(context),
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ),
                   const SizedBox(width: 12),
-                  GestureDetector(
-                    onTap: () {
-                      if (_messageController.text.trim().isNotEmpty) {
-                        _sendMessage(context, _messageController.text.trim());
-                      }
-                    },
-                    child: Container(
-                      width: 44,
-                      height: 44,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFFB30000),
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.arrow_upward_rounded, color: Colors.white, size: 22),
+                  Semantics(
+                    button: true,
+                    label: AccessibilityConstants.sendMessageLabel,
+                    enabled: _messageController.text.trim().isNotEmpty,
+                    child: GestureDetector(
+                      onTap: () {
+                        if (_messageController.text.trim().isNotEmpty) {
+                          _sendMessage(context, _messageController.text.trim());
+                        }
+                      },
+                      child: Container(
+                        width: 48,
+                        height: 48,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xFFB30000),
+                        ),
+                        child: const Center(
+                          child: Icon(Icons.arrow_upward_rounded, color: Colors.white, size: 22),
+                        ),
                       ),
                     ),
                   ),

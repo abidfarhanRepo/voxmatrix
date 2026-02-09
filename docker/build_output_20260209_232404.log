@@ -1,0 +1,192 @@
+[0;34m========================================[0m
+[0;34m  VoxMatrix Fast Android Builder[0m
+[0;34m========================================[0m
+
+[0;32mUsing existing persistent container[0m
+
+[0;34mBuilding release APK...[0m
+[0;34m(Using persistent container for speed)[0m
+
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 85.0.0 (94.0.0 available)
+  _flutterfire_internals 1.3.59 (1.3.66 available)
+  analyzer 7.7.1 (10.0.2 available)
+  audioplayers 5.2.1 (6.5.1 available)
+  audioplayers_android 4.0.3 (5.2.1 available)
+  audioplayers_darwin 5.0.2 (6.3.0 available)
+  audioplayers_linux 3.1.0 (4.2.1 available)
+  audioplayers_platform_interface 6.1.0 (7.1.1 available)
+  audioplayers_web 4.1.0 (5.1.1 available)
+  audioplayers_windows 3.1.0 (4.2.1 available)
+  bloc 8.1.4 (9.2.0 available)
+  build 2.5.4 (4.0.4 available)
+  build_config 1.1.2 (1.2.0 available)
+  build_resolvers 2.5.4 (3.0.4 available)
+  build_runner 2.5.4 (2.11.0 available)
+  build_runner_core 9.1.2 (9.3.2 available)
+  characters 1.4.0 (1.4.1 available)
+  dart_style 3.1.1 (3.1.5 available)
+  file_picker 8.3.7 (10.3.10 available)
+  firebase_core 3.15.2 (4.4.0 available)
+  firebase_core_web 2.24.1 (3.4.0 available)
+  firebase_messaging 15.2.10 (16.1.1 available)
+  firebase_messaging_platform_interface 4.6.10 (4.7.6 available)
+  firebase_messaging_web 3.10.10 (4.1.2 available)
+  flutter_bloc 8.1.6 (9.1.1 available)
+  flutter_lints 3.0.2 (6.0.0 available)
+  flutter_secure_storage 9.2.4 (10.0.0 available)
+  flutter_secure_storage_linux 1.2.3 (3.0.0 available)
+  flutter_secure_storage_macos 3.1.3 (4.0.0 available)
+  flutter_secure_storage_platform_interface 1.1.2 (2.0.1 available)
+  flutter_secure_storage_web 1.2.1 (2.1.0 available)
+  flutter_secure_storage_windows 3.1.2 (4.1.0 available)
+  flutter_sound_platform_interface 9.30.0 (10.3.8 available)
+  flutter_sound_web 9.30.0 (10.3.8 available)
+  freezed 2.5.8 (3.2.5 available)
+  freezed_annotation 2.4.4 (3.1.0 available)
+  geolocator 10.1.1 (14.0.2 available)
+  geolocator_android 4.6.2 (5.0.2 available)
+  geolocator_web 2.2.1 (4.1.3 available)
+  get_it 7.7.0 (9.2.0 available)
+  google_fonts 6.3.3 (8.0.1 available)
+  hooks 1.0.0 (1.0.1 available)
+  injectable 2.6.0 (2.7.1+4 available)
+  injectable_generator 2.7.0 (2.12.0 available)
+  intl 0.18.1 (0.20.2 available)
+  js 0.6.7 (0.7.2 available)
+  json_annotation 4.9.0 (4.10.0 available)
+  json_serializable 6.9.5 (6.12.0 available)
+  lints 3.0.0 (6.1.0 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  matrix 0.30.0 (6.1.1 available)
+  meta 1.17.0 (1.18.1 available)
+  mime 1.0.6 (2.0.0 available)
+  mockito 5.4.6 (5.6.3 available)
+  objective_c 9.2.5 (9.3.0 available)
+  olm 2.0.4 (3.1.0 available)
+  permission_handler 11.4.0 (12.0.1 available)
+  permission_handler_android 12.1.0 (13.0.1 available)
+  rxdart 0.27.7 (0.28.0 available)
+  source_gen 2.0.0 (4.2.0 available)
+  source_helper 1.3.7 (1.3.10 available)
+  source_span 1.10.1 (1.10.2 available)
+  sqlite3 2.9.4 (3.1.4 available)
+  test_api 0.7.7 (0.7.9 available)
+  unorm_dart 0.2.0 (0.3.2 available)
+Got dependencies!
+66 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Resolving dependencies...
+Downloading packages...
+  [1m_fe_analyzer_shared[0m 85.0.0 [36m(94.0.0 available)[39m
+  [1m_flutterfire_internals[0m 1.3.59 [36m(1.3.66 available)[39m
+  [1manalyzer[0m 7.7.1 [36m(10.0.2 available)[39m
+  [1maudioplayers[0m 5.2.1 [36m(6.5.1 available)[39m
+  [1maudioplayers_android[0m 4.0.3 [36m(5.2.1 available)[39m
+  [1maudioplayers_darwin[0m 5.0.2 [36m(6.3.0 available)[39m
+  [1maudioplayers_linux[0m 3.1.0 [36m(4.2.1 available)[39m
+  [1maudioplayers_platform_interface[0m 6.1.0 [36m(7.1.1 available)[39m
+  [1maudioplayers_web[0m 4.1.0 [36m(5.1.1 available)[39m
+  [1maudioplayers_windows[0m 3.1.0 [36m(4.2.1 available)[39m
+  [1mbloc[0m 8.1.4 [36m(9.2.0 available)[39m
+  [1mbuild[0m 2.5.4 [36m(4.0.4 available)[39m
+  [1mbuild_config[0m 1.1.2 [36m(1.2.0 available)[39m
+  [1mbuild_resolvers[0m 2.5.4 [36m(3.0.4 available)[39m
+  [1mbuild_runner[0m 2.5.4 [36m(2.11.0 available)[39m
+  [1mbuild_runner_core[0m 9.1.2 [36m(9.3.2 available)[39m
+  [1mcharacters[0m 1.4.0 [36m(1.4.1 available)[39m
+  [1mdart_style[0m 3.1.1 [36m(3.1.5 available)[39m
+  [1mfile_picker[0m 8.3.7 [36m(10.3.10 available)[39m
+  [1mfirebase_core[0m 3.15.2 [36m(4.4.0 available)[39m
+  [1mfirebase_core_web[0m 2.24.1 [36m(3.4.0 available)[39m
+  [1mfirebase_messaging[0m 15.2.10 [36m(16.1.1 available)[39m
+  [1mfirebase_messaging_platform_interface[0m 4.6.10 [36m(4.7.6 available)[39m
+  [1mfirebase_messaging_web[0m 3.10.10 [36m(4.1.2 available)[39m
+  [1mflutter_bloc[0m 8.1.6 [36m(9.1.1 available)[39m
+  [1mflutter_lints[0m 3.0.2 [36m(6.0.0 available)[39m
+  [1mflutter_secure_storage[0m 9.2.4 [36m(10.0.0 available)[39m
+  [1mflutter_secure_storage_linux[0m 1.2.3 [36m(3.0.0 available)[39m
+  [1mflutter_secure_storage_macos[0m 3.1.3 [36m(4.0.0 available)[39m
+  [1mflutter_secure_storage_platform_interface[0m 1.1.2 [36m(2.0.1 available)[39m
+  [1mflutter_secure_storage_web[0m 1.2.1 [36m(2.1.0 available)[39m
+  [1mflutter_secure_storage_windows[0m 3.1.2 [36m(4.1.0 available)[39m
+  [1mflutter_sound_platform_interface[0m 9.30.0 [36m(10.3.8 available)[39m
+  [1mflutter_sound_web[0m 9.30.0 [36m(10.3.8 available)[39m
+  [1mfreezed[0m 2.5.8 [36m(3.2.5 available)[39m
+  [1mfreezed_annotation[0m 2.4.4 [36m(3.1.0 available)[39m
+  [1mgeolocator[0m 10.1.1 [36m(14.0.2 available)[39m
+  [1mgeolocator_android[0m 4.6.2 [36m(5.0.2 available)[39m
+  [1mgeolocator_web[0m 2.2.1 [36m(4.1.3 available)[39m
+  [1mget_it[0m 7.7.0 [36m(9.2.0 available)[39m
+  [1mgoogle_fonts[0m 6.3.3 [36m(8.0.1 available)[39m
+  [1mhooks[0m 1.0.0 [36m(1.0.1 available)[39m
+  [1minjectable[0m 2.6.0 [36m(2.7.1+4 available)[39m
+  [1minjectable_generator[0m 2.7.0 [36m(2.12.0 available)[39m
+  [1mintl[0m 0.18.1 [36m(0.20.2 available)[39m
+  [1mjs[0m 0.6.7 [36m(0.7.2 available)[39m
+  [1mjson_annotation[0m 4.9.0 [36m(4.10.0 available)[39m
+  [1mjson_serializable[0m 6.9.5 [36m(6.12.0 available)[39m
+  [1mlints[0m 3.0.0 [36m(6.1.0 available)[39m
+  [1mmatcher[0m 0.12.17 [36m(0.12.18 available)[39m
+  [1mmaterial_color_utilities[0m 0.11.1 [36m(0.13.0 available)[39m
+  [1mmatrix[0m 0.30.0 [36m(6.1.1 available)[39m
+  [1mmeta[0m 1.17.0 [36m(1.18.1 available)[39m
+  [1mmime[0m 1.0.6 [36m(2.0.0 available)[39m
+  [1mmockito[0m 5.4.6 [36m(5.6.3 available)[39m
+  [1mobjective_c[0m 9.2.5 [36m(9.3.0 available)[39m
+  [1molm[0m 2.0.4 [36m(3.1.0 available)[39m
+  [1mpermission_handler[0m 11.4.0 [36m(12.0.1 available)[39m
+  [1mpermission_handler_android[0m 12.1.0 [36m(13.0.1 available)[39m
+  [1mrxdart[0m 0.27.7 [36m(0.28.0 available)[39m
+  [1msource_gen[0m 2.0.0 [36m(4.2.0 available)[39m
+  [1msource_helper[0m 1.3.7 [36m(1.3.10 available)[39m
+  [1msource_span[0m 1.10.1 [36m(1.10.2 available)[39m
+  [1msqlite3[0m 2.9.4 [36m(3.1.4 available)[39m
+  [1mtest_api[0m 0.7.7 [36m(0.7.9 available)[39m
+  [1munorm_dart[0m 0.2.0 [36m(0.3.2 available)[39m
+Got dependencies!
+66 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleRelease'...                               ⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻[K[31mlib/presentation/chat/bloc/chat_bloc.dart:330:74: Error: Expected an identifier, but got '\'.[39m
+Running Gradle task 'assembleRelease'...                               ⢿[K[31mTry inserting an identifier before '\'.[39m
+Running Gradle task 'assembleRelease'...                               ⡿[K[31m      _logger.d('Marking message ${message.id} as read in room $roomId');\n      add(MarkAsRead(roomId: roomId, messageId: message.id));[39m
+Running Gradle task 'assembleRelease'...                               ⣟[K[31m                                                                         ^[39m
+Running Gradle task 'assembleRelease'...                               ⣯[K[31mlib/presentation/chat/bloc/chat_bloc.dart:330:74: Error: Expected ';' after this.[39m
+Running Gradle task 'assembleRelease'...                               ⣷[K[31m      _logger.d('Marking message ${message.id} as read in room $roomId');\n      add(MarkAsRead(roomId: roomId, messageId: message.id));[39m
+Running Gradle task 'assembleRelease'...                               ⣾[K[31m                                                                         ^[39m
+Running Gradle task 'assembleRelease'...                               ⣽[K[31mlib/presentation/chat/bloc/chat_bloc.dart:330:75: Error: 'n' isn't a type.[39m
+Running Gradle task 'assembleRelease'...                               ⣻[K[31m      _logger.d('Marking message ${message.id} as read in room $roomId');\n      add(MarkAsRead(roomId: roomId, messageId: message.id));[39m
+Running Gradle task 'assembleRelease'...                               ⢿[K[31m                                                                          ^[39m
+Running Gradle task 'assembleRelease'...                               ⡿[K[31mlib/presentation/chat/bloc/chat_bloc.dart:330:82: Error: Expected ';' after this.[39m
+Running Gradle task 'assembleRelease'...                               ⣟[K[31m      _logger.d('Marking message ${message.id} as read in room $roomId');\n      add(MarkAsRead(roomId: roomId, messageId: message.id));[39m
+Running Gradle task 'assembleRelease'...                               ⣯[K[31m                                                                                 ^^^[39m
+Running Gradle task 'assembleRelease'...                               ⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯[K[31mlib/data/repositories/chat_repository_impl.dart:345:60: Error: Member not found: 'read'.[39m
+Running Gradle task 'assembleRelease'...                               ⣷[K[31m      await room.postReceipt(messageId, matrix.ReceiptType.read);[39m
+Running Gradle task 'assembleRelease'...                               ⣾[K[31m                                                           ^^^^[39m
+Running Gradle task 'assembleRelease'...                               ⣽[K[31mlib/data/repositories/chat_repository_impl.dart:342:61: Error: No named parameter with the name 'mFullyRead'.[39m
+Running Gradle task 'assembleRelease'...                               ⣻[K[31m      await room.setReadMarker(messageId, mRead: messageId, mFullyRead: messageId);[39m
+Running Gradle task 'assembleRelease'...                               ⢿[K[31m                                                            ^^^^^^^^^^[39m
+Running Gradle task 'assembleRelease'...                               ⡿[K[31mlib/data/repositories/chat_repository_impl.dart:345:29: Error: Too many positional arguments: 1 allowed, but 2 found.[39m
+Running Gradle task 'assembleRelease'...                               ⣟[K[31mTry removing the extra positional arguments.[39m
+Running Gradle task 'assembleRelease'...                               ⣯[K[31m      await room.postReceipt(messageId, matrix.ReceiptType.read);[39m
+Running Gradle task 'assembleRelease'...                               ⣷[K[31m                            ^[39m
+Running Gradle task 'assembleRelease'...                               ⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿⣟⣯⣷⣾⣽⣻⢿⡿[K[31mTarget kernel_snapshot_program failed: Exception[39m
+Running Gradle task 'assembleRelease'...                               ⣟[K
+Running Gradle task 'assembleRelease'...                               ⣯[K
+Running Gradle task 'assembleRelease'...                               ⣷[K[31mFAILURE: Build failed with an exception.[39m
+Running Gradle task 'assembleRelease'...                               ⣾[K
+Running Gradle task 'assembleRelease'...                               ⣽[K[31m* What went wrong:[39m
+Running Gradle task 'assembleRelease'...                               ⣻[K[31mExecution failed for task ':app:compileFlutterBuildRelease'.[39m
+Running Gradle task 'assembleRelease'...                               ⢿[K[31m> Process 'command '/opt/flutter/bin/flutter'' finished with non-zero exit value 1[39m
+Running Gradle task 'assembleRelease'...                               ⡿[K
+Running Gradle task 'assembleRelease'...                               ⣟[K[31m* Try:[39m
+Running Gradle task 'assembleRelease'...                               ⣯[K[31m> Run with --stacktrace option to get the stack trace.[39m
+Running Gradle task 'assembleRelease'...                               ⣷[K[31m> Run with --info or --debug option to get more log output.[39m
+Running Gradle task 'assembleRelease'...                               ⣾[K[31m> Run with --scan to get full insights.[39m
+Running Gradle task 'assembleRelease'...                               ⣽[K[31m> Get more help at https://help.gradle.org.[39m
+Running Gradle task 'assembleRelease'...                               ⣻[K
+Running Gradle task 'assembleRelease'...                               ⢿[K[31mBUILD FAILED in 17s[39m
+Running Gradle task 'assembleRelease'...                               ⡿    17.5s
+[31mGradle task assembleRelease failed with exit code 1[39m

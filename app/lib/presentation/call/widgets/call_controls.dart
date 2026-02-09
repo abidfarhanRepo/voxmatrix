@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voxmatrix/core/constants/accessibility_constants.dart';
 import 'package:voxmatrix/domain/entities/call.dart';
 
 class CallControls extends StatelessWidget {
@@ -77,6 +78,7 @@ class CallControls extends StatelessWidget {
     return _ControlButton(
       icon: isMuted ? Icons.mic_off : Icons.mic,
       label: 'Mute',
+      semanticsLabel: isMuted ? AccessibilityConstants.unmuteLabel : AccessibilityConstants.muteLabel,
       backgroundColor: isMuted ? Colors.red : Colors.white24,
       onPressed: onToggleMute,
     );
@@ -86,6 +88,7 @@ class CallControls extends StatelessWidget {
     return _ControlButton(
       icon: isSpeakerEnabled ? Icons.volume_up : Icons.volume_down,
       label: 'Speaker',
+      semanticsLabel: isSpeakerEnabled ? AccessibilityConstants.disableSpeakerLabel : AccessibilityConstants.enableSpeakerLabel,
       backgroundColor: isSpeakerEnabled ? Colors.green : Colors.white24,
       onPressed: onToggleSpeaker,
     );
@@ -95,6 +98,7 @@ class CallControls extends StatelessWidget {
     return _ControlButton(
       icon: isCameraEnabled ? Icons.videocam : Icons.videocam_off,
       label: 'Camera',
+      semanticsLabel: isCameraEnabled ? AccessibilityConstants.disableCameraLabel : AccessibilityConstants.enableCameraLabel,
       backgroundColor: isCameraEnabled ? Colors.white24 : Colors.red,
       onPressed: onToggleCamera,
     );
@@ -104,6 +108,7 @@ class CallControls extends StatelessWidget {
     return _ControlButton(
       icon: Icons.flip_camera_ios,
       label: 'Flip',
+      semanticsLabel: AccessibilityConstants.switchCameraLabel,
       backgroundColor: Colors.white24,
       onPressed: onSwitchCamera,
     );
@@ -113,6 +118,7 @@ class CallControls extends StatelessWidget {
     return _ControlButton(
       icon: Icons.call_end,
       label: 'End',
+      semanticsLabel: AccessibilityConstants.endCallLabel,
       backgroundColor: Colors.red,
       iconColor: Colors.white,
       onPressed: onHangup,
@@ -127,6 +133,7 @@ class _ControlButton extends StatelessWidget {
     required this.backgroundColor,
     required this.onPressed,
     this.iconColor,
+    this.semanticsLabel,
   });
 
   final IconData icon;
@@ -134,45 +141,53 @@ class _ControlButton extends StatelessWidget {
   final Color backgroundColor;
   final VoidCallback onPressed;
   final Color? iconColor;
+  final String? semanticsLabel;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        InkWell(
-          onTap: onPressed,
-          borderRadius: BorderRadius.circular(30),
-          child: Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  blurRadius: 8,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Icon(
-              icon,
-              color: iconColor ?? Colors.white,
-              size: 28,
+    return Semantics(
+      button: true,
+      label: semanticsLabel ?? label,
+      onTap: onPressed,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          InkWell(
+            onTap: onPressed,
+            borderRadius: BorderRadius.circular(30),
+            child: Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Icon(
+                icon,
+                color: iconColor ?? Colors.white,
+                size: 28,
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          label,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 12,
+          const SizedBox(height: 8),
+          ExcludeSemantics(
+            child: Text(
+              label,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+              ),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -223,43 +238,54 @@ class IncomingCallControls extends StatelessWidget {
     required Color color,
     required VoidCallback onPressed,
   }) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        InkWell(
-          onTap: onPressed,
-          borderRadius: BorderRadius.circular(35),
-          child: Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-              color: color,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: color.withOpacity(0.4),
-                  blurRadius: 12,
-                  offset: const Offset(0, 6),
-                ),
-              ],
-            ),
-            child: Icon(
-              icon,
-              color: Colors.white,
-              size: 32,
+    final semanticsLabel = label == 'Answer' 
+        ? AccessibilityConstants.answerCallLabel 
+        : AccessibilityConstants.rejectCallLabel;
+    
+    return Semantics(
+      button: true,
+      label: semanticsLabel,
+      onTap: onPressed,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          InkWell(
+            onTap: onPressed,
+            borderRadius: BorderRadius.circular(35),
+            child: Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                color: color,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: color.withOpacity(0.4),
+                    blurRadius: 12,
+                    offset: const Offset(0, 6),
+                  ),
+                ],
+              ),
+              child: Icon(
+                icon,
+                color: Colors.white,
+                size: 32,
             ),
           ),
         ),
         const SizedBox(height: 12),
-        Text(
-          label,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
+        ExcludeSemantics(
+          child: Text(
+            label,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ],
+      ),
     );
   }
 }
