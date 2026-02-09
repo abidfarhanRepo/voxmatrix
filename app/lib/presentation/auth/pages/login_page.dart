@@ -250,12 +250,7 @@ class _LoginPageState extends State<LoginPage> {
                               height: 56,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(16),
-                                gradient: LinearGradient(
-                                  colors: [
-                                    AppColors.primary,
-                                    AppColors.primaryVariant,
-                                  ],
-                                ),
+                                color: Colors.red.shade900,
                                 boxShadow: [
                                   BoxShadow(
                                     color: AppColors.primary.withOpacity(0.3),

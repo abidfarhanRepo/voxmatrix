@@ -30,16 +30,8 @@ class IncomingCallPage extends StatelessWidget {
   Widget _buildBackground() {
     return Positioned.fill(
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.grey.shade900,
-              Colors.black,
-              Colors.black,
-            ],
-          ),
+        decoration: const BoxDecoration(
+          color: Colors.black,
         ),
       ),
     );

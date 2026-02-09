@@ -538,11 +538,7 @@ class _ChatPageState extends State<ChatPage> {
                       height: 44,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        gradient: LinearGradient(
-                          colors: [Color(0xFFB30000), Color(0xFF4A0404)],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
+                        color: Color(0xFFB30000),
                       ),
                       child: const Center(
                         child: Icon(Icons.arrow_upward_rounded, color: Colors.white, size: 22),

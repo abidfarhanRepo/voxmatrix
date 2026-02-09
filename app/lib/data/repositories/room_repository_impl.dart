@@ -32,6 +32,7 @@ class RoomRepositoryImpl implements RoomRepository {
       StreamController<Either<Failure, List<RoomEntity>>>.broadcast();
   String? _nextBatchToken;
   bool _isSyncing = false;
+  Timer? _syncTimer;
 
   /// Get stored credentials
   Future<_Credentials?> _getCredentials() async {
@@ -309,7 +310,7 @@ class RoomRepositoryImpl implements RoomRepository {
     if (_isSyncing) return;
 
     _isSyncing = true;
-    Timer.periodic(const Duration(seconds: 10), (_) async {
+    _syncTimer = Timer.periodic(const Duration(seconds: 10), (_) async {
       final rooms = await getRooms();
       _roomsStreamController.add(rooms);
     });
@@ -317,6 +318,7 @@ class RoomRepositoryImpl implements RoomRepository {
 
   void dispose() {
     _isSyncing = false;
+    _syncTimer?.cancel();
     _roomsStreamController.close();
   }
 }

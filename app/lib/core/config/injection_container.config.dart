@@ -18,8 +18,11 @@ import 'package:voxmatrix/core/config/injection_container.dart' as _i593;
 import 'package:voxmatrix/core/services/call_state_service.dart' as _i55;
 import 'package:voxmatrix/core/services/device_verification_service.dart'
     as _i293;
+import 'package:voxmatrix/core/services/image_cache_service.dart' as _i787;
 import 'package:voxmatrix/core/services/matrix_client_service.dart' as _i377;
 import 'package:voxmatrix/core/services/offline_queue_service.dart' as _i279;
+import 'package:voxmatrix/core/services/performance_monitor_service.dart'
+    as _i297;
 import 'package:voxmatrix/core/services/presence_service.dart' as _i853;
 import 'package:voxmatrix/core/services/push_notification_service.dart'
     as _i176;
@@ -201,6 +204,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i385.AccountRemoteDataSource(gh<_i974.Logger>()));
     gh.factory<_i517.PushNotificationDataSource>(
         () => _i517.PushNotificationDataSource(gh<_i974.Logger>()));
+    gh.singleton<_i297.PerformanceMonitorService>(
+        () => _i297.PerformanceMonitorService(gh<_i974.Logger>()));
+    gh.singleton<_i787.ImageCacheService>(
+        () => _i787.ImageCacheService(gh<_i974.Logger>()));
     gh.factory<_i853.PresenceService>(() => _i853.PresenceService(
           gh<_i377.MatrixClientService>(),
           gh<_i974.Logger>(),

@@ -213,16 +213,8 @@ class _CallPageState extends State<CallPage> {
   Widget _buildVoiceCallBackground(entities.CallEntity call) {
     return Positioned.fill(
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              AppColors.primary,
-              AppColors.primary.withOpacity(0.8),
-              Colors.black87,
-            ],
-          ),
+        decoration: const BoxDecoration(
+          color: Colors.black,
         ),
         child: Center(
           child: _buildCallerAvatar(call),

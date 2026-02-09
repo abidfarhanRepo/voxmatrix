@@ -41,10 +41,11 @@ class CryptoRepositoryImpl implements CryptoRepository {
   bool _isInitialized = false;
   List<CryptoDevice> _knownDevices = [];
   Map<String, bool> _encryptedRooms = {};
+  Timer? _deviceUpdateTimer;
 
   void _initController() {
     // Emit device changes periodically
-    Timer.periodic(const Duration(seconds: 30), (_) {
+    _deviceUpdateTimer = Timer.periodic(const Duration(seconds: 30), (_) {
       if (_isInitialized) {
         _deviceChangesController.add(_knownDevices);
       }
@@ -483,6 +484,7 @@ class CryptoRepositoryImpl implements CryptoRepository {
   Stream<VerificationRequest> get verificationRequests => _verificationRequestsController.stream;
 
   void dispose() {
+    _deviceUpdateTimer?.cancel();
     _deviceChangesController.close();
     _verificationRequestsController.close();
     _localDataSource.dispose();
