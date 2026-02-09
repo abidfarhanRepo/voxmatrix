@@ -17,6 +17,9 @@ class WebRTCDataSource {
   webrtc.RTCPeerConnection? _peerConnection;
   webrtc.MediaStream? _localStream;
   webrtc.MediaStream? _remoteStream;
+  Timer? _connectionMonitor;
+  int _reconnectAttempts = 0;
+  static const int _maxReconnectAttempts = 3;
 
   final _iceCandidateController = StreamController<IceCandidate>.broadcast();
   final _remoteStreamController = StreamController<webrtc.MediaStream?>.broadcast();
@@ -35,9 +38,28 @@ class WebRTCDataSource {
   Future<void> createPeerConnection(CallConfig config) async {
     _logger.i('Creating peer connection');
 
-    final configuration = config.toMap();
+    // Enhanced configuration with TURN/STUN for better connectivity
+    final configuration = {
+      'iceServers': [
+        {'urls': 'stun:stun.l.google.com:19302'},
+        {'urls': 'stun:stun1.l.google.com:19302'},
+        {'urls': 'stun:stun2.l.google.com:19302'},
+        ...config.toMap()['iceServers'] as List<Map<String, dynamic>>? ?? [],
+      ],
+      'iceTransportPolicy': 'all', // Use all available transports
+      'bundlePolicy': 'max-bundle',
+      'rtcpMuxPolicy': 'require',
+      'iceCandidatePoolSize': 10, // Pre-generate candidates
+    };
+    
     _peerConnection = await webrtc.createPeerConnection(configuration);
+    _setupPeerConnectionHandlers();
+    _startConnectionMonitoring();
+    
+    _logger.i('Peer connection created with enhanced config');
+  }
 
+  void _setupPeerConnectionHandlers() {
     _peerConnection!.onIceCandidate = (candidate) {
       if (candidate.candidate == null || candidate.candidate!.isEmpty) return;
       _iceCandidateController.add(IceCandidate(
@@ -48,7 +70,9 @@ class WebRTCDataSource {
     };
 
     _peerConnection!.onIceConnectionState = (state) {
+      _logger.d('ICE connection state: $state');
       _connectionStateController.add(state);
+      _handleConnectionStateChange(state);
     };
 
     _peerConnection!.onTrack = (event) {
@@ -62,13 +86,79 @@ class WebRTCDataSource {
       _remoteStream = stream;
       _remoteStreamController.add(stream);
     };
+  }
 
-    _logger.i('Peer connection created');
+  void _handleConnectionStateChange(webrtc.RTCIceConnectionState state) {
+    switch (state) {
+      case webrtc.RTCIceConnectionState.RTCIceConnectionStateFailed:
+        _logger.w('ICE connection failed, attempting restart');
+        _attemptICERestart();
+        break;
+      case webrtc.RTCIceConnectionState.RTCIceConnectionStateDisconnected:
+        _logger.w('ICE connection disconnected');
+        // Monitor for reconnection
+        break;
+      case webrtc.RTCIceConnectionState.RTCIceConnectionStateConnected:
+        _logger.i('ICE connection established');
+        _reconnectAttempts = 0; // Reset on successful connection
+        break;
+      default:
+        break;
+    }
+  }
+
+  void _startConnectionMonitoring() {
+    _connectionMonitor?.cancel();
+    _connectionMonitor = Timer.periodic(const Duration(seconds: 5), (timer) {
+      _checkConnectionHealth();
+    });
+  }
+
+  Future<void> _checkConnectionHealth() async {
+    if (_peerConnection == null) return;
+
+    try {
+      final stats = await _peerConnection!.getStats();
+      _logger.d('Connection stats retrieved: ${stats?.length ?? 0} items');
+      // Could analyze stats here for quality monitoring
+    } catch (e) {
+      _logger.e('Failed to get connection stats', error: e);
+    }
+  }
+
+  Future<void> _attemptICERestart() async {
+    if (_reconnectAttempts >= _maxReconnectAttempts) {
+      _logger.e('Max reconnection attempts reached');
+      return;
+    }
+
+    _reconnectAttempts++;
+    _logger.i('ICE restart attempt $_reconnectAttempts/$_maxReconnectAttempts');
+
+    try {
+      // Trigger ICE restart by creating new offer with iceRestart flag
+      if (_peerConnection != null) {
+        final constraints = {
+          'offerToReceiveAudio': true,
+          'offerToReceiveVideo': _localStream?.getVideoTracks().isNotEmpty ?? false,
+          'iceRestart': true, // This triggers ICE restart
+        };
+        
+        final offer = await _peerConnection!.createOffer(constraints);
+        await _peerConnection!.setLocalDescription(offer);
+        _logger.i('ICE restart initiated');
+      }
+    } catch (e) {
+      _logger.e('ICE restart failed', error: e);
+    }
   }
 
   Future<void> closePeerConnection() async {
     _logger.i('Closing peer connection');
 
+    _connectionMonitor?.cancel();
+    _connectionMonitor = null;
+    
     await _peerConnection?.close();
     _peerConnection = null;
 
@@ -77,6 +167,8 @@ class WebRTCDataSource {
 
     _remoteStream = null;
     _remoteStreamController.add(null);
+    
+    _reconnectAttempts = 0;
   }
 
   Future<SessionDescription> createOffer({
@@ -207,6 +299,7 @@ class WebRTCDataSource {
   }
 
   Future<void> dispose() async {
+    _connectionMonitor?.cancel();
     await closePeerConnection();
     await _iceCandidateController.close();
     await _remoteStreamController.close();

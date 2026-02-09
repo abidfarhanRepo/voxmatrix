@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:voxmatrix/core/services/call_state_service.dart';
 import 'package:voxmatrix/domain/entities/call.dart';
 import 'package:voxmatrix/domain/repositories/call_repository.dart';
 import 'package:voxmatrix/presentation/call/bloc/call_event.dart';
@@ -8,7 +9,10 @@ import 'package:voxmatrix/presentation/call/bloc/call_state.dart';
 
 @injectable
 class CallBloc extends Bloc<CallEvent, CallBlocState> {
-  CallBloc(this._callRepository) : super(const CallBlocState()) {
+  CallBloc(
+    this._callRepository,
+    this._callStateService,
+  ) : super(const CallBlocState()) {
     on<CallInitEvent>(_onInit);
     on<CreateCallEvent>(_onCreateCall);
     on<AnswerCallEvent>(_onAnswerCall);
@@ -23,6 +27,7 @@ class CallBloc extends Bloc<CallEvent, CallBlocState> {
   }
 
   final CallRepository _callRepository;
+  final CallStateService _callStateService;
   StreamSubscription? _callStateSubscription;
   StreamSubscription? _incomingCallSubscription;
 
@@ -32,6 +37,9 @@ class CallBloc extends Bloc<CallEvent, CallBlocState> {
   ) async {
     emit(state.copyWith(isLoading: true));
 
+    // Initialize call state service
+    await _callStateService.initialize();
+
     final result = await _callRepository.initialize();
     result.fold(
       (failure) => emit(
@@ -40,12 +48,19 @@ class CallBloc extends Bloc<CallEvent, CallBlocState> {
           errorMessage: failure.message,
         ),
       ),
-      (_) {
+      (_) async {
         _listenToCallStreams();
+        
+        // Try to restore saved call state
+        final savedCall = await _callStateService.restoreCallState();
+        
         emit(
           state.copyWith(
             isLoading: false,
             isInitialized: true,
+            currentCall: savedCall,
+            isActive: savedCall != null,
+            isConnected: savedCall?.state == CallState.active,
           ),
         );
       },
@@ -71,14 +86,19 @@ class CallBloc extends Bloc<CallEvent, CallBlocState> {
           errorMessage: failure.message,
         ),
       ),
-      (call) => emit(
-        state.copyWith(
-          currentCall: call,
-          isLoading: false,
-          isActive: true,
-          isConnected: call.state == CallState.active,
-        ),
-      ),
+      (call) async {
+        // Save call state for recovery
+        await _callStateService.saveCallState(call);
+        
+        emit(
+          state.copyWith(
+            currentCall: call,
+            isLoading: false,
+            isActive: true,
+            isConnected: call.state == CallState.active,
+          ),
+        );
+      },
     );
   }
 
@@ -101,10 +121,16 @@ class CallBloc extends Bloc<CallEvent, CallBlocState> {
           incomingCall: state.incomingCall,
         ),
       ),
-      (_) {
+      (_) async {
         final activeCall = state.incomingCall?.copyWith(
           state: CallState.connecting,
         );
+        
+        // Save call state for recovery
+        if (activeCall != null) {
+          await _callStateService.saveCallState(activeCall);
+        }
+        
         emit(
           state.copyWith(
             currentCall: activeCall,
@@ -162,14 +188,19 @@ class CallBloc extends Bloc<CallEvent, CallBlocState> {
           errorMessage: failure.message,
         ),
       ),
-      (_) => emit(
-        state.copyWith(
-          isLoading: false,
-          currentCall: null,
-          isActive: false,
-          isConnected: false,
-        ),
-      ),
+      (_) async {
+        // Clear saved call state
+        await _callStateService.clearCallState();
+        
+        emit(
+          state.copyWith(
+            isLoading: false,
+            currentCall: null,
+            isActive: false,
+            isConnected: false,
+          ),
+        );
+      },
     );
   }
 
@@ -243,7 +274,10 @@ class CallBloc extends Bloc<CallEvent, CallBlocState> {
   void _onCallBlocStateUpdated(
     CallStateUpdatedEvent event,
     Emitter<CallBlocState> emit,
-  ) {
+  ) async {
+    // Update saved call state when state changes
+    await _callStateService.saveCallState(event.call);
+    
     emit(
       state.copyWith(
         currentCall: event.call,

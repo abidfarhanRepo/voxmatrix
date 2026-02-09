@@ -74,6 +74,25 @@ class ChatUploading extends ChatState {
   const ChatUploading();
 }
 
+class ChatUploadProgress extends ChatState {
+  const ChatUploadProgress({
+    required this.uploadId,
+    required this.fileName,
+    required this.progress,
+    required this.bytesUploaded,
+    required this.totalBytes,
+  });
+
+  final String uploadId;
+  final String fileName;
+  final double progress; // 0.0 to 1.0
+  final int bytesUploaded;
+  final int totalBytes;
+
+  @override
+  List<Object> get props => [uploadId, fileName, progress, bytesUploaded, totalBytes];
+}
+
 class ChatFileUploaded extends ChatState {
   const ChatFileUploaded(this.mxcUri);
 

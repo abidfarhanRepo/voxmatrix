@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 import 'package:voxmatrix/core/error/failures.dart';
+import 'package:voxmatrix/core/services/upload_progress_service.dart';
 import 'package:voxmatrix/domain/entities/message_entity.dart';
 import 'package:voxmatrix/domain/usecases/chat/add_reaction_usecase.dart';
 import 'package:voxmatrix/domain/usecases/chat/delete_message_usecase.dart';
@@ -38,6 +39,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     this._authLocalDataSource,
     this._typingService,
     this._offlineQueueService,
+    this._uploadProgressService,
     this._logger,
   ) : super(const ChatInitial()) {
     on<LoadMessages>(_onLoadMessages);
@@ -70,10 +72,12 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   final AuthLocalDataSource _authLocalDataSource;
   final TypingService _typingService;
   final OfflineQueueService _offlineQueueService;
+  final UploadProgressService _uploadProgressService;
   final Logger _logger;
 
   StreamSubscription<Either<Failure, MessageEntity>>? _messageSubscription;
   StreamSubscription? _syncSubscription;
+  StreamSubscription? _uploadProgressSubscription;
   Timer? _syncDebounce;
 
   Future<void> _onLoadMessages(
@@ -274,14 +278,73 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     Emitter<ChatState> emit,
   ) async {
     emit(const ChatUploading());
+    
+    // Extract filename from path
+    final fileName = event.filePath.split('/').last;
+    final uploadId = DateTime.now().millisecondsSinceEpoch.toString();
+    
+    // Start tracking upload (simulated total bytes - would get from file in production)
+    _uploadProgressService.startUpload(uploadId, fileName, 1024 * 1024); // Assume 1MB for now
+    
+    // Listen to progress updates
+    _uploadProgressSubscription?.cancel();
+    _uploadProgressSubscription = _uploadProgressService.progressStream.listen(
+      (uploadsMap) {
+        final progress = uploadsMap[uploadId];
+        if (progress != null && progress.status == UploadStatus.uploading) {
+          emit(ChatUploadProgress(
+            uploadId: uploadId,
+            fileName: fileName,
+            progress: progress.progress,
+            bytesUploaded: progress.uploadedBytes,
+            totalBytes: progress.totalBytes,
+          ));
+        }
+      },
+    );
+    
+    // Simulate progress updates (since repository doesn't provide callbacks yet)
+    _simulateProgress(uploadId);
+    
     final result = await _uploadFileUseCase(
       filePath: event.filePath,
       roomId: event.roomId,
     );
+    
+    _uploadProgressSubscription?.cancel();
+    
     result.fold<void>(
-      (Failure failure) => emit(ChatError(failure.message)),
-      (mxcUri) => emit(ChatFileUploaded(mxcUri)),
+      (Failure failure) {
+        _uploadProgressService.failUpload(uploadId, failure.message);
+        emit(ChatError(failure.message));
+      },
+      (mxcUri) {
+        _uploadProgressService.completeUpload(uploadId, mxcUri);
+        emit(ChatFileUploaded(mxcUri));
+      },
     );
+  }
+  
+  void _simulateProgress(String uploadId) {
+    // Simulate progress updates until completion
+    // This is a workaround until we have real progress callbacks from the repository
+    Timer.periodic(const Duration(milliseconds: 200), (timer) {
+      final progress = _uploadProgressService.getProgress(uploadId);
+      if (progress == null || progress.status != UploadStatus.uploading) {
+        timer.cancel();
+        return;
+      }
+      
+      // Simulate incremental progress
+      final newBytes = progress.uploadedBytes + 8192; // Simulate 8KB chunks
+      if (newBytes < progress.totalBytes) {
+        _uploadProgressService.updateProgress(uploadId, newBytes);
+      }
+      
+      if (progress.percentComplete >= 95) {
+        timer.cancel();
+      }
+    });
   }
 
   Future<void> _onSendMediaMessage(
@@ -346,6 +409,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     await _messageSubscription?.cancel();
     _messageSubscription = null;
     await _syncSubscription?.cancel();
+    await _uploadProgressSubscription?.cancel();
     _syncDebounce?.cancel();
     _logger.d('ChatBloc disposed');
     await super.close();
