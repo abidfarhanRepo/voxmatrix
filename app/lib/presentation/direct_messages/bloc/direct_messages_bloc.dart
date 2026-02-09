@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
+import 'package:voxmatrix/core/services/matrix_client_service.dart';
 import 'package:voxmatrix/data/datasources/room_management_remote_datasource.dart';
 import 'package:voxmatrix/data/datasources/auth_local_datasource.dart';
 import 'package:voxmatrix/data/datasources/room_remote_datasource.dart';
@@ -16,6 +17,7 @@ class DirectMessagesBloc
     this._roomManagementDataSource,
     this._authDataSource,
     this._roomDataSource,
+    this._matrixClientService,
     this._logger,
   ) : super(DirectMessagesInitial()) {
     on<LoadDirectMessages>(_onLoadDirectMessages);
@@ -27,7 +29,31 @@ class DirectMessagesBloc
   final RoomManagementRemoteDataSource _roomManagementDataSource;
   final AuthLocalDataSource _authDataSource;
   final RoomRemoteDataSource _roomDataSource;
+  final MatrixClientService _matrixClientService;
   final Logger _logger;
+
+  /// Ensure Matrix client is initialized before proceeding
+  /// 
+  /// If the client is not initialized, waits up to 15 seconds for initialization.
+  /// Returns true if client is ready, false if initialization failed or timed out.
+  Future<bool> _ensureMatrixClientReady({
+    Duration timeout = const Duration(seconds: 15),
+  }) async {
+    if (_matrixClientService.isInitialized) {
+      return true;
+    }
+
+    _logger.d('Matrix client not ready in DirectMessagesBloc, waiting for initialization...');
+
+    // Wait for initialization with timeout
+    final ready = await _matrixClientService.waitForInitialization(timeout: timeout);
+
+    if (!ready) {
+      _logger.w('Matrix client failed to initialize in DirectMessagesBloc');
+    }
+
+    return ready;
+  }
 
   Future<_AuthData> _getAuthData() async {
     final accessToken = await _authDataSource.getAccessToken();
@@ -52,6 +78,13 @@ class DirectMessagesBloc
     emit(DirectMessagesLoading());
 
     try {
+      // Ensure Matrix client is initialized before loading rooms
+      final clientReady = await _ensureMatrixClientReady();
+      if (!clientReady) {
+        _logger.w('Matrix client not ready for loading direct messages');
+        // Still proceed with HTTP fallback, but log the warning
+      }
+
       final authData = await _getAuthData();
 
       final result = await _roomDataSource.getRooms(

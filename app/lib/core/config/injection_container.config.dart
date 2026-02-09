@@ -308,6 +308,13 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i647.UploadProgressService>(),
           gh<_i974.Logger>(),
         ));
+    gh.factory<_i252.DirectMessagesBloc>(() => _i252.DirectMessagesBloc(
+          gh<_i376.RoomManagementRemoteDataSource>(),
+          gh<_i631.AuthLocalDataSource>(),
+          gh<_i633.RoomRemoteDataSource>(),
+          gh<_i377.MatrixClientService>(),
+          gh<_i974.Logger>(),
+        ));
     gh.lazySingleton<_i412.CryptoRepository>(() => _i784.CryptoRepositoryImpl(
           gh<_i791.CryptoLocalDataSource>(),
           gh<_i631.AuthLocalDataSource>(),
@@ -327,12 +334,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i71.LogoutUseCase(gh<_i169.AuthRepository>()));
     gh.factory<_i193.RegisterUseCase>(
         () => _i193.RegisterUseCase(gh<_i169.AuthRepository>()));
-    gh.factory<_i252.DirectMessagesBloc>(() => _i252.DirectMessagesBloc(
-          gh<_i376.RoomManagementRemoteDataSource>(),
-          gh<_i631.AuthLocalDataSource>(),
-          gh<_i633.RoomRemoteDataSource>(),
-          gh<_i974.Logger>(),
-        ));
     gh.lazySingleton<_i688.RoomRepository>(() => _i129.RoomRepositoryImpl(
           gh<_i633.RoomRemoteDataSource>(),
           gh<_i376.RoomManagementRemoteDataSource>(),

@@ -80,6 +80,46 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   StreamSubscription? _uploadProgressSubscription;
   Timer? _syncDebounce;
 
+  /// Ensure Matrix client is initialized before proceeding
+  /// 
+  /// If the client is not initialized, waits up to 15 seconds for initialization.
+  /// Returns true if client is ready, false if initialization failed or timed out.
+  Future<bool> _ensureMatrixClientReady({Duration timeout = const Duration(seconds: 15)}) async {
+    if (_matrixClientService.isInitialized) {
+      return true;
+    }
+
+    _logger.d('Matrix client not ready, waiting for initialization...');
+
+    // Wait for initialization with timeout
+    final ready = await _matrixClientService.waitForInitialization(timeout: timeout);
+    
+    if (!ready) {
+      // Try to manually initialize if it's not already in progress
+      try {
+        final accessToken = await _authLocalDataSource.getAccessToken();
+        final homeserver = await _authLocalDataSource.getHomeserver();
+        final userId = await _authLocalDataSource.getUserId();
+        
+        if (accessToken != null && homeserver != null && userId != null && userId.isNotEmpty) {
+          _logger.d('Manually initializing Matrix client...');
+          await _matrixClientService.initialize(
+            homeserver: homeserver,
+            accessToken: accessToken,
+            userId: userId,
+          );
+          await _matrixClientService.startSync();
+          return true;
+        }
+      } catch (e) {
+        _logger.e('Failed to manually initialize Matrix client', error: e);
+      }
+      return false;
+    }
+    
+    return true;
+  }
+
   Future<void> _onLoadMessages(
     LoadMessages event,
     Emitter<ChatState> emit,
@@ -100,10 +140,23 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     SubscribeToMessages event,
     Emitter<ChatState> emit,
   ) async {
-    // Load initial messages when subscribing
-    add(LoadMessages(roomId: event.roomId));
+    // Emit loading state while we ensure client is ready
+    emit(const ChatLoading());
+    
+    _logger.d('SubscribeToMessages: Ensuring Matrix client is ready...');
+    
+    // Ensure Matrix client is initialized before subscribing
+    final clientReady = await _ensureMatrixClientReady();
+    if (!clientReady) {
+      _logger.e('Failed to initialize Matrix client for room: ${event.roomId}');
+      emit(const ChatError('Failed to initialize messaging service'));
+      return;
+    }
     
     _logger.d('Subscribing to message stream for room: ${event.roomId}');
+    
+    // Load initial messages when subscribing
+    add(LoadMessages(roomId: event.roomId));
     
     // Cancel existing subscription if any
     await _messageSubscription?.cancel();

@@ -24,6 +24,9 @@ class MatrixClientService {
   final BehaviorSubject<ConnectionStatus> _connectionStatus =
       BehaviorSubject.seeded(ConnectionStatus.disconnected);
 
+  /// Completer for initialization - signals when initialization is complete
+  Completer<bool>? _initializationCompleter;
+
   /// Stream of connection status
   Stream<ConnectionStatus> get connectionStatusStream => _connectionStatus.stream;
 
@@ -38,6 +41,58 @@ class MatrixClientService {
     if (_client == null) {
       throw StateError('Matrix client not initialized. Call initialize() first.');
     }
+    return _client!;
+  }
+
+  /// Wait for the Matrix client to be initialized
+  /// 
+  /// Returns true if initialization succeeded, false if timeout or failed.
+  /// This is useful when the client might be initializing in the background.
+  Future<bool> waitForInitialization({
+    Duration timeout = const Duration(seconds: 15),
+  }) async {
+    // Already initialized
+    if (_client != null) {
+      _logger.d('Matrix client already initialized');
+      return true;
+    }
+
+    _logger.d('Waiting for Matrix client initialization (timeout: ${timeout.inSeconds}s)');
+
+    // Create completer if not already created
+    _initializationCompleter ??= Completer<bool>();
+
+    try {
+      final result = await _initializationCompleter!.future.timeout(
+        timeout,
+        onTimeout: () {
+          _logger.w('Matrix client initialization timeout after ${timeout.inSeconds}s');
+          return false;
+        },
+      );
+      return result;
+    } catch (e) {
+      _logger.e('Error waiting for initialization', error: e);
+      return false;
+    }
+  }
+
+  /// Get client or wait for it to initialize
+  /// 
+  /// Throws if client fails to initialize or timeout occurs.
+  /// Use [waitForInitialization] if you want to handle failures gracefully.
+  Future<matrix.Client> getClientOrWait({
+    Duration timeout = const Duration(seconds: 15),
+  }) async {
+    if (_client != null) {
+      return _client!;
+    }
+
+    final ready = await waitForInitialization(timeout: timeout);
+    if (!ready) {
+      throw StateError('Matrix client failed to initialize within $timeout');
+    }
+
     return _client!;
   }
 
@@ -85,11 +140,17 @@ class MatrixClientService {
 
       _logger.i('Matrix SDK initialized successfully');
       _connectionStatus.add(ConnectionStatus.connected);
+
+      // Signal that initialization is complete
+      _initializationCompleter?.complete(true);
       return true;
     } catch (e, stackTrace) {
       _logger.e('Failed to initialize Matrix SDK', error: e, stackTrace: stackTrace);
       _connectionStatus.add(ConnectionStatus.error);
       _client = null;
+
+      // Signal that initialization failed
+      _initializationCompleter?.complete(false);
       return false;
     }
   }
@@ -130,6 +191,11 @@ class MatrixClientService {
     await _client?.dispose();
     _client = null;
     await _connectionStatus.close();
+    
+    // Complete the initialization completer if pending
+    if (_initializationCompleter != null && !_initializationCompleter!.isCompleted) {
+      _initializationCompleter!.complete(false);
+    }
   }
 }
 
