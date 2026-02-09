@@ -335,7 +335,12 @@ class ChatRepositoryImpl implements ChatRepository {
       if (room == null) {
         return Left(ServerFailure(message: 'Room not found: $roomId'));
       }
+      
+      // Set read marker for proper read receipt
+      // This ensures the message is marked as read both for display and notifications
       await room.setReadMarker(messageId, mRead: messageId);
+      _logger.d('Marked message as read: $messageId in room $roomId');
+      
       return const Right(null);
     } catch (e, stackTrace) {
       _logger.e('Error marking as read', error: e, stackTrace: stackTrace);

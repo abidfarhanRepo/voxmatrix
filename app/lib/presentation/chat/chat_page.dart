@@ -62,6 +62,7 @@ class _ChatPageState extends State<ChatPage> {
   MessageEntity? _replyingToMessage;
   MessageEntity? _editingMessage;
   Timer? _typingTimer;
+  bool _isFirstLoad = true;
 
   @override
   void initState() {
@@ -281,7 +282,10 @@ class _ChatPageState extends State<ChatPage> {
     return BlocConsumer<ChatBloc, ChatState>(
       listener: (context, state) {
         if (state is ChatLoaded || state is ChatMessageSent) {
-          _scrollToBottom();
+          _scrollToBottom(animate: !_isFirstLoad);
+          if (_isFirstLoad) {
+            _isFirstLoad = false;
+          }
         }
       },
       builder: (context, state) {
@@ -1083,15 +1087,22 @@ class _ChatPageState extends State<ChatPage> {
     );
   }
 
-  void _scrollToBottom() {
+  void _scrollToBottom({bool animate = true}) {
     if (_scrollController.hasClients) {
       Future.delayed(const Duration(milliseconds: 100), () {
         if (_scrollController.hasClients) {
-          _scrollController.animateTo(
-            _scrollController.position.maxScrollExtent,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeOut,
-          );
+          if (animate) {
+            _scrollController.animateTo(
+              _scrollController.position.maxScrollExtent,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeOut,
+            );
+          } else {
+            // Jump immediately without animation on first load
+            _scrollController.jumpTo(
+              _scrollController.position.maxScrollExtent,
+            );
+          }
         }
       });
     }
