@@ -107,6 +107,21 @@ class MatrixClientService {
     _logger.i('Homeserver: $homeserver');
     _logger.i('User: $userId');
 
+    // If already initialized, return immediately
+    if (_client != null) {
+      _logger.d('Matrix client already initialized');
+      return true;
+    }
+
+    // If initialization is already in progress, return the existing future
+    if (_initializationCompleter != null) {
+      _logger.d('Matrix client initialization already in progress; awaiting result');
+      return _initializationCompleter!.future;
+    }
+
+    // Mark initialization as in-progress so concurrent callers can await it
+    _initializationCompleter = Completer<bool>();
+
     try {
       final homeserverUri = _normalizeHomeserver(homeserver);
 
@@ -142,15 +157,18 @@ class MatrixClientService {
       _connectionStatus.add(ConnectionStatus.connected);
 
       // Signal that initialization is complete
-      _initializationCompleter?.complete(true);
+      if (_initializationCompleter != null && !_initializationCompleter!.isCompleted) {
+        _initializationCompleter!.complete(true);
+      }
       return true;
     } catch (e, stackTrace) {
       _logger.e('Failed to initialize Matrix SDK', error: e, stackTrace: stackTrace);
       _connectionStatus.add(ConnectionStatus.error);
       _client = null;
-
       // Signal that initialization failed
-      _initializationCompleter?.complete(false);
+      if (_initializationCompleter != null && !_initializationCompleter!.isCompleted) {
+        _initializationCompleter!.complete(false);
+      }
       return false;
     }
   }

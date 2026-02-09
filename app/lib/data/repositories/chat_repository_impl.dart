@@ -505,11 +505,24 @@ class ChatRepositoryImpl implements ChatRepository {
 
   MessageEntity? _parseMatrixSdkContent(Map<String, dynamic> event, String roomId) {
     try {
+      // Validate this is an actual message event
+      final eventType = event['type'] as String?;
+      if (eventType != 'm.room.message') {
+        return null; // Not a message event, skip it
+      }
+
       final content = event['content'] as Map<String, dynamic>?;
       if (content == null) return null;
 
       final msgType = content['msgtype'] as String?;
       final messageContent = content['body'] as String? ?? '';
+
+      // Skip messages without valid content
+      if (messageContent.isEmpty && msgType != 'm.image' && msgType != 'm.video' && 
+          msgType != 'm.audio' && msgType != 'm.file') {
+        _logger.d('Skipping message with empty content');
+        return null;
+      }
 
       String formattedContent;
       switch (msgType) {
@@ -517,19 +530,34 @@ class ChatRepositoryImpl implements ChatRepository {
           formattedContent = '* $messageContent';
           break;
         case 'm.image':
-          formattedContent = 'Image';
+          formattedContent = '📷 Image';
           break;
         case 'm.video':
-          formattedContent = 'Video';
+          formattedContent = '🎥 Video';
           break;
         case 'm.audio':
-          formattedContent = 'Audio';
+          formattedContent = '🎵 Audio';
           break;
         case 'm.file':
-          formattedContent = 'File';
+          formattedContent = '📎 File: $messageContent';
+          break;
+        case 'm.text':
+        case null:
+          formattedContent = messageContent;
           break;
         default:
-          formattedContent = messageContent;
+          // Unknown message type, show body if available
+          if (messageContent.isNotEmpty) {
+            formattedContent = messageContent;
+          } else {
+            _logger.d('Skipping unknown message type: $msgType');
+            return null;
+          }
+      }
+
+      // Final validation: don't return messages with empty content
+      if (formattedContent.isEmpty) {
+        return null;
       }
 
       return MessageEntity(

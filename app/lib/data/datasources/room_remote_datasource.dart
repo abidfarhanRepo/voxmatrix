@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
@@ -9,6 +10,254 @@ import 'package:voxmatrix/core/error/failures.dart';
 import 'package:voxmatrix/core/matrix/matrix_client.dart';
 import 'package:voxmatrix/core/services/matrix_client_service.dart';
 import 'package:matrix/matrix.dart' as matrix;
+
+/// Data class for passing sync response parsing to background isolate
+class _SyncParseParams {
+  final String responseBody;
+  final String homeserver;
+  final String? currentUserId;
+
+  _SyncParseParams({
+    required this.responseBody,
+    required this.homeserver,
+    this.currentUserId,
+  });
+}
+
+/// Top-level function to parse sync response in background isolate
+/// This prevents blocking the UI thread with heavy JSON parsing
+List<Map<String, dynamic>> _parseSyncResponseInBackground(_SyncParseParams params) {
+  // Decode JSON in background isolate
+  final data = jsonDecode(params.responseBody) as Map<String, dynamic>;
+  final rooms = data['rooms'] as Map<String, dynamic>?;
+
+  if (rooms == null) {
+    return [];
+  }
+
+  // Extract m.direct from global account data
+  final Set<String> directRoomIds = {};
+  final globalAccountData = data['account_data'] as Map<String, dynamic>? ?? {};
+  final globalEvents = globalAccountData['events'] as List? ?? [];
+  for (final event in globalEvents) {
+    if (event is! Map<String, dynamic>) continue;
+    if (event['type'] == 'm.direct') {
+      final content = event['content'] as Map<String, dynamic>? ?? {};
+      content.forEach((userId, roomList) {
+        if (roomList is List) {
+          for (final roomId in roomList) {
+            directRoomIds.add(roomId.toString());
+          }
+        }
+      });
+      break;
+    }
+  }
+
+  final joined = rooms['join'] as Map<String, dynamic>? ?? {};
+  final roomList = <Map<String, dynamic>>[];
+
+  for (final entry in joined.entries) {
+    final roomId = entry.key;
+    final roomData = entry.value as Map<String, dynamic>;
+
+    try {
+      final summary = roomData['summary'] as Map<String, dynamic>? ?? {};
+      final unreadNotifications = roomData['unread_notifications'] as Map<String, dynamic>? ?? {};
+      final timeline = roomData['timeline'] as Map<String, dynamic>? ?? {};
+      final stateData = roomData['state'] as Map<String, dynamic>? ?? {};
+
+      // Get heroes from summary
+      final heroes = summary['m.heroes'] as List? ?? [];
+      final joinedCount = summary['m.joined_member_count'] as int? ?? 0;
+
+      // Get room name from summary (server-computed)
+      final summaryDisplayName = summary['m.room.displayname'] as String?;
+
+      // Get explicit room name from state events
+      String? explicitRoomName;
+      String? roomTopic;
+      String? roomAvatar;
+
+      // In Matrix sync, state.events is a List of state events
+      final stateEventsList = stateData['events'] as List<dynamic>? ?? [];
+
+      for (final event in stateEventsList) {
+        if (event is! Map<String, dynamic>) continue;
+
+        final type = event['type'] as String?;
+        final content = event['content'] as Map<String, dynamic>?;
+
+        if (type == 'm.room.name' && content != null) {
+          explicitRoomName = content['name'] as String?;
+          if (explicitRoomName != null) {
+            explicitRoomName = explicitRoomName.trim();
+          }
+        } else if (type == 'm.room.topic' && content != null) {
+          roomTopic = content['topic'] as String?;
+        } else if (type == 'm.room.avatar' && content != null) {
+          final url = content['url'] as String?;
+          if (url != null) {
+            roomAvatar = _mxcToHttpStatic(url, params.homeserver);
+          }
+        }
+      }
+
+      // Check if direct message
+      final isDirect = directRoomIds.contains(roomId);
+
+      // Generate display name using SDK-style logic
+      final displayName = _generateRoomDisplayNameStatic(
+        roomId: roomId,
+        summaryDisplayName: summaryDisplayName,
+        explicitRoomName: explicitRoomName,
+        heroes: heroes,
+        joinedCount: joinedCount,
+        isDirect: isDirect,
+        currentUserId: params.currentUserId,
+      );
+
+      // Get last message
+      final timelineEvents = timeline['events'] as List? ?? [];
+      Map<String, dynamic>? lastMessage;
+      if (timelineEvents.isNotEmpty) {
+        final lastEvent = timelineEvents.last;
+        if (lastEvent is Map<String, dynamic>) {
+          final senderId = lastEvent['sender'] as String?;
+          final content = lastEvent['content'] as Map<String, dynamic>?;
+
+          String senderName = senderId?.split(':').first.replaceAll('@', '') ?? 'Unknown';
+          String? messageContent;
+
+          final msgType = content?['msgtype'] as String?;
+          if (msgType == 'm.text') {
+            messageContent = content?['body'] as String?;
+          } else if (msgType == 'm.image') {
+            messageContent = '📷 Image';
+          } else if (msgType == 'm.video') {
+            messageContent = '🎥 Video';
+          } else if (msgType == 'm.audio') {
+            messageContent = '🎵 Audio';
+          } else if (msgType == 'm.file') {
+            messageContent = '📎 File';
+          } else {
+            messageContent = content?['body'] as String? ?? 'Message';
+          }
+
+          final timestamp = lastEvent['origin_server_ts'] as int?;
+
+          if (senderId != null && messageContent != null) {
+            lastMessage = {
+              'senderId': senderId,
+              'senderName': senderName,
+              'content': messageContent,
+              'timestamp': timestamp != null
+                  ? DateTime.fromMillisecondsSinceEpoch(timestamp).toIso8601String()
+                  : DateTime.now().toIso8601String(),
+            };
+          }
+        }
+      }
+
+      // Get unread counts
+      final unreadCount = unreadNotifications['notification_count'] as int? ?? 0;
+      final highlightCount = unreadNotifications['highlight_count'] as int? ?? 0;
+
+      roomList.add({
+        'id': roomId,
+        'name': displayName,
+        'topic': roomTopic,
+        'avatarUrl': roomAvatar,
+        'isDirect': isDirect,
+        'members': [],
+        'lastMessage': lastMessage,
+        'unreadCount': unreadCount,
+        'highlightCount': highlightCount,
+        // Flag to indicate if we need to fetch the room name separately
+        '_needsNameFetch': explicitRoomName == null || explicitRoomName.isEmpty,
+      });
+    } catch (e) {
+      // Skip rooms that fail parsing
+    }
+  }
+
+  return roomList;
+}
+
+/// Static version of _mxcToHttp for use in background isolate
+String _mxcToHttpStatic(String mxcUrl, String homeserver) {
+  if (!mxcUrl.startsWith('mxc://')) {
+    return mxcUrl;
+  }
+
+  final parts = mxcUrl.substring(6).split('/');
+  if (parts.length != 2) {
+    return mxcUrl;
+  }
+
+  final server = parts[0];
+  final mediaId = parts[1];
+
+  return '$homeserver/_matrix/media/v3/download/$server/$mediaId';
+}
+
+/// Static version of _generateRoomDisplayName for use in background isolate
+String _generateRoomDisplayNameStatic({
+  required String roomId,
+  String? summaryDisplayName,
+  String? explicitRoomName,
+  required List heroes,
+  required int joinedCount,
+  required bool isDirect,
+  String? currentUserId,
+}) {
+  // 1. Use explicit room name from m.room.name event - THIS IS PRIMARY
+  if (explicitRoomName != null && explicitRoomName.isNotEmpty) {
+    return explicitRoomName;
+  }
+
+  // 2. Use server-computed display name from summary (if valid)
+  if (summaryDisplayName != null &&
+      summaryDisplayName.isNotEmpty &&
+      summaryDisplayName != 'Empty room' &&
+      !summaryDisplayName.startsWith('!')) {
+    return summaryDisplayName;
+  }
+
+  // 3. Filter heroes to exclude current user
+  final otherHeroes = currentUserId != null
+      ? heroes.where((h) => h.toString() != currentUserId).toList()
+      : heroes.cast<String>();
+
+  // 4. Generate name from heroes
+  if (otherHeroes.isNotEmpty) {
+    if (otherHeroes.length == 1) {
+      final heroId = otherHeroes.first;
+      final name = heroId.split(':').first.replaceAll('@', '');
+      return name.isNotEmpty ? name : 'Unknown';
+    } else if (otherHeroes.length <= 3) {
+      final names = otherHeroes
+          .take(3)
+          .map((h) => h.split(':').first.replaceAll('@', ''))
+          .where((s) => s.isNotEmpty)
+          .toList();
+      final displayNames = names.join(', ');
+      return displayNames.isNotEmpty ? displayNames : 'Group';
+    } else {
+      return 'Group ($joinedCount members)';
+    }
+  }
+
+  // 5. Fallback based on member count
+  if (isDirect) {
+    return 'Direct Message';
+  } else if (joinedCount > 1) {
+    return 'Group ($joinedCount members)';
+  } else {
+    final roomIdDisplay = roomId.replaceAll(RegExp(r'[!:].*'), '');
+    return roomIdDisplay.isNotEmpty ? roomIdDisplay : 'Unnamed Room';
+  }
+}
 
 /// Room remote datasource - uses Matrix SDK for room operations
 /// See: https://spec.matrix.org/v1.11/client-server-api/#room-listing
@@ -31,82 +280,42 @@ class RoomRemoteDataSource {
     try {
       _logger.i('Getting rooms from SDK');
 
-      // Prefer SDK-backed rooms if the Matrix client is available.
+      // ALWAYS use HTTP /sync parsing to avoid Stack Overflow bug in Matrix SDK
+      // when it tries to compute room display names. The SDK's Room.getLocalizedDisplayname()
+      // has a known issue with infinite recursion in certain scenarios.
       if (_matrixClientService.isInitialized ||
           await _tryInitMatrixClient(
             homeserver: homeserver,
             accessToken: accessToken,
             userId: currentUserId,
           )) {
-        final client = _matrixClientService.client;
-        final rooms = <Map<String, dynamic>>[];
-
-        for (final room in client.rooms) {
-          try {
-            await room.postLoad();
-
-            final name = room.getLocalizedDisplayname();
-            final isDirect = room.isDirectChat;
-            final avatarMxc = room.avatar?.toString();
-            final avatarUrl = avatarMxc != null ? _mxcToHttp(avatarMxc, homeserver) : null;
-
-            Map<String, dynamic>? lastMessage;
-            final lastEvent = room.lastEvent;
-            if (lastEvent != null && lastEvent.type == matrix.EventTypes.Message) {
-              final content = lastEvent.content;
-              final msgType = content['msgtype'] as String?;
-              String? messageContent;
-              if (msgType == 'm.text') {
-                messageContent = content['body'] as String?;
-              } else if (msgType == 'm.image') {
-                messageContent = '📷 Image';
-              } else if (msgType == 'm.video') {
-                messageContent = '🎥 Video';
-              } else if (msgType == 'm.audio') {
-                messageContent = '🎵 Audio';
-              } else if (msgType == 'm.file') {
-                messageContent = '📎 File';
-              } else {
-                messageContent = content['body'] as String? ?? 'Message';
-              }
-
-              final senderId = lastEvent.senderId;
-              final senderName = senderId?.split(':').first.replaceAll('@', '') ?? 'Unknown';
-
-              lastMessage = {
-                'senderId': senderId,
-                'senderName': senderName,
-                'content': messageContent,
-                'timestamp': lastEvent.originServerTs,
-              };
-            }
-
-            rooms.add({
-              'id': room.id,
-              'name': name.isNotEmpty ? name : 'Unnamed Room',
-              'isDirect': isDirect,
-              'topic': room.topic,
-              'avatarUrl': avatarUrl,
-              'lastMessage': lastMessage,
-              'unreadCount': room.notificationCount,
-              'members': const <Map<String, dynamic>>[],
-            });
-          } catch (e, stackTrace) {
-            _logger.w('Failed to parse room ${room.id}', error: e, stackTrace: stackTrace);
-          }
+        _logger.i('Matrix SDK initialized, using HTTP /sync for safe room parsing');
+        // Always fall through to HTTP /sync parsing below
+        if (false) {
+          // Code removed to prevent Stack Overflow in Matrix SDK
         }
-
-        return Right(rooms);
       }
 
-      // Import the Matrix SDK client to use RoomManager
-      // This is a placeholder - in production, we'd inject the SDK client
-      // For now, we'll use the direct HTTP approach with improved room name logic
+      // Always use HTTP /sync with background isolate parsing for safety
 
       final baseUrl = _getMatrixUrl(homeserver);
 
+      // Request a filtered /sync to limit returned timeline events and
+      // reduce memory usage on the client. This prevents large sync
+      // responses from exhausting the Dart heap and causing ANRs.
+      final filter = jsonEncode({
+        'room': {
+          'timeline': {'limit': 1},
+          'state': {'lazy_load_members': true},
+          'ephemeral': {'limit': 0}
+        },
+        'presence': {'limit': 0},
+        'account_data': {'limit': 0}
+      });
+
       final uri = Uri.parse('$baseUrl/sync').replace(queryParameters: {
         'timeout': '30000',
+        'filter': filter,
       });
 
       final response = await http.get(
@@ -124,178 +333,53 @@ class RoomRemoteDataSource {
         );
       }
 
-      final data = jsonDecode(response.body) as Map<String, dynamic>;
-      final rooms = data['rooms'] as Map<String, dynamic>?;
+      _logger.i('Sync response received, parsing in background isolate...');
 
-      if (rooms == null) {
-        return const Right([]);
-      }
+      // Parse the heavy JSON response in a background isolate to avoid
+      // blocking the UI thread and causing ANRs or heap exhaustion
+      final roomList = await compute(
+        _parseSyncResponseInBackground,
+        _SyncParseParams(
+          responseBody: response.body,
+          homeserver: homeserver,
+          currentUserId: currentUserId,
+        ),
+      );
 
-      // Extract m.direct from global account data
-      final Set<String> directRoomIds = {};
-      final globalAccountData = data['account_data'] as Map<String, dynamic>? ?? {};
-      final globalEvents = globalAccountData['events'] as List? ?? [];
-      for (final event in globalEvents) {
-        if (event is! Map<String, dynamic>) continue;
-        if (event['type'] == 'm.direct') {
-          final content = event['content'] as Map<String, dynamic>? ?? {};
-          content.forEach((userId, roomList) {
-            if (roomList is List) {
-              for (final roomId in roomList) {
-                directRoomIds.add(roomId.toString());
-              }
-            }
-          });
-          break;
-        }
-      }
+      _logger.i('Parsed ${roomList.length} rooms from sync response');
 
-      final joined = rooms['join'] as Map<String, dynamic>? ?? {};
-      final roomList = <Map<String, dynamic>>[];
-
-      for (final entry in joined.entries) {
-        final roomId = entry.key;
-        final roomData = entry.value as Map<String, dynamic>;
-
-        try {
-          final summary = roomData['summary'] as Map<String, dynamic>? ?? {};
-          final unreadNotifications = roomData['unread_notifications'] as Map<String, dynamic>? ?? {};
-          final timeline = roomData['timeline'] as Map<String, dynamic>? ?? {};
-          final stateData = roomData['state'] as Map<String, dynamic>? ?? {};
-
-          // Get heroes from summary
-          final heroes = summary['m.heroes'] as List? ?? [];
-          final joinedCount = summary['m.joined_member_count'] as int? ?? 0;
-
-          // Get room name from summary (server-computed)
-          final summaryDisplayName = summary['m.room.displayname'] as String?;
-
-          _logger.d('Room $roomId: summary=$summary');
-          _logger.d('Room $roomId:heroes=$heroes, joinedCount=$joinedCount, summaryDisplayName=$summaryDisplayName');
-
-          // Get explicit room name from state events
-          String? explicitRoomName;
-          String? roomTopic;
-          String? roomAvatar;
-
-          // In Matrix sync, state.events is a List of state events
-          final stateEventsList = stateData['events'] as List<dynamic>? ?? [];
-
-          _logger.d('Room $roomId: Processing ${stateEventsList.length} state events');
-          _logger.d('  State keys: ${stateData.keys.toList()}');
-          
-          for (final event in stateEventsList) {
-            if (event is! Map<String, dynamic>) continue;
-
-            final type = event['type'] as String?;
-            final content = event['content'] as Map<String, dynamic>?;
-
-            _logger.d('  State event type: $type');
-
-            if (type == 'm.room.name' && content != null) {
-              explicitRoomName = content['name'] as String?;
-              if (explicitRoomName != null) {
-                explicitRoomName = explicitRoomName.trim();
-              }
-              _logger.d('  ✓ Found explicit name from m.room.name: "$explicitRoomName"');
-            } else if (type == 'm.room.topic' && content != null) {
-              roomTopic = content['topic'] as String?;
-            } else if (type == 'm.room.avatar' && content != null) {
-              final url = content['url'] as String?;
-              if (url != null) {
-                roomAvatar = _mxcToHttp(url, homeserver);
-              }
-            }
-          }
-
-          // If no room name found in state (sync may not include it), fetch explicitly
-          if (explicitRoomName == null || explicitRoomName.isEmpty) {
-            _logger.d('Room $roomId: State events empty or no name found, fetching room state...');
-            explicitRoomName = await _fetchRoomName(
-              homeserver: homeserver,
-              accessToken: accessToken,
-              roomId: roomId,
-            );
-            if (explicitRoomName != null && explicitRoomName.isNotEmpty) {
-              _logger.d('Room $roomId: Fetched explicit name: "$explicitRoomName"');
-            }
-          }
-
-          // Check if direct message
-          final isDirect = directRoomIds.contains(roomId);
-
-          // Generate display name using SDK-style logic
-          final displayName = _generateRoomDisplayName(
+      // Post-process rooms that need explicit name fetching (not in background to allow HTTP calls)
+      for (final room in roomList) {
+        if (room['_needsNameFetch'] == true) {
+          final roomId = room['id'] as String;
+          final explicitName = await _fetchRoomName(
+            homeserver: homeserver,
+            accessToken: accessToken,
             roomId: roomId,
-            summaryDisplayName: summaryDisplayName,
-            explicitRoomName: explicitRoomName,
-            heroes: heroes,
-            joinedCount: joinedCount,
-            isDirect: isDirect,
-            currentUserId: currentUserId,
           );
-
-          _logger.d('Room $roomId: displayName="$displayName" (summary=$summaryDisplayName, explicit=$explicitRoomName)');
-
-          // Get last message
-          final timelineEvents = timeline['events'] as List? ?? [];
-          Map<String, dynamic>? lastMessage;
-          if (timelineEvents.isNotEmpty) {
-            final lastEvent = timelineEvents.last;
-            if (lastEvent is Map<String, dynamic>) {
-              final senderId = lastEvent['sender'] as String?;
-              final content = lastEvent['content'] as Map<String, dynamic>?;
-
-              String senderName = senderId?.split(':').first.replaceAll('@', '') ?? 'Unknown';
-              String? messageContent;
-
-              final msgType = content?['msgtype'] as String?;
-              if (msgType == 'm.text') {
-                messageContent = content?['body'] as String?;
-              } else if (msgType == 'm.image') {
-                messageContent = '📷 Image';
-              } else if (msgType == 'm.video') {
-                messageContent = '🎥 Video';
-              } else if (msgType == 'm.audio') {
-                messageContent = '🎵 Audio';
-              } else if (msgType == 'm.file') {
-                messageContent = '📎 File';
-              } else {
-                messageContent = content?['body'] as String? ?? 'Message';
-              }
-
-              final timestamp = lastEvent['origin_server_ts'] as int?;
-
-              if (senderId != null && messageContent != null) {
-                lastMessage = {
-                  'senderId': senderId,
-                  'senderName': senderName,
-                  'content': messageContent,
-                  'timestamp': timestamp != null
-                      ? DateTime.fromMillisecondsSinceEpoch(timestamp)
-                      : DateTime.now(),
-                };
-              }
-            }
+          if (explicitName != null && explicitName.isNotEmpty) {
+            _logger.d('Room $roomId: Fetched explicit name: "$explicitName"');
+            // Regenerate display name with the fetched explicit name
+            room['name'] = _generateRoomDisplayName(
+              roomId: roomId,
+              summaryDisplayName: null,
+              explicitRoomName: explicitName,
+              heroes: [],
+              joinedCount: 0,
+              isDirect: room['isDirect'] as bool? ?? false,
+              currentUserId: currentUserId,
+            );
           }
+          room.remove('_needsNameFetch');
+        }
 
-          // Get unread counts
-          final unreadCount = unreadNotifications['notification_count'] as int? ?? 0;
-          final highlightCount = unreadNotifications['highlight_count'] as int? ?? 0;
-
-          roomList.add({
-            'id': roomId,
-            'name': displayName,
-            'topic': roomTopic,
-            'avatarUrl': roomAvatar,
-            'isDirect': isDirect,
-            'members': [], // Members are lazy-loaded, not included in sync
-            'lastMessage': lastMessage,
-            'unreadCount': unreadCount,
-            'highlightCount': highlightCount,
-          });
-        } catch (e, stackTrace) {
-          _logger.e('Error parsing room $roomId', error: e, stackTrace: stackTrace);
+        // Convert timestamp strings back to DateTime objects
+        final lastMessage = room['lastMessage'] as Map<String, dynamic>?;
+        if (lastMessage != null) {
+          final timestampStr = lastMessage['timestamp'];
+          if (timestampStr is String) {
+            lastMessage['timestamp'] = DateTime.parse(timestampStr);
+          }
         }
       }
 

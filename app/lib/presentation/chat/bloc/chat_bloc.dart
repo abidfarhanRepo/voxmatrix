@@ -132,7 +132,13 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     );
     result.fold<void>(
       (Failure failure) => emit(ChatError(failure.message)),
-      (messages) => emit(ChatLoaded(messages: messages)),
+      (messages) {
+        emit(ChatLoaded(messages: messages));
+        // Mark the latest message as read after loading
+        if (messages.isNotEmpty) {
+          _markLastMessageAsRead(messages, event.roomId);
+        }
+      },
     );
   }
 
@@ -161,14 +167,21 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     // Cancel existing subscription if any
     await _messageSubscription?.cancel();
     
-    // Subscribe to real-time stream
+    // Subscribe to real-time stream using emit.forEach to keep emitter alive
     final stream = _subscribeToMessagesUseCase(roomId: event.roomId);
-    _messageSubscription = stream.listen(
-      (result) {
-        result.fold(
+    
+    // Store the subscription for later cancellation
+    _messageSubscription = stream.listen((_) {}); // Keep reference but don't process here
+    
+    // Use emit.forEach to properly handle stream events - this keeps emitter alive
+    await emit.forEach(
+      stream,
+      onData: (result) {
+        return result.fold(
           (failure) {
             _logger.e('Error in message stream: ${failure.message}');
-            // Don't emit error state for stream errors, just log
+            // Return current state on error
+            return state;
           },
           (message) {
             _logger.d('Received new message from stream: ${message.id}');
@@ -184,14 +197,14 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
             
             if (!messageExists) {
               final updatedMessages = [...currentMessages, message];
-              emit(ChatLoaded(messages: updatedMessages));
               _markReadIfNeeded(message, event.roomId);
+              return ChatLoaded(messages: updatedMessages);
             }
+            
+            // Return current state if message already exists
+            return state;
           },
         );
-      },
-      onError: (error) {
-        _logger.e('Error in message stream subscription', error: error);
       },
     );
 
@@ -276,10 +289,18 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     MarkAsRead event,
     Emitter<ChatState> emit,
   ) async {
-    await _markAsReadUseCase(
-      roomId: event.roomId,
-      messageId: event.messageId,
-    );
+    try {
+      final result = await _markAsReadUseCase(
+        roomId: event.roomId,
+        messageId: event.messageId,
+      );
+      result.fold(
+        (failure) => _logger.w('Failed to mark message as read: ${failure.message}'),
+        (_) => _logger.d('Marked message as read: ${event.messageId} in ${event.roomId}'),
+      );
+    } catch (e) {
+      _logger.e('Exception while marking message as read', error: e);
+    }
   }
 
   Future<void> _subscribeToSync(String roomId) async {
@@ -323,6 +344,38 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       add(MarkAsRead(roomId: roomId, messageId: message.id));
     } catch (_) {
       // ignore
+    }
+  }
+
+  Future<void> _markLastMessageAsRead(List<MessageEntity> messages, String roomId) async {
+    try {
+      final userId = await _authLocalDataSource.getUserId();
+      if (userId == null || messages.isEmpty) {
+        return;
+      }
+      // Find the last message (most recent) that's not from the current user
+      final lastMessage = messages.lastWhere(
+        (msg) => msg.senderId != userId,
+        orElse: () => messages.last,
+      );
+      if (lastMessage.senderId != userId) {
+        _logger.d('Marking last message as read: ${lastMessage.id}');
+        // Fire the event so normal flow handles it
+        add(MarkAsRead(roomId: roomId, messageId: lastMessage.id));
+
+        // Also attempt an immediate mark-as-read attempt to reduce chance of missed receipts
+        try {
+          final result = await _markAsReadUseCase(roomId: roomId, messageId: lastMessage.id);
+          result.fold(
+            (failure) => _logger.w('Immediate mark-as-read failed: ${failure.message}'),
+            (_) => _logger.d('Immediate mark-as-read succeeded for ${lastMessage.id}'),
+          );
+        } catch (e) {
+          _logger.w('Exception during immediate mark-as-read', error: e);
+        }
+      }
+    } catch (e) {
+      _logger.w('Failed to mark last message as read', error: e);
     }
   }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 import 'core/config/injection_container.dart' as di;
 import 'core/theme/app_theme.dart';
 import 'domain/entities/call.dart';
@@ -29,6 +31,19 @@ import 'presentation/spaces/spaces_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Ensure Hive (local storage) is initialized before any services use it.
+  try {
+    final appDocDir = await getApplicationDocumentsDirectory();
+    Hive.init(appDocDir.path);
+  } catch (e) {
+    // If Hive initialization fails, log to console; DI init or services may still
+    // try to initialize boxes, but this prevents the app from throwing the
+    // HiveError seen in logs when boxes are opened before init.
+    // Keep this lightweight to avoid bringing in additional logging deps here.
+    // ignore: avoid_print
+    print('Warning: Failed to initialize Hive: $e');
+  }
 
   // Configure System UI
   SystemChrome.setSystemUIOverlayStyle(

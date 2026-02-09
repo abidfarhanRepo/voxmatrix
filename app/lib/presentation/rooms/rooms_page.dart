@@ -34,7 +34,7 @@ class _RoomsPageState extends State<RoomsPage> {
   @override
   void initState() {
     super.initState();
-    context.read<RoomsBloc>().add(const LoadRooms());
+    context.read<RoomsBloc>().add(const SubscribeToRooms());
   }
 
   @override
@@ -311,7 +311,7 @@ class _RoomsPageState extends State<RoomsPage> {
             const SizedBox(height: AppConstants.spacing * 2),
             ElevatedButton.icon(
               onPressed: () {
-                context.read<RoomsBloc>().add(const LoadRooms());
+    context.read<RoomsBloc>().add(const SubscribeToRooms());
               },
               icon: const Icon(Icons.refresh),
               label: const Text(AppStrings.errorRetry),

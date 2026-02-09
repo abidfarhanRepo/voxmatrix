@@ -171,8 +171,14 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i377.MatrixClientService(logger: gh<_i974.Logger>()));
     gh.lazySingleton<_i631.AuthLocalDataSource>(() =>
         dataSourceModule.authLocalDataSource(gh<_i558.FlutterSecureStorage>()));
+    gh.factory<_i55.CallStateService>(
+        () => _i55.CallStateService(gh<_i974.Logger>()));
     gh.factory<_i176.PushNotificationService>(
         () => _i176.PushNotificationService(gh<_i974.Logger>()));
+    gh.factory<_i647.UploadProgressService>(
+        () => _i647.UploadProgressService(gh<_i974.Logger>()));
+    gh.factory<_i279.OfflineQueueService>(
+        () => _i279.OfflineQueueService(gh<_i974.Logger>()));
     gh.factory<_i954.MediaUploadDataSource>(
         () => _i954.MediaUploadDataSource(gh<_i974.Logger>()));
     gh.factory<_i494.SpaceRemoteDataSource>(
@@ -195,12 +201,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i385.AccountRemoteDataSource(gh<_i974.Logger>()));
     gh.factory<_i517.PushNotificationDataSource>(
         () => _i517.PushNotificationDataSource(gh<_i974.Logger>()));
-    gh.factory<_i279.OfflineQueueService>(
-        () => _i279.OfflineQueueService(gh<_i974.Logger>()));
-    gh.factory<_i55.CallStateService>(
-        () => _i55.CallStateService(gh<_i974.Logger>()));
-    gh.factory<_i647.UploadProgressService>(
-        () => _i647.UploadProgressService(gh<_i974.Logger>()));
     gh.factory<_i853.PresenceService>(() => _i853.PresenceService(
           gh<_i377.MatrixClientService>(),
           gh<_i974.Logger>(),
